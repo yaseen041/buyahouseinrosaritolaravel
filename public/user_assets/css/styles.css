@@ -8922,7 +8922,7 @@ html input[disabled] {
 
 .int_infosidebar .siderbar_contact > a > svg path,
 .int_infosidebar .siderbar_email > a > svg path {
-  fill: #c18847;
+  fill: #FF385C;
 }
 
 .int_infosidebar .siderbar_social > ul > li > a {
@@ -8931,7 +8931,7 @@ html input[disabled] {
 }
 
 .int_infosidebar .siderbar_social > ul > li > a:hover {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_content_wraapper.hd {
@@ -9013,7 +9013,7 @@ body.int_index3_bg {
 
 .int_dark_bg .slick-prev:hover,
 .int_dark_bg .slick-next:hover {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .slick-prev.slick-disabled,
@@ -9057,30 +9057,30 @@ body.int_index3_bg {
 }
 
 .int_dark_bg .section-title h2 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_dark_bg .section-title:before {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .slick-dots li.slick-active {
-  -webkit-box-shadow: inset 0 0 0 6px #c18847;
-          box-shadow: inset 0 0 0 6px #c18847;
+  -webkit-box-shadow: inset 0 0 0 6px #FF385C;
+          box-shadow: inset 0 0 0 6px #FF385C;
 }
 
 .int_dark_bg .slick-dots li:after {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .slick-dots li {
-  -webkit-box-shadow: inset 0 0 0 2px #c18847;
-          box-shadow: inset 0 0 0 2px #c18847;
+  -webkit-box-shadow: inset 0 0 0 2px #FF385C;
+          box-shadow: inset 0 0 0 2px #FF385C;
 }
 
 .int_dark_bg a.button.border,
 a.button {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg section.services-home {
@@ -9091,15 +9091,15 @@ a.button {
 }
 
 .int_dark_bg .services-home .bg-base {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .services-home .border-1 {
-  border: 1px dashed #c18847 !important;
+  border: 1px dashed #FF385C !important;
 }
 
 .int_dark_bg .services-home a.text-base:hover {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_dark_bg .portfolio .project-single {
@@ -9108,7 +9108,7 @@ a.button {
 }
 
 .int_dark_bg .btn.btn-outline-light {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .bg-all {
@@ -9121,7 +9121,7 @@ a.button {
 }
 
 .int_dark_bg .feature-cities-1 .listing-badges .featured {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .team-content {
@@ -9135,7 +9135,7 @@ a.button {
 }
 
 .int_dark_bg .team-wrap:hover .team-content .team-info {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .team-content h3,
@@ -9145,13 +9145,13 @@ a.button {
 }
 
 .int_dark_bg .team .team-pro .fa {
-  background: #c18847;
+  background: #FF385C;
   border: 0px;
 }
 
 .int_dark_bg .plan {
   background: #212529;
-  border: 1px dashed #c18847;
+  border: 1px dashed #FF385C;
 }
 
 .int_dark_bg .plan ul {
@@ -9160,11 +9160,11 @@ a.button {
 }
 
 .int_dark_bg .plan ul li {
-  border-top: 1px dashed #c18847;
+  border-top: 1px dashed #FF385C;
 }
 
 .int_dark_bg .plan a.btn {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .plan a.btn.pro2 {
@@ -9189,11 +9189,11 @@ a.button {
 }
 
 .int_dark_bg .plan-price {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .plan-price:after {
-  border-top-color: #c18847;
+  border-top-color: #FF385C;
 }
 
 .int_dark_bg .testimonials .owl-carousel .test-1 {
@@ -9216,13 +9216,13 @@ a.button {
 }
 
 .int_dark_bg .starts .fa {
-  color: #c18847 !important;
+  color: #FF385C !important;
   margin-top: .5rem;
   margin-bottom: 1rem;
 }
 
 .int_dark_bg .owl-dot.active {
-  background: #c18847 !important;
+  background: #FF385C !important;
 }
 
 .int_dark_bg .testimonials .test-1 p::after {
@@ -9240,7 +9240,7 @@ a.button {
 
 .int_dark_bg .blog-section .news-item .date,
 .int_dark_bg .blog-section .news-link {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_dark_bg .blog-section .action-list .fa {
@@ -9248,7 +9248,7 @@ a.button {
 }
 
 .int_dark_bg .blog-section .news-item h3:hover {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_dark_bg .first-footer .top-footer {
@@ -9268,13 +9268,13 @@ a.button {
 .int_dark_bg .navigation ul li a:hover,
 .int_dark_bg .twitter-widget.contuct .twitter-area .text h5 a,
 .int_dark_bg .twitter-widget.contuct .twitter-area .text h4 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_dark_bg .first-footer .navigation h3::after,
 .int_dark_bg .first-footer .widget h3::after,
 .int_dark_bg .first-footer .newsletters h3::after {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .first-footer .contactus .info p {
@@ -9283,7 +9283,7 @@ a.button {
 
 .int_dark_bg .first-footer .bloq-email .email input[type="email"],
 .int_dark_bg .first-footer .bloq-email .email input[type="submit"] {
-  border: 1px solid #c18847;
+  border: 1px solid #FF385C;
   background: #282d32;
   color: #fff;
 }
@@ -9309,7 +9309,7 @@ a.button {
 }
 
 .int_dark_bg .go-up {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_dark_bg .portfolio .item {
@@ -9342,7 +9342,7 @@ a.button {
   font-size: 12px;
   letter-spacing: 8px;
   text-transform: uppercase;
-  color: #c18847;
+  color: #FF385C;
   margin: 0;
   position: relative;
 }
@@ -9371,13 +9371,13 @@ a.button {
 
 .swiper_imgbox .swipper_img > h3 {
   font-size: 26px;
-  color: #c18847;
+  color: #FF385C;
   margin-bottom: 20px;
   font-weight: 300;
 }
 
 .swiper_imgbox .swipper_img > h3 > .banner_span1 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .swiper_imgbox .swipper_img > p {
@@ -9461,7 +9461,7 @@ a.int_btn,
   position: absolute;
   width: 45px;
   height: 1px;
-  background: #c18847;
+  background: #FF385C;
   top: 0px;
   bottom: 0;
   left: -55px;
@@ -9476,7 +9476,7 @@ a.int_btn,
   bottom: 0;
   right: -55px;
   margin: auto;
-  background: #c18847;
+  background: #FF385C;
   width: 45px;
   height: 1px;
 }
@@ -9489,7 +9489,7 @@ a.int_btn,
   bottom: 0;
   right: -55px;
   margin: auto;
-  background: #c18847;
+  background: #FF385C;
   width: 45px;
   height: 1px;
 }
@@ -9705,7 +9705,7 @@ a.int_btn,
   text-transform: uppercase;
   font-size: 14px;
   color: #ffffff;
-  background: #c18847;
+  background: #FF385C;
   position: relative;
   z-index: 1;
   display: inline-block;
@@ -9766,7 +9766,7 @@ a.int_btn,
 .btn_caret {
   height: 50px;
   line-height: 53px;
-  background: #c18847;
+  background: #FF385C;
   display: inline-block;
   padding: 0px 12px;
   position: absolute;
@@ -9893,7 +9893,7 @@ a.int_btn,
 .listing-hidden-content {
   position: relative;
   width: 100%;
-  background-color: #c18847;
+  background-color: #FF385C;
   color: #fff;
   height: 0;
   -webkit-transition: all 0.4s;
@@ -10064,33 +10064,33 @@ body.int_white_bg {
 }
 
 .int_white_bg .section-title h2 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .section-title:before {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .slick-dots li.slick-active {
-  -webkit-box-shadow: inset 0 0 0 6px #c18847;
-          box-shadow: inset 0 0 0 6px #c18847;
+  -webkit-box-shadow: inset 0 0 0 6px #FF385C;
+          box-shadow: inset 0 0 0 6px #FF385C;
 }
 
 .int_white_bg .slick-dots li:after {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .slick-dots li {
-  -webkit-box-shadow: inset 0 0 0 2px #c18847;
-          box-shadow: inset 0 0 0 2px #c18847;
+  -webkit-box-shadow: inset 0 0 0 2px #FF385C;
+          box-shadow: inset 0 0 0 2px #FF385C;
 }
 
 .int_white_bg .services-home .bg-base {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .services-home .border-1 {
-  border: 1px dashed #c18847 !important;
+  border: 1px dashed #FF385C !important;
   background: #fff;
 }
 
@@ -10105,7 +10105,7 @@ body.int_white_bg {
 
 .int_white_bg .slick-prev:hover,
 .int_white_bg .slick-next:hover {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .slick-next {
@@ -10118,7 +10118,7 @@ body.int_white_bg {
 
 .int_white_bg a.button.border,
 a.button {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .services-home .text-bold-700 {
@@ -10134,7 +10134,7 @@ a.button {
 }
 
 .int_white_bg .services-home a.text-base:hover {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .portfolio .project-single {
@@ -10143,7 +10143,7 @@ a.button {
 }
 
 .int_white_bg .btn.btn-outline-light {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .bg-all {
@@ -10156,7 +10156,7 @@ a.button {
 }
 
 .int_white_bg .feature-cities-1 .listing-badges .featured {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .team-content,
@@ -10176,13 +10176,13 @@ a.button {
 }
 
 .int_white_bg .team .team-pro .fa {
-  background: #c18847;
+  background: #FF385C;
   border: 0px;
 }
 
 .int_white_bg .plan-price,
 .int_white_bg .plan a.btn {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .plan a.btn.pro {
@@ -10190,7 +10190,7 @@ a.button {
 }
 
 .int_white_bg .plan-price:after {
-  border-top-color: #c18847;
+  border-top-color: #FF385C;
 }
 
 .int_white_bg .testimonials .owl-carousel .test-1 {
@@ -10223,7 +10223,7 @@ a.button {
 }
 
 .int_white_bg .owl-dot.active {
-  background: #c18847 !important;
+  background: #FF385C !important;
 }
 
 .int_white_bg .testimonials .test-1 p::after {
@@ -10244,15 +10244,15 @@ a.button {
 
 .int_white_bg .blog-section .news-item .date,
 .int_white_bg .blog-section .news-link {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .blog-section .action-list .fa {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .blog-section .news-item h3:hover {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .first-footer .top-footer {
@@ -10275,13 +10275,13 @@ a.button {
 .int_white_bg .navigation ul li a:hover,
 .int_white_bg .twitter-widget.contuct .twitter-area .text h5 a,
 .int_white_bg .twitter-widget.contuct .twitter-area .text h4 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .first-footer .navigation h3::after,
 .int_white_bg .first-footer .widget h3::after,
 .int_white_bg .first-footer .newsletters h3::after {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .first-footer .contactus .info p {
@@ -10289,14 +10289,14 @@ a.button {
 }
 
 .int_white_bg .first-footer .bloq-email .email input[type="email"] {
-  border: 1px solid #c18847;
+  border: 1px solid #FF385C;
   background: #282d32;
   color: #fff;
 }
 
 .int_white_bg .first-footer .bloq-email .email input[type="submit"] {
-  border: 1px solid #c18847;
-  background: #c18847;
+  border: 1px solid #FF385C;
+  background: #FF385C;
   color: #fff;
 }
 
@@ -10321,11 +10321,11 @@ a.button {
 }
 
 .int_white_bg .second-footer p .fa-heart:before {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .go-up {
-  background: #c18847;
+  background: #FF385C;
 }
 
 .int_white_bg .portfolio .item {
@@ -10336,7 +10336,7 @@ a.button {
   font-size: 12px;
   letter-spacing: 8px;
   text-transform: uppercase;
-  color: #c18847;
+  color: #FF385C;
   margin: 0;
   position: relative;
 }
@@ -10365,7 +10365,7 @@ a.button {
 
 .int_white_bg .swiper_imgbox .swipper_img > h3 {
   font-size: 26px;
-  color: #c18847;
+  color: #FF385C;
   margin-bottom: 20px;
   font-weight: 300;
 }
@@ -10377,7 +10377,7 @@ a.button {
 }
 
 .int_white_bg .swiper_imgbox .swipper_img > h3 > .banner_span1 {
-  color: #c18847;
+  color: #FF385C;
 }
 
 .int_white_bg .swiper_imgbox .swipper_img > p {
@@ -10396,7 +10396,7 @@ a.button {
   position: absolute;
   width: 45px;
   height: 1px;
-  background: #c18847;
+  background: #FF385C;
   top: 0px;
   bottom: 0;
   left: -55px;
@@ -10411,7 +10411,7 @@ a.button {
   bottom: 0;
   right: -55px;
   margin: auto;
-  background: #c18847;
+  background: #FF385C;
   width: 45px;
   height: 1px;
 }
@@ -10424,7 +10424,7 @@ a.button {
   bottom: 0;
   right: -55px;
   margin: auto;
-  background: #c18847;
+  background: #FF385C;
   width: 45px;
   height: 1px;
 }

@@ -3,7 +3,7 @@
  		<div class="container-fluid">
  			<div class="row">
  				<div class="col-lg-4 col-md-6 px-2 px-lg-5">
- 					<div class="netabout text-center">
+ 					<div class="netabout">
  						<a href="index.html" class="logo">
  							<img style="width:120px" src="{{ asset('assets/img') }}/{{ get_section_content('project', 'site_logo') }}" alt="netcom">
  						</a>

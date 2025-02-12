@@ -74,8 +74,11 @@ header.fullwidth .container {
 }
 .right-side {
     float: right;
-    width: 190px;
+    width: 230px;
     margin-left: 30px;
+}
+.right-side a {
+  color: #FF385C;
 }
 #logo,
 #navigation {
@@ -741,18 +744,18 @@ a.button.border, a.button {
     border-radius: 3px;
 }
 #navigation.style-1.black ul li:hover {
-    background-color: #c18847;
-    color: #c18847;
+    background-color: #FF385C;
+    color: #FF385C;
 }
 #header.int_content_wraapper.cloned.sticky {
     position: absolute;
 }
 #navigation.style-1.white .current {
-    background-color: #c18847;
+    background-color: #FF385C;
     color: #fff;
 }
 #navigation.style-1.white ul li:hover {
-    background-color: #c18847;
+    background-color: #FF385C;
     color: #fff;
 }
 @media (max-width: 575px) {

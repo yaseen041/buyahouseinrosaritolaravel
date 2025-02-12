@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "0331e645-61e9-4086-ad7b-bdb83714b18f",
+		"name": "Explore Homes with Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37720134"
+	},
+	"item": [
+		{
+			"name": "API Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "john@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me/Profile",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property Features",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/features/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"features",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Feature",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/features/details/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"features",
+								"details",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property Types",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/types/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"types",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/types/details/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"types",
+								"details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testimonials",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/testimonials/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/testimonials/details/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials",
+								"details",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cities/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cities/details/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Real Estate Agents",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agents/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agents/details/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents",
+								"details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Neighborhoods",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/neighborhoods/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"neighborhoods",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/neighborhoods/details/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"neighborhoods",
+								"details",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Properties",
+			"item": [
+				{
+					"name": "Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/properties/filters",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"filters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All With Filters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sorting",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "listing_status",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "listing_type",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "is_featured",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "feature",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "7",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/properties/all-filtered",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"all-filtered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  From City With Filter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "city_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "sorting",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/properties/all-city-filtered",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"all-city-filtered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  With Neighborhood ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/properties/all-neighborhood/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"all-neighborhood",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/properties/details/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"details",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Featured 4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/properties/featured",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"featured"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recent 6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/properties/recent",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"properties",
+								"recent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Form Input Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/search/input-options",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"input-options"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Saved Searches",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/search/saved",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"saved"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Saved Search Results",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/search/search-results/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"search-results",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Form Submit",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "type_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "min_bed",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "min_bath",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "min_price",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "max_price",
+									"value": "8000000",
+									"type": "text"
+								},
+								{
+									"key": "min_size",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "max_size",
+									"value": "4500",
+									"type": "text"
+								},
+								{
+									"key": "neighborhood_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "listing_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "features_id_array",
+									"value": "[1,56,91]",
+									"type": "text"
+								},
+								{
+									"key": "sorting",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/search/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home Evaluation",
+			"item": [
+				{
+					"name": "Evaluation Inputs Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/evaluation/input-options",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"evaluation",
+								"input-options"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evaluate Form Submit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fname",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "lname",
+									"value": "Doe",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+19871234519",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "221 Bakers Street",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10001",
+									"type": "text"
+								},
+								{
+									"key": "year_built",
+									"value": "2017",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "1280",
+									"type": "text"
+								},
+								{
+									"key": "bedroom",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "bathroom",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "half_bathroom",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "has_suite",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "garage",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "garage_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "basement_type",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "dev_lvl",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "move_plan",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "Wondering what your home is worth? I would be happy to help you in whatever way I can. The articles and resources on this page are complimentary and part of the many services I offer.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/evaluation/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"evaluation",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Form",
+			"item": [
+				{
+					"name": "Properties Drop Down Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/contact/property-options",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"property-options"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contact Form Submission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "14567821281",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "property_id",
+									"value": "[\"10\", \"12\", \"14\", \"9\"]",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blogs",
+			"item": [
+				{
+					"name": "All Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/blogs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/blogs/show/15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blogs",
+								"show",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/realestate/api",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

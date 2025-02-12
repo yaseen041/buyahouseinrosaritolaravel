@@ -33,12 +33,20 @@ if (!function_exists('js_date_formate')) {
 		return "dd/mm/yyyy";
 	}
 }
-if (!function_exists('dateTimeCC')) {
+if (!function_exists('date_time')) {
 	function date_time($time)
 	{
 		return $newDateTime = formated_date($time) . " " . date('h:i A', strtotime($time));
 	}
 }
+if (!function_exists('month_date')) {
+	function month_date($date)
+	{
+		$dateTime = new DateTime($date);
+		return $dateTime->format('F d, Y');
+	}
+}
+
 if (!function_exists('time_elapsed_string')) {
 	function time_elapsed_string($datetime, $full = false)
 	{
@@ -111,8 +119,8 @@ if (!function_exists('get_single_row')) {
 	function get_single_row($table_name, $primary_key, $where_value)
 	{
 		$query = DB::table($table_name)
-			->where($primary_key, $where_value)
-			->first();
+		->where($primary_key, $where_value)
+		->first();
 		return $query;
 	}
 }
@@ -120,9 +128,9 @@ if (!function_exists('get_single_value')) {
 	function get_single_value($table_name, $where_value, $id)
 	{
 		$query = DB::table($table_name)
-			->select($where_value)
-			->where('id', $id)
-			->first();
+		->select($where_value)
+		->where('id', $id)
+		->first();
 		return $query->$where_value;
 	}
 }
@@ -130,10 +138,10 @@ if (!function_exists('get_section_content')) {
 	function get_section_content($meta_tag, $meta_key)
 	{
 		$query = DB::table('settings')
-			->select('meta_value')
-			->where('meta_tag', $meta_tag)
-			->where('meta_key', $meta_key)
-			->first();
+		->select('meta_value')
+		->where('meta_tag', $meta_tag)
+		->where('meta_key', $meta_key)
+		->first();
 		return $query->meta_value;
 	}
 }
@@ -148,10 +156,10 @@ if (!function_exists('soft_deleted')) {
 	function soft_deleted($table_name, $primary_key, $where_id)
 	{
 		$query = DB::table($table_name)->where($primary_key, $where_id)
-			->update([
-				'is_deleted' => '1',
-				'deleted_at' => date('Y-m-d H:i:s'),
-			]);
+		->update([
+			'is_deleted' => '1',
+			'deleted_at' => date('Y-m-d H:i:s'),
+		]);
 		return $query;
 	}
 }
@@ -717,5 +725,35 @@ if (! function_exists('correctSlug')) {
 		}
 
 		return $slug;
+	}
+}
+
+if (!function_exists('get_categories')) {
+	function get_categories()
+	{
+		$query = DB::table('categories');
+		$query->where('status', '1');
+		$query->orderBy('id', 'DESC');
+		$data = $query->get();
+		return $data;
+	}
+}
+
+if (!function_exists('get_recent_blogs')) {
+	function get_recent_blogs()
+	{
+		$query = DB::table('blogs');
+		$query->where('status', '1');
+		$query->orderBy('id', 'DESC');
+		$query->limit(5);
+		$data = $query->get();
+		return $data;
+	}
+}
+
+if (!function_exists('limit_words')) {
+	function limit_words($text, $limit = 5) {
+		$words = explode(' ', $text);
+		return implode(' ', array_slice($words, 0, $limit)) . (count($words) > $limit ? '...' : '');
 	}
 }

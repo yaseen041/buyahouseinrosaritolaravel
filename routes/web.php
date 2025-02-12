@@ -52,3 +52,5 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::group(['prefix'  =>  '/blog'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog');
 });
+Route::get('blog-details/{url}', [BlogController::class, 'blog_details']);
+Route::get('blog-details/cate/{url}', [BlogController::class, 'blog_details']);

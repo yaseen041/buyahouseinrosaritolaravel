@@ -26,7 +26,7 @@ class BlogController extends Controller
             });
         }
         $blogs = $query->orderBy('blogs.id', 'DESC')->paginate(50);
-        return view('blogs.manage_blogs', compact('blogs'));
+        return view('blogs.blog', compact('blogs'));
     }
 
 }

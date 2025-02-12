@@ -15,6 +15,7 @@
 	<div id="wrapper" class="int_main_wraapper">
 		{{-- @include('common.sidebar') --}}
 		@include('common.header')
+        <div class="clearfix"></div>
 
 		@yield('content')
 

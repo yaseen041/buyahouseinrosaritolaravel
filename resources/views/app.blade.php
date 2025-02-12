@@ -8,19 +8,19 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>{{ get_section_content('project', 'site_title') }} </title>
 
-	@include('common.user_styles')
+	@include('common.styles')
 </head>
 
 <body class="inner-pages int_white_bg hd-white">
 	<div id="wrapper" class="int_main_wraapper">
-		{{-- @include('common.user_sidebar') --}}
-		@include('common.user_header')
+		{{-- @include('common.sidebar') --}}
+		@include('common.header')
 
 		@yield('content')
 
-		@include('common.user_footer')
+		@include('common.footer')
 
-		@include('common.user_scripts')
+		@include('common.scripts')
 	</div>
 </body>
 

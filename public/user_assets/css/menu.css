@@ -70,15 +70,21 @@ header.fullwidth .container {
 .left-side {
     float: left;
     width: 820px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 .right-side {
     float: right;
     width: 230px;
     margin-left: 30px;
 }
-.right-side a {
+.link .header-user-name:before {
+    content: none !important;
+}
+.link a {
   color: #FF385C;
+  font-size: 18px;
+  font-weight: bold;
 }
 #logo,
 #navigation {
@@ -1284,7 +1290,7 @@ em.mm-counter+a.mm-fullsubopen+span {
     width: 50px;
     display: none;
     position: relative;
-    margin: 0 0 23px 0;
+    margin: 0 0 0px 0;
     background-color: #eee;
     border-radius: 4px;
     cursor: pointer;

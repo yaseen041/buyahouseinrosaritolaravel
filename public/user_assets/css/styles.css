@@ -24044,9 +24044,9 @@ section.ui-element {
 /** Form Elements **/
 .ui-elements input[type="text"],
 .ui-elements input[type="password"] {
-  background: #f5f5f5;
-  border: none;
-  width: 100%;
+  background: #f5f5f5 !important;
+  border: none !important;
+  width: 100% !important;
   height: 50px;
   padding-left: 20px;
   font-weight: 500;

@@ -14,11 +14,19 @@
     </div>
 </section>
 
+<?php
+// echo "<pre>";
+// print_r($blogs);
+// exit;
+?>
+
 <section class="blog blog-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-12 col-xs-12">
                 <div class="row">
+                    @php($i = 1)
+                    @foreach($blogs as $blog)
                     <div class="col-md-6 col-xs-12">
                         <div class="news-item nomb">
                             <a href="blog-details.html" class="news-img-link">
@@ -49,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="col-md-6 col-xs-12">
                         <div class="news-item">
                             <a href="blog-details.html" class="news-img-link">
@@ -79,13 +88,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row space2 port">
-                    <div class="col-md-6 col-xs-12">
-                        <div class="news-item">
+                    <div class="col-md-6 col-xs-12 mt-4">
+                        <div class="news-item nomb">
                             <a href="blog-details.html" class="news-img-link">
                                 <div class="news-item-img">
-                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-3.jpg') }}" alt="blog image">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-1.jpg') }}" alt="blog image">
                                 </div>
                             </a>
                             <div class="news-item-text">
@@ -105,17 +112,17 @@
                                     <a href="blog-details.html" class="news-link">Read more...</a>
                                     <div class="admin">
                                         <p>By, Karl Smith</p>
-                                        <img src="{{ asset('user_assets/images/testimonials/ts-3.jpg') }}" alt="blog image">
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-1.jpg') }}" alt="blog image">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
+                    <div class="col-md-6 col-xs-12 mt-4">
                         <div class="news-item">
                             <a href="blog-details.html" class="news-img-link">
                                 <div class="news-item-img">
-                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-4.jpg') }}" alt="blog image">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-2.jpg') }}" alt="blog image">
                                 </div>
                             </a>
                             <div class="news-item-text">
@@ -135,19 +142,17 @@
                                     <a href="blog-details.html" class="news-link">Read more...</a>
                                     <div class="admin">
                                         <p>By, Karl Smith</p>
-                                        <img src="{{ asset('user_assets/images/testimonials/ts-4.jpg') }}" alt="blog image">
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-2.jpg') }}" alt="blog image">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-12 no-mb wpt-2">
-                        <div class="news-item">
+                    <div class="col-md-6 col-xs-12 mt-4">
+                        <div class="news-item nomb">
                             <a href="blog-details.html" class="news-img-link">
                                 <div class="news-item-img">
-                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-5.jpg') }}" alt="blog image">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-1.jpg') }}" alt="blog image">
                                 </div>
                             </a>
                             <div class="news-item-text">
@@ -167,17 +172,17 @@
                                     <a href="blog-details.html" class="news-link">Read more...</a>
                                     <div class="admin">
                                         <p>By, Karl Smith</p>
-                                        <img src="{{ asset('user_assets/images/testimonials/ts-5.jpg') }}" alt="blog image">
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-1.jpg') }}" alt="blog image">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12 no-mb wpt-2">
+                    <div class="col-md-6 col-xs-12 mt-4">
                         <div class="news-item">
                             <a href="blog-details.html" class="news-img-link">
                                 <div class="news-item-img">
-                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-6.jpg') }}" alt="blog image">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-2.jpg') }}" alt="blog image">
                                 </div>
                             </a>
                             <div class="news-item-text">
@@ -197,7 +202,67 @@
                                     <a href="blog-details.html" class="news-link">Read more...</a>
                                     <div class="admin">
                                         <p>By, Karl Smith</p>
-                                        <img src="{{ asset('user_assets/images/testimonials/ts-6.jpg') }}" alt="blog image">
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-2.jpg') }}" alt="blog image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 mt-4">
+                        <div class="news-item nomb">
+                            <a href="blog-details.html" class="news-img-link">
+                                <div class="news-item-img">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-1.jpg') }}" alt="blog image">
+                                </div>
+                            </a>
+                            <div class="news-item-text">
+                                <a href="blog-details.html"><h3>Real Estate News</h3></a>
+                                <div class="dates">
+                                    <span class="date">April 11, 2020 &nbsp;/</span>
+                                    <ul class="action-list pl-0">
+                                        <li class="action-item pl-2"><i class="fa fa-heart"></i> <span>306</span></li>
+                                        <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
+                                        <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
+                                    </ul>
+                                </div>
+                                <div class="news-item-descr big-news">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur Real Estate News.</p>
+                                </div>
+                                <div class="news-item-bottom">
+                                    <a href="blog-details.html" class="news-link">Read more...</a>
+                                    <div class="admin">
+                                        <p>By, Karl Smith</p>
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-1.jpg') }}" alt="blog image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 mt-4">
+                        <div class="news-item">
+                            <a href="blog-details.html" class="news-img-link">
+                                <div class="news-item-img">
+                                    <img class="img-responsive" src="{{ asset('user_assets/images/blog/b-2.jpg') }}" alt="blog image">
+                                </div>
+                            </a>
+                            <div class="news-item-text">
+                                <a href="blog-details.html"><h3>Real Estate News</h3></a>
+                                <div class="dates">
+                                    <span class="date">April 11, 2020 &nbsp;/</span>
+                                    <ul class="action-list pl-0">
+                                        <li class="action-item pl-2"><i class="fa fa-heart"></i> <span>306</span></li>
+                                        <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
+                                        <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
+                                    </ul>
+                                </div>
+                                <div class="news-item-descr big-news">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur Real Estate News.</p>
+                                </div>
+                                <div class="news-item-bottom">
+                                    <a href="blog-details.html" class="news-link">Read more...</a>
+                                    <div class="admin">
+                                        <p>By, Karl Smith</p>
+                                        <img src="{{ asset('user_assets/images/testimonials/ts-2.jpg') }}" alt="blog image">
                                     </div>
                                 </div>
                             </div>
@@ -281,6 +346,7 @@
                 </div>
             </aside>
         </div>
+
         <nav aria-label="..." class="pt-5">
             <ul class="pagination">
                 <li class="page-item disabled">
@@ -298,6 +364,7 @@
                 </li>
             </ul>
         </nav>
+
     </div>
 </section>
 

@@ -25,8 +25,8 @@ class BlogController extends Controller
                 ->orWhere('categories.title', 'LIKE', '%' . $searchTerm . '%');
             });
         }
-        $blogs = $query->orderBy('blogs.id', 'DESC')->paginate(50);
-        return view('blogs.blog', compact('blogs'));
+        $data['blogs'] = $query->orderBy('blogs.id', 'DESC')->paginate(50);
+        return view('blogs.blog', $data);
     }
 
 }

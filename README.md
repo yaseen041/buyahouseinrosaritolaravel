@@ -25,7 +25,7 @@ Follow these steps to set up the project on your local environment:
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/buy-a-house-in-resrito.git](https://github.com/yaseen041/buyahouseinrosaritolaravel.git)
+git clone https://github.com/your-username/buy-a-house-in-resrito.git
 cd buy-a-house-in-resrito
 ```
 
@@ -89,5 +89,5 @@ Feel free to fork this repository and submit pull requests. Any contributions ar
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
-Developed with ❤️ using Laravel By Explore Logics.
+Developed with ❤️ using Laravel.
 

@@ -25,7 +25,7 @@ Follow these steps to set up the project on your local environment:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/buy-a-house-in-resrito.git
+git clone [https://github.com/your-username/buy-a-house-in-resrito.git](https://github.com/yaseen041/buyahouseinrosaritolaravel.git)
 cd buy-a-house-in-resrito
 ```
 

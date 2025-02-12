@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\BlogController;
 
 
 
@@ -40,3 +41,14 @@ require 'admin.php';
 // });
 
 Route::get('/', [HomepageController::class, 'index']);
+
+
+
+
+
+
+
+// Abdul Waheed
+Route::group(['prefix'  =>  '/blog'], function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog');
+});

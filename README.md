@@ -1,89 +1,93 @@
-<!-- # Laravel REST APIs and Admin Panel for Property Dealership Web App
+# Buy A House In Resrito
 
-This repository provides a Laravel 10 REST APIs and Bootstrap based admin dashboard for a property dealership web application.
+## Introduction
+Welcome to **Buy A House In Resrito** – a Laravel-based real estate application that allows users to browse, list, and manage property listings efficiently. This repository contains the source code and installation instructions to get started quickly.
 
-## Getting Started
+## Features
+- User authentication (registration, login, password reset)
+- Property listings with images, descriptions, and pricing
+- Search and filter functionality
+- Contact form for inquiries
+- Admin dashboard for managing listings
+- Responsive design for mobile and desktop
 
-### Clone the Repository
+## Prerequisites
+Ensure you have the following installed before proceeding:
+- PHP (>= 8.0)
+- Composer
+- MySQL or PostgreSQL
+- Laravel 10+
+- Node.js & npm
+- Redis (optional, for caching and queues)
 
-Clone the repository using the following command:
+## Installation
+Follow these steps to set up the project on your local environment:
 
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/arslanstack/property-dealership.git
+git clone https://github.com/your-username/buy-a-house-in-resrito.git
+cd buy-a-house-in-resrito
 ```
-### Installation
 
-After cloning the project, navigate into the project directory and install dependencies:
-
+### 2. Install Dependencies
 ```bash
-cd property-dealership
 composer install
+npm install && npm run dev
 ```
 
-### Configuration
-
-1. Copy the example .env file:
-
+### 3. Configure Environment Variables
+Copy the `.env.example` file and rename it to `.env`:
 ```bash
 cp .env.example .env
 ```
+Edit the `.env` file and update the following:
+```env
+APP_NAME="Buy A House In Resrito"
+APP_URL=http://localhost
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
 
-2. Generate the application key:
-
+### 4. Generate Application Key
 ```bash
 php artisan key:generate
 ```
 
-3. Update the .env file:
-Open the .env file in a text editor and update the necessary configuration values, such as database connection details. Example:
-
+### 5. Run Migrations and Seed Database
 ```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=property_dealership
-DB_USERNAME=root
-DB_PASSWORD=
+php artisan migrate --seed
 ```
 
-### Database Setup
-
-1. Create a new MySQL database:
-Create new database using phpmyadmin or mysql workbench
-
-
-2. Run the migrations:
-
-```bash
-php artisan migrate
-```
-### Running the Application
-
-Start the Laravel server and compile assets:
-
+### 6. Start the Development Server
 ```bash
 php artisan serve
 ```
 
-### Contributing
-
-After implementing a feature or fix, use the following commands to commit and push your changes:
-
+### 7. Running Queues and Scheduler (Optional)
 ```bash
-git add .
-git commit -m "Describe the feature"
-git push -u origin
+php artisan queue:work
+php artisan schedule:work
 ```
 
-### Snapshots
+## Usage
+- Visit `http://localhost` in your browser.
+- Register or log in as an admin to manage property listings.
+- Browse available houses and use filters to refine search results.
 
-<img src="./snaps/1.png" alt="Project Banner">
-<img src="./snaps/1-5.png" alt="Project Banner">
-<img src="./snaps/1-6.png" alt="Project Banner">
-<img src="./snaps/1-7.png" alt="Project Banner">
-<img src="./snaps/2.png" alt="Project Banner">
-<img src="./snaps/3.png" alt="Project Banner">
-<img src="./snaps/4.png" alt="Project Banner">
-<img src="./snaps/5.png" alt="Project Banner">
-<img src="./snaps/6.png" alt="Project Banner">
- -->
+## Deployment
+For deploying to a production server:
+- Use Laravel Forge or any cloud provider.
+- Set up a web server (Nginx or Apache) with SSL.
+- Configure Supervisor for queue workers.
+- Use `php artisan config:cache` for performance optimization.
+
+## Contributing
+Feel free to fork this repository and submit pull requests. Any contributions are welcome!
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+Developed with ❤️ using Laravel By Explore Logics.
+

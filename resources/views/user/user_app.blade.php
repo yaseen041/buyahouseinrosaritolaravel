@@ -11,7 +11,7 @@
 	@include('common.user_styles')
 </head>
 
-<body class="int_white_bg hd-white">
+<body class="inner-pages int_white_bg hd-white">
 	<div id="wrapper" class="int_main_wraapper">
 		{{-- @include('common.user_sidebar') --}}
 		@include('common.user_header')

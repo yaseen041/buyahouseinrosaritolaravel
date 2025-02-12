@@ -15,60 +15,9 @@
                                     <div class="swiper-slide">
                                         <div class="swiper_imgbox imgbox1">
                                             <div class="swipper_img">
-                                                <h4>For Sale <span>Estate</span></h4>
-                                                <h2>Luxury Villa House</h2>
-                                                <h3>$ 230,000<span class="banner_span1"></span></h3>
-                                                <p><i class="fa fa-map-marker mr-3"></i>Est St, 77 - Central Park South, NYC</p>
-                                                <ul class="homes-list clearfix">
-                                                    <li>
-                                                        <i class="fa fa-bed" aria-hidden="true"></i>
-                                                        <span>6 Bedrooms</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-bath" aria-hidden="true"></i>
-                                                        <span>3 Bathrooms</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-object-group" aria-hidden="true"></i>
-                                                        <span>720 sq ft</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                                        <span>2 Garages</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="single-property-1.html" class="int_btn">View Property <span class="btn_caret"><i class="fas fa-caret-right"></i></span></a>
-                                                <h1>Real</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="swiper_imgbox imgbox2">
-                                            <div class="swipper_img">
-                                                <h4>For Rent <span>Estate</span></h4>
-                                                <h2>Luxury Villa House</h2>
-                                                <h3>$ 4,600<span class="banner_span1"></span></h3>
-                                                <p><i class="fa fa-map-marker mr-3"></i>Est St, 77 - Central Park South, NYC</p>
-                                                <ul class="homes-list clearfix">
-                                                    <li>
-                                                        <i class="fa fa-bed" aria-hidden="true"></i>
-                                                        <span>6 Bedrooms</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-bath" aria-hidden="true"></i>
-                                                        <span>3 Bathrooms</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-object-group" aria-hidden="true"></i>
-                                                        <span>720 sq ft</span>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                                        <span>2 Garages</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="single-property-1.html" class="int_btn">View Property <span class="btn_caret"><i class="fas fa-caret-right"></i></span></a>
-                                                <h1>Real</h1>
+                                                <h2>Rosarito isn't just a beach, it's a community. . .</h2>
+                                                {{-- <h1></h1> --}}
+                                                <h3>and you're invited! -The Hansome Family</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -83,31 +32,71 @@
                                     <div class="swiper-slide">
                                         <div class="swiper_contbox">
                                             <div class="swipper_conntent">
-                                                <img src="{{ asset('user_assets/images/slider/slider-8.jpg') }}" class="img-fluid " alt="images" />
+                                                <img src="{{ asset('assets/images/banner.jpg') }}" class="img-fluid " alt="images" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="swiper_contbox">
-                                            <div class="swipper_conntent">
-                                                <img src="{{ asset('user_assets/images/slider/slider-9.jpg') }}" class="img-fluid" alt="images" />
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="banner_navi">
+               {{--  <div class="banner_navi">
                     <div class="swiper-button-next">Next</div>
                     <div class="swiper-button-prev">Prev</div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 </div>
 
+{{-- About --}}
+<div class="about">
+    <section class="about-us fh">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 who-1">
+                    <div>
+                        <h2 class="text-left mb-4">About <span>Find Houses</span></h2>
+                    </div>
+                    <div class="pftext">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum odio id voluptatibus incidunt cum? Atque quasi eum debitis optio ab. Esse itaque officiis tempora possimus odio rerum aperiam ratione, sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit sunt.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum odio id voluptatibus incidunt cum? Atque quasi eum debitis optio ab. Esse itaque officiis tempora possimus odio rerum aperiam ratione, sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit sunt.</p>
+                    </div>
+                    <div class="box bg-2">
+                        <a href="about.html" class="text-center button button--moema button--text-thick button--text-upper button--size-s">read More</a>
+                        <img src="images/signature.png" class="ml-5" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="wprt-image-video w50">
+                        <img alt="image" src="{{asset('assets/images/video-2.jpg')}}">
+                        <a class="icon-wrap popup-video popup-youtube" id="playBtn" href="{{ asset('assets/images/video.mp4') }}">
+                            <i class="fa fa-play"></i>
+                        </a>
+                        <div class="iq-waves">
+                            <div class="waves wave-1"></div>
+                            <div class="waves wave-2"></div>
+                            <div class="waves wave-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-dark">
+                <span class="close-btn" data-dismiss="modal">&times;</span>
+                <div class="modal-body p-0">
+                    <iframe id="videoFrame" width="100%" height="400" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 {{-- Properties For Sale --}}
 <section class="recently portfolio featured bg-white-1 rec-pro">
     <div class="container-fluid">
@@ -335,7 +324,7 @@
     </div>
 </section>
 
- {{-- Properties For Rent --}}
+{{-- Properties For Rent --}}
 <section class="recently portfolio bg-white-1 rec-pro">
     <div class="container-fluid">
         <div class="row">

@@ -24,11 +24,27 @@ class BlogController extends Controller
               });
             });
         }
-        $data['blogs'] = $query->orderBy('id', 'DESC')->paginate(6);
+        $data['blogs'] = $query->orderBy('id', 'DESC')->paginate(9);
         return view('blogs.blog', $data);
     }
 
-    public function blog_details(Request $request, $url)
+
+    public function handleSlug($slug)
+    {
+        $category = Categories::where('slug', $slug)->first();
+        if ($category) {
+            return $this->get_categories_blog($slug);
+        }
+        $blog = Blogs::where('post_url', $slug)->where('status', 1)->first();
+        if ($blog) {
+            return $this->blog_details($slug);
+        }
+
+        return view('common.view_404');
+    }
+
+
+    public function blog_details($url)
     {
         $data['blog'] = Blogs::with('category')->where('status', 1)->where('post_url', $url)->first();
         if (!$data['blog']) {
@@ -36,5 +52,17 @@ class BlogController extends Controller
         }
         return view('blogs.blog_details', $data);
     }
+
+
+    public function get_categories_blog($url)
+    {
+        $category = Categories::where('slug', $url)->first();
+        if (!$category) {
+            return view('common.view_404');
+        }
+        $data['blogs'] = Blogs::with('category')->where('status', 1)->where('category_id', $category->id)->orderBy('id', 'DESC')->paginate(9);
+        return view('blogs.blog', $data);
+    }
+
 
 }

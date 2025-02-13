@@ -23,8 +23,9 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="right-side d-none d-none d-lg-none d-xl-flex">
-				<div class="header-widget">
+
+			<div class="header-user-menu link ">
+				<div class="header-user-name">
 					<a href="tel:+526646411658" class=""><i class="fa fa-phone ml-2"></i> +52 664 641 1658</a>
 				</div>
 			</div>

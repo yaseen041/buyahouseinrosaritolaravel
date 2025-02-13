@@ -2,20 +2,23 @@
 <?php
 $seo_data = get_single_row('seos', 'page_name', 'blog');
 ?>
-@section('meta_title', $seo_data->meta_title )
-@section('meta_description', $seo_data->meta_description )
-@section('meta_keywords', $seo_data->meta_keywords )
-@section('fb_title', $seo_data->fb_title )
-@section('fb_description', $seo_data->fb_description )
-@section('fb_image', asset('/assets/images/' . $seo_data->fb_image))
-@section('twitter_title', $seo_data->twitter_title )
-@section('twitter_description', $seo_data->twitter_description )
-@section('twitter_image', asset('/assets/images/' . $seo_data->twitter_image))
-@section('json_ld_code')
-{!! $seo_data->json_ld_code !!}
-@endsection
-
 @push('styles')
+<title>{{ $seo_data->meta_title }}</title>
+<meta name="description" content="{{ $seo_data->meta_description }}" />
+<meta name="keywords" content="{{ $seo_data->meta_keywords }}" />
+<link rel="canonical" href="{{ url('/') }}" />
+<meta property="og:title" content="{{ $seo_data->fb_title }}" />
+<meta property="og:description" content="{{ $seo_data->fb_description }}" />
+<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:image" content="{{ asset('/assets/images/' . $seo_data->fb_image)}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $seo_data->twitter_title }}" />
+<meta name="twitter:description" content="{{ $seo_data->twitter_description }}" />
+<meta name="twitter:image" content="{{ asset('/assets/images/' . $seo_data->twitter_image) }}" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+    {!! $seo_data->json_ld_code !!}
+</script>
 @endpush
 @section('content')
 <section class="headings">

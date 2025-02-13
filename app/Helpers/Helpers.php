@@ -739,6 +739,21 @@ if (!function_exists('get_categories')) {
 	}
 }
 
+
+if (!function_exists('get_categories_having_blogs')) {
+	function get_categories_having_blogs()
+	{
+		$query = DB::table('categories')
+		->where('status', '1')
+		->whereExists(function ($query) {
+			$query->select(DB::raw(1))->from('blogs')->whereColumn('blogs.category_id', 'categories.id')->where('blogs.status', '1');
+		})
+		->orderBy('id', 'DESC');
+		return $query->get();
+	}
+}
+
+
 if (!function_exists('get_recent_blogs')) {
 	function get_recent_blogs()
 	{

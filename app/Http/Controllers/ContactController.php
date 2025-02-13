@@ -31,7 +31,9 @@ class ContactController extends Controller
             return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
         }
 
-        // $properties_ids = json_decode($request->property); //["1", "2", "3"] in this format
+        $properties_ids = json_decode($request->property); //["1", "2", "3"] in this format
+        print_r($properties_ids);
+        exit;
         $properties_ids = ["1", "2", "3"];
         $properties = Property::whereIn('id', $properties_ids)->get();
         if (!$properties) {

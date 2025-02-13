@@ -32,10 +32,6 @@
 
 <script src="{{ asset('admin_assets/js/plugins/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('admin_assets/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
-<script src="{{ asset('admin_assets/js/plugins/ladda/spin.min.js') }}"></script>
-<script src="{{ asset('admin_assets/js/plugins/ladda/ladda.min.js') }}"></script>
-<script src="{{ asset('admin_assets/js/plugins/ladda/ladda.jquery.min.js') }}"></script>
-
 <script>
 	$('.style1').owlCarousel({
 		loop: true,

@@ -22,4 +22,3 @@
 
 <link href="{{ asset('admin_assets/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
 <link href="{{ asset('admin_assets/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
-<link href="{{ asset('admin_assets/css/plugins/ladda/ladda-themeless.min.css') }}" rel="stylesheet">

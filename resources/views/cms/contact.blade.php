@@ -121,8 +121,6 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
         </div>
     </div>
 </section>
-
-
 @endsection
 @push('scripts')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy2l4KGGTm4cTqoSl6h8UAOAob87sHBsA&callback=initMap" async defer></script>
@@ -133,17 +131,6 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
         $('#propertySelect').select2({
             placeholder: "Select Property",
             allowClear: true
-        });
-    });
-
-    $(document).ready(function() {
-        $(".multi-select .option").on("click", function() {
-            $(this).toggleClass("selected");
-            var selected = [];
-            $(".multi-select .selected").each(function() {
-                selected.push($(this).text());
-            });
-            $(".multi-select .current").text(selected.length ? selected.join(", ") : "Select Property");
         });
     });
     function initMap() {

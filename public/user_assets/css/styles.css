@@ -19891,7 +19891,8 @@ header.payment-card-header .pull-right img {
   content: '';
   position: absolute;
   left: 6px;
-  top: 2px;
+  top: 5px;
+/*  top: 2px;*/
   width: 6px;
   height: 11px;
   border: solid #000;

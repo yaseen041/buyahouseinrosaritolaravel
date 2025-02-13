@@ -1,16 +1,14 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blogs;
 use App\Models\Categories;
 use App\Models\ParentBlogCategories;
 use Illuminate\Support\Facades\Validator;
-
 class BlogController extends Controller
 {
+
     public function index(Request $request)
     {
         $query = Blogs::with('category')->where('status', 1);
@@ -28,7 +26,6 @@ class BlogController extends Controller
         return view('blogs.blog', $data);
     }
 
-
     public function handleSlug($slug)
     {
         $category = Categories::where('slug', $slug)->first();
@@ -39,10 +36,8 @@ class BlogController extends Controller
         if ($blog) {
             return $this->blog_details($slug);
         }
-
         return view('common.view_404');
     }
-
 
     public function blog_details($url)
     {
@@ -53,7 +48,6 @@ class BlogController extends Controller
         return view('blogs.blog_details', $data);
     }
 
-
     public function get_categories_blog($url)
     {
         $category = Categories::where('slug', $url)->first();
@@ -63,6 +57,5 @@ class BlogController extends Controller
         $data['blogs'] = Blogs::with('category')->where('status', 1)->where('category_id', $category->id)->orderBy('id', 'DESC')->paginate(9);
         return view('blogs.blog', $data);
     }
-
 
 }

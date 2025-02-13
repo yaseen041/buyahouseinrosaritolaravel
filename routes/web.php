@@ -5,6 +5,7 @@ use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -49,6 +50,8 @@ Route::get('/', [HomepageController::class, 'index']);
 
 
 // Abdul Waheed
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::post('submit_contact', [ContactController::class, 'submit_contact'])->name('submit_contact');
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/{slug}', [BlogController::class, 'handleSlug'])->where('slug', '.*')->name('slugHandler');
-

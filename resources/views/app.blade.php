@@ -25,7 +25,7 @@
 	<meta name="twitter:image" content="@yield('twitter_image')">
 
 	<!-- JSON-LD Structured Data -->
-	<script>
+	<script type="application/ld+json">
 		@yield('json_ld_code')
 	</script>
 

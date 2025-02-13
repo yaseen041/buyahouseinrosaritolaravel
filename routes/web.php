@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\BlogController;
 
 
@@ -36,16 +37,8 @@ Route::get('/clearcache', function () {
 
 require 'admin.php';
 
-// Route::get( '/', function () {
-//     return redirect()->route('admin.dashboard');
-// });
-
 Route::get('/', [HomepageController::class, 'index']);
-
-
-
-
-
+Route::get('/properties', [PropertiesController::class, 'index']);
 
 
 // Abdul Waheed

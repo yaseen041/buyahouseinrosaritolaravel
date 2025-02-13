@@ -14,19 +14,19 @@
 				</div>
 				<nav id="navigation" class="style-1 white">
 					<ul id="responsive">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Property</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="{{ url('/')}}">Home</a></li>
+						<li><a href="{{ url('properties')}}">Property</a></li>
+						<li><a href="{{ url('/')}}">About</a></li>
+						<li><a href="{{ url('blog')}}">Blog</a></li>
+						<li><a href="{{ url('/')}}">FAQ</a></li>
+						<li><a href="{{ url('/')}}">Contact</a></li>
 					</ul>
 				</nav>
 			</div>
 
 			<div class="header-user-menu link ">
 				<div class="header-user-name">
-					<a href="tel:+526646411658" class=""><i class="fa fa-phone ml-2"></i> +52 664 641 1658</a>
+					<a href="tel:+161925897442" class=""><i class="fa fa-phone ml-2"></i> +1 (619) 2589-7442 </a>
 				</div>
 			</div>
 		</div>

@@ -1,1 +1,197 @@
 /*Blank CSS*/
+
+
+.img-center {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	filter: brightness(0.6);
+}
+
+.recent-title {
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 4px;
+	line-height: 1.2;
+}
+
+.recent-price {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.listing-item.compact.thehp-2 .listing-badges span {
+	width: 80px !important;
+	background: none !important;
+	border: 1px solid;
+	border-image-outset: 0;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+}
+
+
+.video_banner {
+	margin-top: 38px;
+}
+.wprt-image-video{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#playBtn {
+	background: #0f1341 none repeat scroll 0 0;
+	border-radius: 100%;
+	color: #03a9f5;
+	font-size: 30px;
+	height: 70px;
+	left: 50%;
+	line-height: 70px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 70px;
+	z-index: 9;
+}
+.modal-dialog.modal-dialog-centered {
+	max-width: 56%;
+}
+.modal-content {
+	position: relative;
+}
+.close-btn {
+	position: absolute;
+	top: -33px;
+	right: 0px;
+	font-size: 29px;
+	color: #fff;
+	cursor: pointer;
+	z-index: 10;
+}
+@media screen and (max-width: 712px){
+	.modal-dialog.modal-dialog-centered {
+		max-width: 95%;
+	}
+
+}
+@media screen and (max-width: 992px){
+	#playBtn,
+	.iq-waves {
+		top: 55% !important;
+	}
+}
+
+@media screen and (max-width: 668px){
+	#playBtn,
+	.iq-waves {
+		top: 63% !important;
+	}
+}
+
+@media screen and (max-width: 480px){
+	#playBtn,
+	.iq-waves {
+		top: 70% !important;
+	}
+}
+
+.input-group-text {
+	border-radius: 8px;
+	border: 1px solid;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+	background: #f8f9fa;
+}
+
+.calc-table-container {
+	border-radius: 1rem;
+	transition: transform 0.3s ease;
+}
+.sq-tier-calculators {
+	border: 1px solid ;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+	border-radius: 2px;
+	margin-top: 8px;
+}
+.price-tier-calculators {
+	border:1px solid ;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+	border-radius: 2px;
+	margin-top: 20px;
+}
+.temp_table {
+	border:1px solid ;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+	border-radius: 2px;
+	margin-bottom: 2px;
+}
+.temp_table table {
+	margin-bottom: 0px;
+	color: #000 !important;
+}
+.price-tier-calculators .table td{
+	border: 1px solid  !important;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1 !important;
+}
+.table td{
+	border: 0px solid  !important;
+}
+.table thead th {
+	border: 1px solid  !important;
+	border-top: none !important;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1 !important;
+	color: #000;
+}
+.border_right {
+	border-right: 1px solid ;
+}
+.border_right_dark {
+	border-right: 1px solid ;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+}
+.price-tier-calculators table:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+.overlay-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+}
+
+.overlay-text h1 {
+	font-size: 36px;
+	font-weight: bold;
+	color: #48c5f6;
+}
+
+.overlay-text h2 {
+	font-size: 24px;
+	color: #fff;
+}
+
+.neon-border {
+	border: 1px solid;
+	border-radius: 10px;
+	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
+	border-collapse: unset;
+	border-spacing: 0px;
+}
+
+
+.img-responsive {
+	aspect-ratio: 4/3;
+}
+
+.news-item.news-item-sm {
+	height: 100%;
+}

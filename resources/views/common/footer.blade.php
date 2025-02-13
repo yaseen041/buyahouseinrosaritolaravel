@@ -20,7 +20,7 @@
  							<li>
  								<div class="info">
  									<i class="fa fa-phone" aria-hidden="true"></i>
- 									<p class="in-p">+52 664 641 1658</p>
+ 									<p class="in-p">+1 (619) 2589-7442</p>
  								</div>
  							</li>
  							<li>

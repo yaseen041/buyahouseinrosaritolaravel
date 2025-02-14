@@ -81,19 +81,19 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
                         <li>
                             <div class="info">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <p class="in-p">Chichen Itza 8170, Rosarito, Mexico, 22567</p>
+                                <p class="in-p">{{get_section_content('project','admin_address')}}</p>
                             </div>
                         </li>
                         <li>
                             <div class="info">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <p class="in-p"><a href="tel:+52 664 641 1658" class="text-white">+52 664 641 1658</a></p>
+                                <p class="in-p"><a href="tel:{{get_section_content('project','admin_phone')}}" class="text-white">{{get_section_content('project','admin_phone')}}</a></p>
                             </div>
                         </li>
                         <li>
                             <div class="info">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <p class="in-p ti"><a href="mailto:aaron@buyahouseinrosarito.com" class="text-white">aaron@buyahouseinrosarito.com</a></p>
+                                <p class="in-p ti"><a href="mailto:{{get_section_content('project','admin_email')}}" class="text-white">{{get_section_content('project','admin_email')}}</a></p>
                             </div>
                         </li>
                     </ul>

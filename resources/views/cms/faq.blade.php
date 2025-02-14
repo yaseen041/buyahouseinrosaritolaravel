@@ -133,10 +133,8 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
 </section>
 @endsection
 @push('scripts')
-
-<script src="js/popper.min.js"></script>
-
-<script src="js/inner.js"></script>
+<script src="{{ asset('user_assets/js/popper.js') }}"></script>
+<script src="{{ asset('user_assets/js/inner.js') }}"></script>
 <script>
     $(".accordion li").click(function() {
         $(this).closest(".accordion").hasClass("one-open") ? ($(this).closest(".accordion").find("li").removeClass("active"), $(this).addClass("active")) : $(this).toggleClass("active"), "undefined" != typeof window.mr_parallax && setTimeout(mr_parallax.windowLoad, 500)

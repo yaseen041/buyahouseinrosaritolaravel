@@ -46,8 +46,8 @@ class ContactController extends Controller
         $contactRequest->message = $data['message'];
         $contactRequest->save();
 
-        // $to = env('ADMIN_EMAIL');
-        // $noreply_email = env('NOREPLY_EMAIL');
+        // $to = get_section_content('project','admin_email');
+        // $noreply_email = get_section_content('project','noreply_email');
         $to = 'dev1@explorelogicsit.net';
         $noreply_email = 'noreply@explorelogicsit.net';
         $subject = 'New Contact Submission Received From '.$data['name'];

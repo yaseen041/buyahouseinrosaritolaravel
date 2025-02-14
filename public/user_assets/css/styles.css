@@ -111,7 +111,7 @@ h1 {
 
 h2 {
   font-family: 'Montserrat', sans-serif;
-  color: #222;
+  color: #D51E4C;
   font-size: 2rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -138,6 +138,12 @@ h4 {
 
 h5 {
   color: #444;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .top-headings-section {
@@ -8685,28 +8691,22 @@ html input[disabled] {
 }
 
 .fullwidth-home-map.dark-overlay {
-  height: 90vh !important;
+  height: 100vh !important;
   margin-bottom: 0;
 }
 
 .fullwidth-home-map.dark-overlay video {
+ position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-52%);
-          transform: translateY(-52%);
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -10;
-  background-size: cover;
-  -webkit-transition: 1s opacity;
-  transition: 1s opacity;
-  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 
 .dark-overlay:before {
-  background: rgba(0, 0, 0, 0.2) !important;
+  background: rgba(0, 0, 0, 0.48) !important;
 }
 
 .dark-overlay:before {

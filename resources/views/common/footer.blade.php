@@ -4,7 +4,7 @@
  			<div class="row">
  				<div class="col-lg-4 col-md-6 px-2 px-lg-5">
  					<div class="netabout">
- 						<a href="index.html" class="logo">
+ 						<a href="{{ url('/')}}" class="logo">
  							<img style="width:120px" src="{{ asset('assets/img') }}/{{ get_section_content('project', 'site_logo') }}" alt="netcom">
  						</a>
  						<p class="text-left">{{ get_section_content('project', 'site_title') }}</p>

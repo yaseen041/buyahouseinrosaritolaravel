@@ -6,6 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.jpg') }}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+
 	@include('common.styles')
 </head>
 

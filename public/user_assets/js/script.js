@@ -350,15 +350,28 @@ jQuery(document).on('ready', function ($) {
     //------ MAGNIFIC POPUP ------//
     -----------------------------------*/
     $(document).ready(function () {
-        $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
+      $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false,
+        iframe: {
+            patterns: {
+                youtube: {
+                    index: 'youtube.com/',
+                    id: function(url) {
+                        var match = url.match(/[?&]v=([^&]+)/);
+                        return match ? match[1] : null;
+                    },
+                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                }
+            }
+        }
     });
+
+  });
 
     /*----------------------------------------------
     //------ FILTER TOGGLE (ON GOOGLE MAPS) ------//

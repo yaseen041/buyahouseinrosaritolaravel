@@ -145,6 +145,13 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-12 order-lg-2 order-3">
+                                            <div class="form-group">
+                                                <strong class="form-label" for="short_description">Short Description:</strong>
+                                                <textarea name="short_description" class="form-control" id="short_description" rows="5">{{ $blog->short_description }}</textarea>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 order-lg-2 order-3">
                                             <div class="form-group">
                                                 <strong class="form-label" for="description">Description:</strong>

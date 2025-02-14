@@ -36,21 +36,20 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                 <div class="row">
                     @if($blogs->isNotEmpty())
                     @foreach($blogs as $blog)
-                    <div class="col-md-4 col-xs-12 mb-md-4">
-                        <div class="news-item nomb">
+                    <div class="col-md-6 col-xs-12 mb-md-4">
+                        <div class="news-item nomb bradius">
                             <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" class="news-img-link">
                                 <div class="news-item-img">
                                     <img class="img-responsive" src="{{ asset('assets/images').'/'.$blog->featured_image }}" alt="blog image">
                                 </div>
                             </a>
                             <div class="news-item-text">
-                                {{-- <a href="https://buyahouseinrosarito.com/{{$blog->post_url}}" target="_blank"> <h3>{{ $blog->title }}</h3> </a> --}}
-                                <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" target="_blank"> <h3>{{ limit_words($blog->title, 6)}}</h3> </a>
+                                <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" target="_blank"> <h3 class="title_color">{{ limit_words($blog->title, 8)}}</h3> </a>
                                 <div class="news-item-descr big-news">
-                                    <p>{{ limit_words($blog->meta_description, 10)}}</p>
+                                    <p>{{ limit_words($blog->short_description, 20)}}</p>
                                 </div>
                                 <div class="news-item-bottom">
-                                    <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" class="news-link" target="_blank">Read more...</a>
+                                    <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" class="news-link" target="_blank">Read More...</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +77,7 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                         <h5 class="font-weight-bold">Category</h5>
                         <ul>
                             @foreach(get_categories_having_blogs() as $citem)
-                            <li><a href="{{ route('slugHandler', ['slug' => $citem->slug]) }}"><i class="fa fa-caret-right" aria-hidden="true"></i>{{$citem->title}}</a></li>
+                            <li><a href="{{ route('slugHandler', ['slug' => $citem->slug]) }}"><i class="fa fa-caret-right" aria-hidden="true"></i>{{limit_words($citem->title, 3)}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -90,7 +89,7 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                                 <a href="{{ route('slugHandler', ['slug' => $bitem->post_url]) }}"><img src="{{ asset('assets/images').'/'.$bitem->featured_image }}" alt="blog image"></a>
                             </div>
                             <div class="info-img">
-                                <a href="{{ route('slugHandler', ['slug' => $bitem->post_url]) }}"><h6>{{ limit_words($bitem->title, 3)}}</h6></a>
+                                <a href="{{ route('slugHandler', ['slug' => $bitem->post_url]) }}"><h6>{{ limit_words($bitem->title, 2)}}</h6></a>
                                 <p>{{ month_date($bitem->publish_date) }}</p>
                             </div>
                         </div>

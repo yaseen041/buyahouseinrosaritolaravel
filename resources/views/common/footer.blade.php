@@ -81,7 +81,7 @@
  			<p class="w-100">
  				<strong>{{ get_section_content('project', 'site_title') }}</strong> - Copyright &copy;
  				{{ date("Y") }}
- 				Developed by - <a href="https://explorelogics.com" target="_blank">Explore Logics </a>
+ 				Developed by - <a href="https://explorelogics.com" target="_blank" rel="nofollow">Explore Logics</a>
  			</p>
  		</div>
  	</div>

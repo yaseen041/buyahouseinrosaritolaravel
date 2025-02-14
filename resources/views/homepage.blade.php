@@ -197,7 +197,7 @@
                             <h2 class="heading_american mb-4">Why Are More and More Americans Moving to Rosarito? The Answer May Surprise You!</h2>
                         </div>
                         <div class="wprt-image-video w50 w-100 h-100 position-relative ">
-                            <img src="{{asset('assets/images/video-2.jpg')}}" class="w-50 rounded-4" alt="image">
+                            <img src="{{asset('assets/images/video-2.jpg')}}" class="rounded-4" alt="image">
                             <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=Yf61HtiwTlo&t=47s">
                                 <i class="fa fa-play"></i>
                             </a>

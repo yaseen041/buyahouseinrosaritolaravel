@@ -3,7 +3,7 @@
 		<div class="container container-header">
 			<div class="left-side">
 				<div id="logo">
-					<a href="index.html"><img src="{{ asset('assets/img') }}/{{ get_section_content('project', 'site_logo') }}" data-sticky-logo="images/logo-red.svg" alt=""></a>
+					<a href="{{ url('/')}}"><img src="{{ asset('assets/img') }}/{{ get_section_content('project', 'site_logo') }}" data-sticky-logo="images/logo-red.svg" alt=""></a>
 				</div>
 				<div class="mmenu-trigger">
 					<button class="hamburger hamburger--collapse" type="button">

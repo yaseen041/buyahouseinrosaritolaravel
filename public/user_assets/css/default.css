@@ -205,7 +205,8 @@
 
 .dark-overlay h1 {
   font-size: 50px;
-  color: #fff;
+/*  color: #fff;*/
+  color: #D51E4C;
   line-height: 57px;
   text-transform: capitalize;
   text-align: center;
@@ -328,4 +329,8 @@ hr {
 
 .news-link {
 	color: #D51E4C !important;
+}
+
+.first-footer {
+	border-top: 1px solid #ddd !important;
 }

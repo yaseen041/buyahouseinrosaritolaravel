@@ -311,3 +311,21 @@
 hr {
 	margin-top: 2rem !important;
 }
+
+.news-item-img img {
+	height: 230px;
+	width: 100%;
+	object-fit: cover !important;
+}
+
+.bradius {
+	border-radius: 8px;
+}
+
+.title_color {
+	color: #D51E4C !important;
+}
+
+.news-link {
+	color: #D51E4C !important;
+}

@@ -15,6 +15,7 @@ class Blogs extends Model
         // 'parent_id',
         'title',
         'category_id',
+        'short_description',
         'description',
         'author_id',
         // 'slug',

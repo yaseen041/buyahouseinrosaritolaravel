@@ -147,6 +147,12 @@
                                         </div>
                                         <div class="col-md-12 order-lg-2 order-3">
                                             <div class="form-group">
+                                                <strong class="form-label" for="short_description">Short Description:</strong>
+                                                <textarea name="short_description" class="form-control" id="short_description" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 order-lg-2 order-3">
+                                            <div class="form-group">
                                                 <strong class="form-label" for="description">Description:</strong>
                                                 <textarea name="description" class="form-control" id="description"></textarea>
                                             </div>
@@ -464,139 +470,139 @@
         },
         heading: {
             options: [{
-                    model: 'paragraph',
-                    title: 'Paragraph',
-                    class: 'ck-heading_paragraph'
-                },
-                {
-                    model: 'heading1',
-                    view: 'h1',
-                    title: 'Heading 1',
-                    class: 'ck-heading_heading1'
-                },
-                {
-                    model: 'heading2',
-                    view: 'h2',
-                    title: 'Heading 2',
-                    class: 'ck-heading_heading2'
-                },
-                {
-                    model: 'heading3',
-                    view: 'h3',
-                    title: 'Heading 3',
-                    class: 'ck-heading_heading3'
-                },
-                {
-                    model: 'heading4',
-                    view: 'h4',
-                    title: 'Heading 4',
-                    class: 'ck-heading_heading4'
-                },
-                {
-                    model: 'heading5',
-                    view: 'h5',
-                    title: 'Heading 5',
-                    class: 'ck-heading_heading5'
-                },
-                {
-                    model: 'heading6',
-                    view: 'h6',
-                    title: 'Heading 6',
-                    class: 'ck-heading_heading6'
+                model: 'paragraph',
+                title: 'Paragraph',
+                class: 'ck-heading_paragraph'
+            },
+            {
+                model: 'heading1',
+                view: 'h1',
+                title: 'Heading 1',
+                class: 'ck-heading_heading1'
+            },
+            {
+                model: 'heading2',
+                view: 'h2',
+                title: 'Heading 2',
+                class: 'ck-heading_heading2'
+            },
+            {
+                model: 'heading3',
+                view: 'h3',
+                title: 'Heading 3',
+                class: 'ck-heading_heading3'
+            },
+            {
+                model: 'heading4',
+                view: 'h4',
+                title: 'Heading 4',
+                class: 'ck-heading_heading4'
+            },
+            {
+                model: 'heading5',
+                view: 'h5',
+                title: 'Heading 5',
+                class: 'ck-heading_heading5'
+            },
+            {
+                model: 'heading6',
+                view: 'h6',
+                title: 'Heading 6',
+                class: 'ck-heading_heading6'
+            }
+        ]
+    },
+    placeholder: 'Enter Description Here!',
+
+    fontSize: {
+        options: [10, 12, 14, 'default', 18, 20, 22],
+        supportAllValues: true
+    },
+
+    link: {
+        decorators: {
+            openInNewTab: {
+                mode: 'manual',
+                callback: () => true,
+                label: 'Open in new tab',
+                attributes: {
+                    target: '_blank'
                 }
-            ]
-        },
-        placeholder: 'Enter Description Here!',
-
-        fontSize: {
-            options: [10, 12, 14, 'default', 18, 20, 22],
-            supportAllValues: true
-        },
-
-        link: {
-            decorators: {
-                openInNewTab: {
-                    mode: 'manual',
-                    callback: () => true,
-                    label: 'Open in new tab',
-                    attributes: {
-                        target: '_blank'
-                    }
-                },
-                openInSameTab: {
-                    mode: 'manual',
-                    label: 'Open in same tab',
-                    attributes: {
-                        target: '_self'
-                    }
-                },
-                addNoFollow: {
-                    mode: 'manual',
-                    label: 'Add nofollow',
-                    attributes: {
-                        rel: 'nofollow'
-                    }
-                },
-                removeNoFollow: {
-                    mode: 'manual',
-                    label: 'Remove nofollow',
-                    attributes: {
-                        rel: null
-                    }
+            },
+            openInSameTab: {
+                mode: 'manual',
+                label: 'Open in same tab',
+                attributes: {
+                    target: '_self'
+                }
+            },
+            addNoFollow: {
+                mode: 'manual',
+                label: 'Add nofollow',
+                attributes: {
+                    rel: 'nofollow'
+                }
+            },
+            removeNoFollow: {
+                mode: 'manual',
+                label: 'Remove nofollow',
+                attributes: {
+                    rel: null
                 }
             }
+        }
+    },
+    mediaEmbed: {
+        previewsInData: true
+    },
+    htmlSupport: {
+        allow: [{
+            name: 'a',
+            attributes: {
+                'rel': true
+            },
+            classes: true,
+            styles: true
         },
-        mediaEmbed: {
-            previewsInData: true
-        },
-        htmlSupport: {
-            allow: [{
-                    name: 'a',
-                    attributes: {
-                        'rel': true
-                    },
-                    classes: true,
-                    styles: true
-                },
-                {
-                    name: 'iframe',
-                    attributes: {
-                        src: true,
-                        width: true,
-                        height: true,
-                        allow: true,
-                        frameborder: true,
-                        allowfullscreen: true
-                    },
-                    classes: true,
-                    styles: true
-                }
-            ]
-        },
-        removePlugins: [
-            'AIAssistant',
-            'CKBox',
-            'CKFinder',
-            'RealTimeCollaborativeComments',
-            'RealTimeCollaborativeTrackChanges',
-            'RealTimeCollaborativeRevisionHistory',
-            'PresenceList',
-            'Comments',
-            'TrackChanges',
-            'TrackChangesData',
-            'RevisionHistory',
-            'Pagination',
-            'WProofreader',
-            'MathType',
-            'SlashCommand',
-            'Template',
-            'DocumentOutline',
-            'FormatPainter',
-            'TableOfContents',
-            'PasteFromOfficeEnhanced'
-        ]
-    }).then(newEditor => {
-        editor = newEditor;
-    });
+        {
+            name: 'iframe',
+            attributes: {
+                src: true,
+                width: true,
+                height: true,
+                allow: true,
+                frameborder: true,
+                allowfullscreen: true
+            },
+            classes: true,
+            styles: true
+        }
+    ]
+},
+removePlugins: [
+    'AIAssistant',
+    'CKBox',
+    'CKFinder',
+    'RealTimeCollaborativeComments',
+    'RealTimeCollaborativeTrackChanges',
+    'RealTimeCollaborativeRevisionHistory',
+    'PresenceList',
+    'Comments',
+    'TrackChanges',
+    'TrackChangesData',
+    'RevisionHistory',
+    'Pagination',
+    'WProofreader',
+    'MathType',
+    'SlashCommand',
+    'Template',
+    'DocumentOutline',
+    'FormatPainter',
+    'TableOfContents',
+    'PasteFromOfficeEnhanced'
+]
+}).then(newEditor => {
+    editor = newEditor;
+});
 </script>
 @endpush

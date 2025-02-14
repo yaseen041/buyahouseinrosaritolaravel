@@ -22,7 +22,7 @@ class BlogController extends Controller
               });
             });
         }
-        $data['blogs'] = $query->orderBy('id', 'DESC')->paginate(9);
+        $data['blogs'] = $query->orderBy('id', 'DESC')->paginate(8);
         return view('blogs.blog', $data);
     }
 
@@ -54,7 +54,7 @@ class BlogController extends Controller
         if (!$category) {
             return view('common.view_404');
         }
-        $data['blogs'] = Blogs::with('category')->where('status', 1)->where('category_id', $category->id)->orderBy('id', 'DESC')->paginate(9);
+        $data['blogs'] = Blogs::with('category')->where('status', 1)->where('category_id', $category->id)->orderBy('id', 'DESC')->paginate(8);
         return view('blogs.blog', $data);
     }
 

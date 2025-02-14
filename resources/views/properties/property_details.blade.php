@@ -17,6 +17,22 @@
 <script type="application/ld+json">
     <?php echo $property['json_ld_code'] ?>
 </script>
+
+ <!-- LEAFLET MAP -->
+    <link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/leaflet-gesture-handling.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.markercluster.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.markercluster.default.css') }}">
+
+    <!-- ARCHIVES CSS -->
+    <link rel="stylesheet" href="{{ asset('user_assets/css/timedropper.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/datedropper.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/lightcase.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/owl.carousel.min.css') }}">
+
 @endpush
 
 {{-- {{ dd($property); }} --}}
@@ -26,57 +42,56 @@
     <div class="container-fluid p0">
         <div class="row">
             @foreach($property->gallery as $index => $image)
-        @if ($index == 0)
+            @if ($index == 0)
             <div class="col-sm-6 col-lg-6 p0">
                 <div class="row m0">
                     <div class="col-lg-12 p0">
                         <div class="popup-images">
-                        <a class="popup-img" href="{{ $image }}">
-                        <img class="img-fluid w100" src="{{ $image }}" alt="">
+                            <a class="popup-img" href="{{ $image }}">
+                                <img class="img-fluid w100" src="{{ $image }}" alt="">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        @elseif ($index == 1)
+            @elseif ($index == 1)
             <div class="col-sm-6 col-lg-6 p0">
                 <div class="row m0">
                     <div class="col-sm-6 col-lg-6 p0">
                         <div class="popup-images">
-                        <a class="popup-img" href="{{ $image }}">
-                        <img class="img-fluid w100" src="{{ $image }}" alt="">
+                            <a class="popup-img" href="{{ $image }}">
+                                <img class="img-fluid w100" src="{{ $image }}" alt="">
                             </a>
                         </div>
                     </div>
-        @elseif ($index == 2)
+                    @elseif ($index == 2)
                     <div class="col-sm-6 col-lg-6 p0">
                         <div class="popup-images">
-                        <a class="popup-img" href="{{ $image }}">
-                        <img class="img-fluid w100" src="{{ $image }}" alt="">
+                            <a class="popup-img" href="{{ $image }}">
+                                <img class="img-fluid w100" src="{{ $image }}" alt="">
                             </a>
                         </div>
                     </div>
-        @elseif ($index == 3)
+                    @elseif ($index == 3)
                     <div class="col-sm-6 col-lg-6 p0">
                         <div class="popup-images">
-                        <a class="popup-img" href="{{ $image }}">
-                        <img class="img-fluid w100" src="{{ $image }}" alt="">
+                            <a class="popup-img" href="{{ $image }}">
+                                <img class="img-fluid w100" src="{{ $image }}" alt="">
                             </a>
                         </div>
                     </div>
-        @elseif ($index == 4)
+                    @elseif ($index == 4)
                     <div class="col-sm-6 col-lg-6 p0">
                         <div class="popup-images">
-                        <a class="popup-img" href="{{ $image }}">
-                        <img class="img-fluid w100" src="{{ $image }}" alt="">
+                            <a class="popup-img" href="{{ $image }}">
+                                <img class="img-fluid w100" src="{{ $image }}" alt="">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        @endif
-    @endforeach
-
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
@@ -183,207 +198,215 @@
                     <h5>Floor Plans</h5>
                     <img alt="image" src="images/bg/floor-plan-1.png">
                 </div>
-
-            </div>
-        </div>
-
-        <div class="property-location map">
-            <h5>Location</h5>
-            <div class="divider-fade"></div>
-            <div id="map-contact" class="contact-map"></div>
-        </div>
-    </div>
-    <aside class="col-lg-4 col-md-12 car">
-        <div class="single widget">
-
-            <!-- Start: Schedule a Tour -->
-            <div class="schedule widget-boxed mt-30">
-                <div class="widget-boxed-header">
-                    <h4><i class="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
-                </div>
-                <div class="widget-boxed-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 book">
-                            <input type="text" id="reservation-date" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-disabled-days="08/17/2017,08/18/2017" data-id="datedropper-0" data-theme="my-style" class="form-control" readonly="">
-                        </div>
-                        <div class="col-lg-6 col-md-12 book2">
-                            <input type="text" id="reservation-time" class="form-control" readonly="">
-                        </div>
-                    </div>
-                    <div class="row mrg-top-15 mb-3">
-                        <div class="col-lg-6 col-md-12 mt-4">
-                            <label class="mb-4">Adult</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </span>
-                                <input type="text" name="quant[1]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[1]">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 mt-4">
-                            <label class="mb-4">Children</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </span>
-                                <input type="text" name="quant[2]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[2]">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="payment-method.html" class="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
+                <div class="property-location map">
+                    <h5>Location</h5>
+                    <div class="divider-fade"></div>
+                    <div id="map-contact" class="contact-map"></div>
                 </div>
             </div>
+            <aside class="col-lg-4 col-md-12 car">
+                <div class="single widget">
 
-            <div class="sidebar">
-                <div class="widget-boxed mt-33 mt-5">
-                    <div class="widget-boxed-header">
-                        <h4>Agent Information</h4>
-                    </div>
-                    <div class="widget-boxed-body">
-                        <div class="sidebar-widget author-widget2">
-                            <div class="author-box clearfix">
-                                <img src="{{ $agent->image}}" alt="author-image" class="author__img">
-                                <h4 class="author__title">{{ $agent->name }}</h4>
-                                <p class="author__meta">{{ $agent->designation}}</p>
-                            </div>
-
-                            <div class="agent-contact-form-sidebar">
-                                <h4>Request Inquiry</h4>
-                                <form name="contact_form" method="post" action="https://code-theme.com/html/findhouses/functions.php">
-                                    <input type="text" id="fname" name="full_name" placeholder="Full Name" required />
-                                    <input type="number" id="pnumber" name="phone_number" placeholder="Phone Number" required />
-                                    <input type="email" id="emailid" name="email_address" placeholder="Email Address" required />
-                                    <textarea placeholder="Message" name="message" required></textarea>
-                                    <input type="submit" name="sendmessage" class="multiple-send-message" value="Submit Request" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main-search-field-2">
-                    <div class="widget-boxed mt-5">
+                    <!-- Start: Schedule a Tour -->
+                    <div class="schedule widget-boxed mt-30">
                         <div class="widget-boxed-header">
-                            <h4>Recent Properties</h4>
+                            <h4><i class="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
                         </div>
                         <div class="widget-boxed-body">
-                            <div class="recent-post">
-                                <div class="recent-main">
-                                    <div class="recent-img">
-                                        <a href="blog-details.html"><img src="images/feature-properties/fp-1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="info-img">
-                                        <a href="blog-details.html"><h6>Family Home</h6></a>
-                                        <p>$230,000</p>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 book">
+                                    <input type="text" id="reservation-date" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-disabled-days="08/17/2017,08/18/2017" data-id="datedropper-0" data-theme="my-style" class="form-control" readonly="">
+                                </div>
+                                <div class="col-lg-6 col-md-12 book2">
+                                    <input type="text" id="reservation-time" class="form-control" readonly="">
+                                </div>
+                            </div>
+                            <div class="row mrg-top-15 mb-3">
+                                <div class="col-lg-6 col-md-12 mt-4">
+                                    <label class="mb-4">Adult</label>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[1]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[1]">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="recent-main my-4">
-                                    <div class="recent-img">
-                                        <a href="blog-details.html"><img src="images/feature-properties/fp-2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="info-img">
-                                        <a href="blog-details.html"><h6>Family Home</h6></a>
-                                        <p>$230,000</p>
+                                <div class="col-lg-6 col-md-12 mt-4">
+                                    <label class="mb-4">Children</label>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[2]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[2]">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="recent-main">
-                                    <div class="recent-img">
-                                        <a href="blog-details.html"><img src="images/feature-properties/fp-3.jpg" alt=""></a>
+                            </div>
+                            <a href="payment-method.html" class="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="widget-boxed mt-33 mt-5">
+                            <div class="widget-boxed-header">
+                                <h4>Agent Information</h4>
+                            </div>
+                            <div class="widget-boxed-body">
+                                <div class="sidebar-widget author-widget2">
+                                    <div class="author-box clearfix">
+                                        <img src="{{ $agent->image}}" alt="author-image" class="author__img">
+                                        <h4 class="author__title">{{ $agent->name }}</h4>
+                                        <p class="author__meta">{{ $agent->designation}}</p>
                                     </div>
-                                    <div class="info-img">
-                                        <a href="blog-details.html"><h6>Family Home</h6></a>
-                                        <p>$230,000</p>
+
+                                    <div class="agent-contact-form-sidebar">
+                                        <h4>Request Inquiry</h4>
+                                        <form name="contact_form" method="post" action="https://code-theme.com/html/findhouses/functions.php">
+                                            <input type="text" id="fname" name="full_name" placeholder="Full Name" required />
+                                            <input type="number" id="pnumber" name="phone_number" placeholder="Phone Number" required />
+                                            <input type="email" id="emailid" name="email_address" placeholder="Email Address" required />
+                                            <textarea placeholder="Message" name="message" required></textarea>
+                                            <input type="submit" name="sendmessage" class="multiple-send-message" value="Submit Request" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-search-field-2">
+                            <div class="widget-boxed mt-5">
+                                <div class="widget-boxed-header">
+                                    <h4>Recent Properties</h4>
+                                </div>
+                                <div class="widget-boxed-body">
+                                    <div class="recent-post">
+                                        <div class="recent-main">
+                                            <div class="recent-img">
+                                                <a href="blog-details.html"><img src="images/feature-properties/fp-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="info-img">
+                                                <a href="blog-details.html"><h6>Family Home</h6></a>
+                                                <p>$230,000</p>
+                                            </div>
+                                        </div>
+                                        <div class="recent-main my-4">
+                                            <div class="recent-img">
+                                                <a href="blog-details.html"><img src="images/feature-properties/fp-2.jpg" alt=""></a>
+                                            </div>
+                                            <div class="info-img">
+                                                <a href="blog-details.html"><h6>Family Home</h6></a>
+                                                <p>$230,000</p>
+                                            </div>
+                                        </div>
+                                        <div class="recent-main">
+                                            <div class="recent-img">
+                                                <a href="blog-details.html"><img src="images/feature-properties/fp-3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="info-img">
+                                                <a href="blog-details.html"><h6>Family Home</h6></a>
+                                                <p>$230,000</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
-    </aside>
-</div>
+        <section class="similar-property featured portfolio p-0 bg-white-inner">
+            <div class="container">
+                <h5>Similar Properties</h5>
+                <div class="row portfolio-items">
+                    @foreach($related_listings as $property)
+                    <div class="item col-lg-4 col-md-6 col-xs-12 landscapes">
+                        <div class="project-single">
+                            <div class="project-inner project-head">
+                                <div class="homes">
+                                    <a href="{{ route('property.details', ['id' => $property->id]) }}" class="homes-img">
+                                        <div class="homes-tag button alt featured">Featured</div>
+                                        <div class="homes-tag button alt sale">{{ $property->status }}</div>
+                                        <div class="homes-price">${{ number_format($property->price, 2) }}/mo</div>
+                                        <img src="{{ asset('images/feature-properties/' . $property->image) }}" alt="home-1" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="button-effect">
+                                    <a href="{{ route('property.details', ['id' => $property->id]) }}" class="btn"><i class="fa fa-link"></i></a>
+                                    <a href="{{ $property->video_url }}" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                    <a href="{{ route('property.gallery', ['id' => $property->id]) }}" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                </div>
+                            </div>
+                            <div class="homes-content">
+                                <h3><a href="{{ route('property.details', ['id' => $property->id]) }}">{{ $property->name }}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="{{ route('property.details', ['id' => $property->id]) }}">
+                                        <i class="fa fa-map-marker"></i><span>{{ $property->location }}</span>
+                                    </a>
+                                </p>
 
-
-<section class="similar-property featured portfolio p-0 bg-white-inner">
-    <div class="container">
-        <h5>Similar Properties</h5>
-        <div class="row portfolio-items">
-            @foreach($related_listings as $property)
-            <div class="item col-lg-4 col-md-6 col-xs-12 landscapes">
-                <div class="project-single">
-                    <div class="project-inner project-head">
-                        <div class="homes">
-                            <a href="{{ route('property.details', ['id' => $property->id]) }}" class="homes-img">
-                                <div class="homes-tag button alt featured">Featured</div>
-                                <div class="homes-tag button alt sale">{{ $property->status }}</div>
-                                <div class="homes-price">${{ number_format($property->price, 2) }}/mo</div>
-                                <img src="{{ asset('images/feature-properties/' . $property->image) }}" alt="home-1" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="button-effect">
-                            <a href="{{ route('property.details', ['id' => $property->id]) }}" class="btn"><i class="fa fa-link"></i></a>
-                            <a href="{{ $property->video_url }}" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                            <a href="{{ route('property.gallery', ['id' => $property->id]) }}" class="img-poppu btn"><i class="fa fa-photo"></i></a>
-                        </div>
-                    </div>
-                    <div class="homes-content">
-                        <h3><a href="{{ route('property.details', ['id' => $property->id]) }}">{{ $property->name }}</a></h3>
-                        <p class="homes-address mb-3">
-                            <a href="{{ route('property.details', ['id' => $property->id]) }}">
-                                <i class="fa fa-map-marker"></i><span>{{ $property->location }}</span>
-                            </a>
-                        </p>
-
-                        <ul class="homes-list clearfix pb-3">
-                            <li class="the-icons">
-                                <i class="flaticon-bed mr-2" aria-hidden="true"></i>
-                                <span>{{ $property->bedrooms }} Bedrooms</span>
-                            </li>
-                            <li class="the-icons">
-                                <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
-                                <span>{{ $property->bathrooms }} Bathrooms</span>
-                            </li>
-                            <li class="the-icons">
-                                <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                <span>{{ $property->area }} sq ft</span>
-                            </li>
-                            <li class="the-icons">
-                                <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                <span>{{ $property->garages }} Garages</span>
-                            </li>
-                        </ul>
-                        <div class="footer">
-                            <a href="{{ route('agent.details', ['id' => $property->agent_id]) }}">
-                                <img src="{{ asset('images/agents/' . $property->agent->image) }}" alt="" class="mr-2"> {{ $property->agent->name }}
-                            </a>
-                            <span>{{ $property->created_at->diffForHumans() }}</span>
+                                <ul class="homes-list clearfix pb-3">
+                                    <li class="the-icons">
+                                        <i class="flaticon-bed mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->bedrooms }} Bedrooms</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->bathrooms }} Bathrooms</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-square mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->area }} sq ft</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-car mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->garages }} Garages</span>
+                                    </li>
+                                </ul>
+                                <div class="footer">
+                                    <a href="{{ route('agent.details', ['id' => $property->agent_id]) }}">
+                                        <img src="{{ asset('images/agents/' . $property->agent->image) }}" alt="" class="mr-2"> {{ $property->agent->name }}
+                                    </a>
+                                    <span>{{ $property->created_at->diffForHumans() }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
-        </div>
+        </section>
     </div>
-</section>
-
-</div>
 </section>
 @endsection
 @push('scripts')
+
+<script src="{{ asset('user_assets/js/range-slider.js') }}"></script>
+<script src="{{ asset('user_assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('user_assets/js/slick4.js') }}"></script>
+<script src="{{ asset('user_assets/js/popup.js') }}"></script>
+<script src="{{ asset('user_assets/js/timedropper.js') }}"></script>
+<script src="{{ asset('user_assets/js/datedropper.js') }}"></script>
+<script src="{{ asset('user_assets/js/jqueryadd-count.js') }}"></script>
+<script src="{{ asset('user_assets/js/leaflet.js') }}"></script>
+<script src="{{ asset('user_assets/js/leaflet-gesture-handling.min.js') }}"></script>
+<script src="{{ asset('user_assets/js/leaflet-providers.js') }}"></script>
+<script src="{{ asset('user_assets/js/leaflet.markercluster.js') }}"></script>
+<script src="{{ asset('user_assets/js/map-single.js') }}"></script>
+<script src="{{ asset('user_assets/js/inner.js') }}"></script>
+
 <script>
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 3,

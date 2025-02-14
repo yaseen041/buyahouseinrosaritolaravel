@@ -68,7 +68,7 @@ class HomepageController extends Controller
 
         // Features
 
-        $features = Feature::where();
+        $features = Feature::all();
         foreach ($features as $feature) {
             $feature->type = mapfeaturetype($feature->type);
             $feature->property_count = PropertyFeature::where('feature_id', $feature->id)->count();

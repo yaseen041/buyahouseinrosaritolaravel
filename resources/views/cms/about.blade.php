@@ -83,8 +83,8 @@ $seo_data = get_single_row('seos', 'page_name', 'about');
                 <ul class="wow fadeInUp mt-4">
                     <li>
                         <p>
-                            <strong>Getting a U.S. Address</strong>: It’s easy. We use our PO Box, and it’s on our California <strong>
-                                <a target="_blank" href="https://www.dmv.ca.gov/portal/"> Driver’s License</a>
+                            <strong>Getting a U.S. Address</strong>: It’s easy. We use our PO Box, and it’s on our <strong>
+                                <a target="_blank" href="https://www.dmv.ca.gov/portal/"> California Driver’s License</a>
                             </strong> (which you’re required to get within 10 days of establishing residency.
                         </p>
                     </li>

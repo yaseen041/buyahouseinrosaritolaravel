@@ -16,10 +16,10 @@
 					<ul id="responsive">
 						<li><a href="{{ url('/')}}">Home</a></li>
 						<li><a href="{{ url('properties')}}">Property</a></li>
-						<li><a href="{{ url('/')}}">About</a></li>
+						<li><a href="{{ url('about')}}">About</a></li>
 						<li><a href="{{ url('blog')}}">Blog</a></li>
-						<li><a href="{{ url('/')}}">FAQ</a></li>
-						<li><a href="{{ url('/')}}">Contact</a></li>
+						<li><a href="{{ url('faq')}}">FAQ</a></li>
+						<li><a href="{{ url('contact')}}">Contact</a></li>
 					</ul>
 				</nav>
 			</div>

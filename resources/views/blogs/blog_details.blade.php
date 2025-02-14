@@ -1,17 +1,22 @@
 @extends('app')
-@section('meta_title', $blog->meta_title )
-@section('meta_description', $blog->meta_description )
-@section('meta_keywords', $blog->meta_keywords )
-@section('fb_title', $blog->fb_title )
-@section('fb_description', $blog->fb_description )
-@section('fb_image', asset('/assets/images/' . $blog->fb_image))
-@section('twitter_title', $blog->twitter_title )
-@section('twitter_description', $blog->twitter_description )
-@section('twitter_image', asset('/assets/images/' . $blog->twitter_image))
-@section('json_ld_code')
-{!! $blog->json_ld_code !!}
-@endsection
 @push('styles')
+<title>{{ $blog->meta_title }}</title>
+<meta name="description" content="{{ $blog->meta_description }}" />
+<meta name="keywords" content="{{ $blog->meta_keywords }}" />
+<link rel="canonical" href="{{ url('/') }}" />
+<meta property="og:title" content="{{ $blog->fb_title }}" />
+<meta property="og:description" content="{{ $blog->fb_description }}" />
+<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:image" content="{{ asset('/assets/images/' . $blog->fb_image)}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $blog->twitter_title }}" />
+<meta name="twitter:description" content="{{ $blog->twitter_description }}" />
+<meta name="twitter:image" content="{{ asset('/assets/images/' . $blog->twitter_image) }}" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+    <?php echo $blog->json_ld_code; ?>
+</script>
+
 @endpush
 @section('content')
 <section class="headings">

@@ -29,6 +29,9 @@
 <script src="{{ asset('user_assets/js/color-switcher.js') }}"></script>
 <script src="{{ asset('user_assets/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ asset('user_assets/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
+
+<script src="{{ asset('admin_assets/js/plugins/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('admin_assets/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
 <script>
 	$('.style1').owlCarousel({
 		loop: true,

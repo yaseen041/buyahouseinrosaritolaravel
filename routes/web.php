@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CMSontroller;
 
 
 
@@ -42,6 +44,10 @@ Route::get('/properties', [PropertiesController::class, 'index']);
 
 
 // Abdul Waheed
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::post('submit_contact', [ContactController::class, 'submit_contact'])->name('submit_contact');
+Route::get('faq', [CMSontroller::class, 'faq'])->name('faq');
+Route::get('about', [CMSontroller::class, 'about'])->name('about');
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/{slug}', [BlogController::class, 'handleSlug'])->where('slug', '.*')->name('slugHandler');
-

@@ -19,3 +19,6 @@
  <link rel="stylesheet" href="{{ asset('user_assets/css/slick.css') }}">
  <link rel="stylesheet" href="{{ asset('user_assets/css/styles.css') }}">
  <link rel="stylesheet" id="color" href="{{ asset('user_assets/css/default.css') }}">
+
+<link href="{{ asset('admin_assets/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+<link href="{{ asset('admin_assets/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">

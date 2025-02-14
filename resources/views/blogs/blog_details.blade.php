@@ -14,7 +14,7 @@
 <meta name="twitter:image" content="{{ asset('/assets/images/' . $blog->twitter_image) }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    {!! $blog->json_ld_code !!}
+    <?php echo $blog->json_ld_code; ?>
 </script>
 
 @endpush

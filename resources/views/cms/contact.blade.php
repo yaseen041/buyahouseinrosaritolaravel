@@ -17,7 +17,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 <meta name="twitter:image" content="{{ asset('/assets/images/' . $seo_data->twitter_image) }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    {!! $seo_data->json_ld_code !!}
+    <?php echo $seo_data->json_ld_code; ?>
 </script>
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
@@ -62,26 +62,26 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
                 <h3 class="mb-4">Contact Us</h3>
                 <form id="contact_form" class="contact-form" name="contact_form" method="post" novalidate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <input type="text" required class="form-control input-custom input-full" name="name" placeholder="Name">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <input type="text" required class="form-control input-custom input-full" name="phone" placeholder="Phone">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <input type="text" class="form-control input-custom input-full" name="email" placeholder="Email">
                     </div>
-                    <div class="form-group">
-                        <select id="propertySelect" name="property" class="nice-select form-control input-custom input-full mb-3 wide" multiple>
+                    <div class="form-group mb-3">
+                        <select id="propertySelect" name="property[]" class="form-control input-custom input-full mb-3 wide" multiple>
                             @foreach($properties as $property)
                             <option value="{{ $property->id}}">{{ $property->title}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <textarea class="form-control textarea-custom input-full" id="ccomment" name="message" required rows="8" placeholder="Message"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <span class="custom-checkbox d-block font-12 mb-3">
                             <input type="checkbox" name="store_info" id="store_info">
                             <label for="store_info">
@@ -147,8 +147,10 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
     }
 
     $(document).on("click" , "#btn_submit_contact" , function() {
-        var btn = $(this).ladda();
-        btn.ladda('start');
+        event.preventDefault();
+        var btn = $(this);
+        // btn.prop("disabled", true).text("Please Wait...");
+
         var formData =  new FormData($("#contact_form")[0]);
         $.ajax({
             url:"{{ url('submit_contact') }}",
@@ -159,6 +161,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
             contentType: false,
             processData: false,
             success:function(status){
+                 // btn.prop("disabled", false).text("Submit");
                 if(status.msg=='success') {
                     toastr.success(status.response,"Success");
                     $('#contact_form')[0].reset();
@@ -166,10 +169,8 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
                         location.reload(true);
                     }, 2000);
                 } else if(status.msg == 'error') {
-                    btn.ladda('stop');
                     toastr.error(status.response,"Error");
                 } else if(status.msg == 'lvl_error') {
-                    btn.ladda('stop');
                     var message = "";
                     $.each(status.response, function (key, value) {
                         message += value+"<br>";

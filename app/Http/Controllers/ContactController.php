@@ -26,16 +26,14 @@ class ContactController extends Controller
             'message' => 'required|string',
             'property' => 'required',
         ]);
-
         if ($validator->fails()) {
             return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
         }
 
-        $properties_ids = json_decode($request->property); //["1", "2", "3"] in this format
-        print_r($properties_ids);
-        exit;
-        $properties_ids = ["1", "2", "3"];
-        $properties = Property::whereIn('id', $properties_ids)->get();
+        $property_ids = $request->input('property', []);
+        $ids_array = array_map('strval', $property_ids);
+        $properties_ids = json_encode($ids_array);
+        $properties = Property::whereIn('id', $ids_array)->select('id', 'title', 'code', 'neighborhood_id')->get();
         if (!$properties) {
             return response()->json(['msg' => 'error', 'response' => 'Properties not found.']);
         }
@@ -44,20 +42,30 @@ class ContactController extends Controller
         $contactRequest->name = $data['name'];
         $contactRequest->email = $data['email'];
         $contactRequest->phone = $data['phone'];
-        $contactRequest->property_ids = '["1", "2", "3"]';
+        $contactRequest->property_ids = $properties_ids;
         $contactRequest->message = $data['message'];
         $contactRequest->save();
 
-        // $headers = "From: webmaster@example.com\r\n";
-        // $headers .= "Reply-To: webmaster@example.com\r\n";
-        // $headers .= "Content-Type: text/html\r\n";
-        // $subject = 'New Contact Submission Received from ' . $data['name'];
-        // $emailTemplate = view('emails.contact', compact(['data', 'properties']))->render();
-        // $sendMail = mail(env('ADMIN_EMAIL'), $subject, $emailTemplate, $headers);
+        // $to = env('ADMIN_EMAIL');
+        // $noreply_email = env('NOREPLY_EMAIL');
+        $to = 'dev1@explorelogicsit.net';
+        $noreply_email = 'noreply@explorelogicsit.net';
+        $subject = 'New Contact Submission Received From '.$data['name'];
+        $body = view('emails.contact', compact(['data', 'properties']))->render();
+
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= 'From: <' . $noreply_email . '>' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $headers .= "Content-Transfer-Encoding: 7bit\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers .= "X-Priority: 3\r\n";
+        $headers .= "X-MSMail-Priority: Normal\r\n";
+        $headers .= "Importance: Normal\r\n";
+        $sendMail = mail($to, $subject, $body, $headers);
 
         $sendMail = true;
         if ($sendMail) {
-            return response()->json(['msg' => 'success', 'response' => 'Contact request submitted successfully.'.$properties]);
+            return response()->json(['msg' => 'success', 'response' => 'Contact request submitted successfully.']);
         } else {
             return response()->json(['msg' => 'error', 'response' => 'Failed to submit contact request.']);
         }

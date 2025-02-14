@@ -17,7 +17,7 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
 <meta name="twitter:image" content="{{ asset('/assets/images/' . $seo_data->twitter_image) }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    {!! $seo_data->json_ld_code !!}
+    <?php echo $seo_data->json_ld_code; ?>
 </script>
 @endpush
 @section('content')

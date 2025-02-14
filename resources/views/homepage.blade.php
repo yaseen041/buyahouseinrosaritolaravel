@@ -36,11 +36,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="hero-inner2">
-                                <div class="welcome-text">
+                                <div class="welcome-text text-center d-flex flex-column align-items-center">
                                     <h1 class="h1">
-                                        Rosarito isn't just a beach, it's a community...<br>
-                                        and you're invited! -The Hansome Family
+                                        Rosarito isn't just a beach, it's a community...
                                     </h1>
+                                    <h2 class="text-light">
+                                        and you're invited! -The Hansome Family
+                                    </h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="banner-search-wrap">

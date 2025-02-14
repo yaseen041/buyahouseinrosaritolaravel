@@ -22,12 +22,6 @@ class NeighborhoodsController extends Controller
             $neighborhood->banner = asset('uploads/neighborhoods/' . $neighborhood->banner);
             $neighborhood->fb_image = asset('uploads/neighborhoods/' . $neighborhood->fb_image);
             $neighborhood->twitter_image = asset('uploads/neighborhoods/' . $neighborhood->twitter_image);
-            // $images = json_decode($neighborhood->images);
-            // $neighborhood_images = [];
-            // foreach ($images as $image) {
-            //     $neighborhood_images[] = asset('uploads/neighborhoods/' . $image);
-            // }
-            // $neighborhood->images = $neighborhood_images;
             $neighborhood->property_count = Property::where('neighborhood_id', $neighborhood->id)->count();
         }
         return response()->json(['message' => 'Neighborhoods retrieved successfully.', 'data' => $neighborhoods], 200);

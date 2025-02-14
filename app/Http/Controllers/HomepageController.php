@@ -12,30 +12,40 @@ use App\Models\Types;
 use App\Models\Blogs;
 use App\Models\Categories;
 use App\Models\SEO;
+
 class HomepageController extends Controller
 {
     public function index()
     {
+        // SEO
+        $page = SEO::where('page_name', 'home')->first();
+        $page->fb_image = asset('assets/images/' . $page->fb_image);
+        $page->twitter_image = asset('assets/images/' . $page->twitter_image);
+
+        // Types
         $types = Types::all();
         foreach ($types as $type) {
             $type->banner = asset('uploads/types/' . $type->banner);
             $type->property_count = PropertyType::where('type_id', $type->id)->count();
         }
+
+        // Properties
         $properties = Property::where('listing_status', 1)->orWhere('listing_status', 2)->where('is_featured', 1)->orWhere('is_featured', 2)->orderBy('views', 'desc')->limit(10)->get();
         foreach ($properties as $property) {
             $this->refine($property);
         }
 
+        // Cities
         $cities = City::select('id', 'name', 'slug', 'state', 'country', 'image')
         ->withCount(['properties' => function ($query) {
             $query->whereNotNull('id');
         }])
         ->get();
-
         foreach ($cities as $city) {
             $city->image = asset('uploads/cities/' . $city->image);
         }
 
+        // Blogs
         $latestBlogs = Blogs::where('status', 1)
         ->where('disable_crawl', 0)
         ->orderBy('id', 'DESC')
@@ -46,12 +56,25 @@ class HomepageController extends Controller
             $blog->category = $blog->category->title ?? '';
         }
 
-        $page = SEO::where('page_name', 'home')->first();
+        // Comunities
+        $comunities = Neighborhood::all();
+        foreach ($comunities as $comunity) {
+            $comunity->city = $comunity->city->name;
+            $comunity->banner = asset('uploads/neighborhoods/' . $comunity->banner);
+            $comunity->fb_image = asset('uploads/neighborhoods/' . $comunity->fb_image);
+            $comunity->twitter_image = asset('uploads/neighborhoods/' . $comunity->twitter_image);
+            $comunity->property_count = Property::where('neighborhood_id', $comunity->id)->count();
+        }
 
-        $page->fb_image = asset('assets/images/' . $page->fb_image);
-        $page->twitter_image = asset('assets/images/' . $page->twitter_image);
+        // Features
 
-        return view('homepage', compact('types', 'properties', 'cities', 'latestBlogs', 'page'));
+        $features = Feature::where();
+        foreach ($features as $feature) {
+            $feature->type = mapfeaturetype($feature->type);
+            $feature->property_count = PropertyFeature::where('feature_id', $feature->id)->count();
+        }
+
+        return view('homepage', compact('types', 'properties', 'cities', 'latestBlogs', 'page', 'comunities', 'features'));
     }
 
     public function feature_mapping($features, $property_features)

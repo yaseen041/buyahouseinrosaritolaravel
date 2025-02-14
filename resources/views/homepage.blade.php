@@ -23,7 +23,306 @@
 <div class="clearfix"></div>
 
 {{-- Banner --}}
-<div class=" int_content_left">
+<div class="homepage-9 hp-6 hd-white hmp7 mh">
+    <div id="map-container" class="fullwidth-home-map dark-overlay">
+        <div class="video-container">
+            <video poster="{{asset('user_assets/images/bg/video-image.png')}}" loop autoplay muted>
+                <source src="{{ asset('user_assets/video/video-3.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+            <div id="hero-area" class="main-search-inner search-2 vid">
+                <div class="container vid" data-aos="zoom-in">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hero-inner2">
+                                <div class="welcome-text">
+                                    <h1 class="h1">
+                                        <br class="d-md-none">
+                                        <span class="typed border-bottom"></span>
+                                    </h1>
+                                    <p class="mt-4"></p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="banner-search-wrap">
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="tabs_1">
+                                                <div class="rld-main-search">
+                                                    <div class="row">
+                                                        <div class="rld-single-input">
+                                                            <input type="text" placeholder="Enter Keyword...">
+                                                        </div>
+                                                        <div class="rld-single-select ml-22">
+                                                            <select class="select single-select">
+                                                                <option value="1">Property Type</option>
+                                                                <option value="2">Family House</option>
+                                                                <option value="3">Apartment</option>
+                                                                <option value="3">Condo</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="rld-single-select">
+                                                            <select class="select single-select mr-0">
+                                                                <option value="1">Location</option>
+                                                                <option value="2">Los Angeles</option>
+                                                                <option value="3">Chicago</option>
+                                                                <option value="3">Philadelphia</option>
+                                                                <option value="3">San Francisco</option>
+                                                                <option value="3">Miami</option>
+                                                                <option value="3">Houston</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dropdown-filter"><span>Advanced Search</span></div>
+                                                        <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
+                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                        </div>
+                                                        <div class="explore__form-checkbox-list full-filter">
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
+                                                                    <div class="form-group categories">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-home"></i>Property Status</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected ">For Sale</li>
+                                                                                <li data-value="2" class="option">For Rent</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
+                                                                    <div class="form-group beds">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected">1</li>
+                                                                                <li data-value="2" class="option">2</li>
+                                                                                <li data-value="3" class="option">3</li>
+                                                                                <li data-value="3" class="option">4</li>
+                                                                                <li data-value="3" class="option">5</li>
+                                                                                <li data-value="3" class="option">6</li>
+                                                                                <li data-value="3" class="option">7</li>
+                                                                                <li data-value="3" class="option">8</li>
+                                                                                <li data-value="3" class="option">9</li>
+                                                                                <li data-value="3" class="option">10</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
+                                                                    <div class="form-group bath">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected">1</li>
+                                                                                <li data-value="2" class="option">2</li>
+                                                                                <li data-value="3" class="option">3</li>
+                                                                                <li data-value="3" class="option">4</li>
+                                                                                <li data-value="3" class="option">5</li>
+                                                                                <li data-value="3" class="option">6</li>
+                                                                                <li data-value="3" class="option">7</li>
+                                                                                <li data-value="3" class="option">8</li>
+                                                                                <li data-value="3" class="option">9</li>
+                                                                                <li data-value="3" class="option">10</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld d-none d-lg-none d-xl-flex">
+                                                                    <div class="main-search-field-2">
+                                                                        <div class="range-slider">
+                                                                            <label>Area Size</label>
+                                                                            <div id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="range-slider">
+                                                                            <label>Price Range</label>
+                                                                            <div id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                                    <div class="checkboxes one-in-row margin-bottom-10 ch-1">
+                                                                        <input id="check-2" type="checkbox" name="check">
+                                                                        <label for="check-2">Air Conditioning</label>
+                                                                        <input id="check-3" type="checkbox" name="check">
+                                                                        <label for="check-3">Swimming Pool</label>
+                                                                        <input id="check-4" type="checkbox" name="check">
+                                                                        <label for="check-4">Central Heating</label>
+                                                                        <input id="check-5" type="checkbox" name="check">
+                                                                        <label for="check-5">Laundry Room</label>
+                                                                        <input id="check-6" type="checkbox" name="check">
+                                                                        <label for="check-6">Gym</label>
+                                                                        <input id="check-7" type="checkbox" name="check">
+                                                                        <label for="check-7">Alarm</label>
+                                                                        <input id="check-8" type="checkbox" name="check">
+                                                                        <label for="check-8">Window Covering</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                                    <div class="checkboxes one-in-row margin-bottom-10 ch-2">
+                                                                        <input id="check-9" type="checkbox" name="check">
+                                                                        <label for="check-9">WiFi</label>
+                                                                        <input id="check-10" type="checkbox" name="check">
+                                                                        <label for="check-10">TV Cable</label>
+                                                                        <input id="check-11" type="checkbox" name="check">
+                                                                        <label for="check-11">Dryer</label>
+                                                                        <input id="check-12" type="checkbox" name="check">
+                                                                        <label for="check-12">Microwave</label>
+                                                                        <input id="check-13" type="checkbox" name="check">
+                                                                        <label for="check-13">Washer</label>
+                                                                        <input id="check-14" type="checkbox" name="check">
+                                                                        <label for="check-14">Refrigerator</label>
+                                                                        <input id="check-15" type="checkbox" name="check">
+                                                                        <label for="check-15">Outdoor Shower</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabs_2">
+                                                <div class="rld-main-search">
+                                                    <div class="row">
+                                                        <div class="rld-single-input">
+                                                            <input type="text" placeholder="Enter Keyword...">
+                                                        </div>
+                                                        <div class="rld-single-select ml-22">
+                                                            <select class="select single-select">
+                                                                <option value="1">Property Type</option>
+                                                                <option value="2">Family House</option>
+                                                                <option value="3">Apartment</option>
+                                                                <option value="3">Condo</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="rld-single-select">
+                                                            <select class="select single-select mr-0">
+                                                                <option value="1">Location</option>
+                                                                <option value="2">Los Angeles</option>
+                                                                <option value="3">Chicago</option>
+                                                                <option value="3">Philadelphia</option>
+                                                                <option value="3">San Francisco</option>
+                                                                <option value="3">Miami</option>
+                                                                <option value="3">Houston</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dropdown-filter"><span>Advanced Search</span></div>
+                                                        <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
+                                                            <a class="btn btn-yellow" href="#">Search Now</a>
+                                                        </div>
+                                                        <div class="explore__form-checkbox-list full-filter">
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
+                                                                    <div class="form-group categories">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-home"></i>Property Status</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected ">For Sale</li>
+                                                                                <li data-value="2" class="option">For Rent</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
+                                                                    <div class="form-group beds">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected">1</li>
+                                                                                <li data-value="2" class="option">2</li>
+                                                                                <li data-value="3" class="option">3</li>
+                                                                                <li data-value="3" class="option">4</li>
+                                                                                <li data-value="3" class="option">5</li>
+                                                                                <li data-value="3" class="option">6</li>
+                                                                                <li data-value="3" class="option">7</li>
+                                                                                <li data-value="3" class="option">8</li>
+                                                                                <li data-value="3" class="option">9</li>
+                                                                                <li data-value="3" class="option">10</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
+                                                                    <div class="form-group bath">
+                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</span>
+                                                                            <ul class="list">
+                                                                                <li data-value="1" class="option selected">1</li>
+                                                                                <li data-value="2" class="option">2</li>
+                                                                                <li data-value="3" class="option">3</li>
+                                                                                <li data-value="3" class="option">4</li>
+                                                                                <li data-value="3" class="option">5</li>
+                                                                                <li data-value="3" class="option">6</li>
+                                                                                <li data-value="3" class="option">7</li>
+                                                                                <li data-value="3" class="option">8</li>
+                                                                                <li data-value="3" class="option">9</li>
+                                                                                <li data-value="3" class="option">10</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld">
+                                                                    <div class="main-search-field-2">
+                                                                        <div class="range-slider">
+                                                                            <label>Area Size</label>
+                                                                            <div id="area-range-rent" data-min="0" data-max="1300" data-unit="sq ft"></div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="range-slider">
+                                                                            <label>Price Range</label>
+                                                                            <div id="price-range-rent" data-min="0" data-max="600000" data-unit="$"></div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
+                                                                    <div class="checkboxes one-in-row margin-bottom-10 ch-1">
+                                                                        <input id="check-16" type="checkbox" name="check">
+                                                                        <label for="check-16">Air Conditioning</label>
+                                                                        <input id="check-17" type="checkbox" name="check">
+                                                                        <label for="check-17">Swimming Pool</label>
+                                                                        <input id="check-18" type="checkbox" name="check">
+                                                                        <label for="check-18">Central Heating</label>
+                                                                        <input id="check-19" type="checkbox" name="check">
+                                                                        <label for="check-19">Laundry Room</label>
+                                                                        <input id="check-20" type="checkbox" name="check">
+                                                                        <label for="check-20">Gym</label>
+                                                                        <input id="check-21" type="checkbox" name="check">
+                                                                        <label for="check-21">Alarm</label>
+                                                                        <input id="check-22" type="checkbox" name="check">
+                                                                        <label for="check-22">Window Covering</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
+                                                                    <div class="checkboxes one-in-row margin-bottom-10 ch-2">
+                                                                        <input id="check-23" type="checkbox" name="check">
+                                                                        <label for="check-23">WiFi</label>
+                                                                        <input id="check-24" type="checkbox" name="check">
+                                                                        <label for="check-24">TV Cable</label>
+                                                                        <input id="check-25" type="checkbox" name="check">
+                                                                        <label for="check-25">Dryer</label>
+                                                                        <input id="check-26" type="checkbox" name="check">
+                                                                        <label for="check-26">Microwave</label>
+                                                                        <input id="check-27" type="checkbox" name="check">
+                                                                        <label for="check-27">Washer</label>
+                                                                        <input id="check-28" type="checkbox" name="check">
+                                                                        <label for="check-28">Refrigerator</label>
+                                                                        <input id="check-29" type="checkbox" name="check">
+                                                                        <label for="check-29">Outdoor Shower</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{-- <div class=" int_content_left">
     <div class="int_banner_slider">
         <div class="banner_box_wrapper">
             <div class="container-fluid">
@@ -76,16 +375,34 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+<section class="family-section bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <h2 class="font-weight-bold">Meet Our Handsome Family</h2>
+                <p class="text-muted">
+                    Our family is built on love, laughter, and strong bonds.
+                    We cherish every moment spent together, creating memories that last a lifetime.
+                    Get to know the wonderful people who make our family special.
+                </p>
+            </div>
+            <div class="col-md-8 text-center">
+                <img src="{{ asset('assets/images/banner.jpg') }}" alt="Our Handsome Family" class="family-image">
+            </div>
+        </div>
+    </div>
+</section>
 
 {{-- About --}}
 <div class="about">
     <section class="about-us fh">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 who-1 order-2 order-lg-1">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12 who-1 text-center">
                     <div>
-                        <h2 class="text-left mb-4">Why Are More and More Americans Moving to Rosarito? The Answer May Surprise You!</h2>
+                        <h2 class="heading_american mb-4">Why Are More and More Americans Moving to Rosarito? The Answer May Surprise You!</h2>
                     </div>
                     <div class="pftext">
                         <div class="heading-section">
@@ -94,11 +411,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-xs-12 order-1 order-lg-2">
-                    <div class="wprt-image-video w50 w-100 h-100 ">
-                        <img src="{{asset('assets/images/video-2.jpg')}}" style="width: 100%;" alt="image">
-                        <a class="icon-wrap popup-video " id="playBtn" href="javascript:void(0)">
+                    <div class="wprt-image-video w50 w-100 h-100 position-relative ">
+                        <img src="{{asset('assets/images/video-2.jpg')}}" class="w-50 rounded-4" alt="image">
+                        <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=Yf61HtiwTlo&t=47s">
                             <i class="fa fa-play"></i>
                         </a>
                         <div class="iq-waves">
@@ -107,8 +422,6 @@
                             <div class="waves wave-3"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 order-3">
                     <h5 class="pt-3">
                         With Average Cost Per Square Foot of only $110, Can You Afford To Not Live Here?
                     </h5>
@@ -135,6 +448,9 @@
                                                 </div>
                                             </th>
                                         </tr>
+
+                                    </thead>
+                                    <tbody>
                                         <tr>
                                             <th class="text-center align-middle w-50">
                                                 <span class=" opacity-75">Input (M²)</span>
@@ -143,8 +459,6 @@
                                                 <span class=" opacity-75">Square Feet (Ft²)</span>
                                             </th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
                                         <tr>
                                             <td class="bg-light py-3" style="border-bottom:0">
                                                 <div class="input-group mx-auto">
@@ -1339,7 +1653,15 @@
 
     @endsection
     @push('scripts')
+     <script src="{{asset('user_assets/js/range.js')}}"></script>
     <script>
+        $(".dropdown-filter").on('click', function() {
+
+            $(".explore__form-checkbox-list").toggleClass("filter-block");
+
+        });
+
+
         $(document).ready(function () {
             var swiper = new Swiper('.banner_swiper', {
                 allowTouchMove: false,
@@ -1373,6 +1695,7 @@
             });
         });
 
+
         $(document).ready(function () {
             $(".input_amount").on("input", function () {
                 let inputVal = $(this).val();
@@ -1400,5 +1723,7 @@
                 }
             });
         });
+
+
     </script>
     @endpush

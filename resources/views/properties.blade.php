@@ -27,7 +27,7 @@
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
                             <div class="text-heading text-left">
-                                <p class="pb-2"><a href="index.html">Home </a> &nbsp;/&nbsp; <span>PropertiesListings</span></p>
+                                <p class="pb-2"><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Property Listings</span></p>
                             </div>
                             <h1 class="h1">Explore Our Exclusive Properties for Sale.</h1>
                             <p class="property-listing-description">Explore a variety of residential and commercial properties for sale and rent, including luxury homes, affordable options, and investment opportunities.</p>

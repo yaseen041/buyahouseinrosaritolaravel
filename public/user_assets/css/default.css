@@ -1,5 +1,55 @@
 /*Blank CSS*/
 
+#header-container {
+	position: absolute;
+  width: 100%;
+  background-color: #09090963;
+  z-index: 9;
+  color: #fff;
+}
+#header {
+	position: relative;
+	z-index: 999;
+	padding: 5px 0 110px 0;
+}
+
+#logo img {
+	width: 90px;
+}
+#navigation ul a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.video_banner{
+	filter: brightness(0.6);
+
+}
+
+.family-section {
+	padding: 50px 0;
+}
+.family-image {
+	max-width: 100%;
+	border-radius: 10px;
+}
+
+.dark-overlay .main-search-inner {
+  bottom: 330px !important;
+}
+
+.heading_american:after{
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+
+.rounded-4{
+	border-radius: 25px;
+}
 
 .img-center {
 	background-size: cover;
@@ -112,51 +162,28 @@
 	border-radius: 1rem;
 	transition: transform 0.3s ease;
 }
-.sq-tier-calculators {
-	border: 1px solid ;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
-	border-radius: 2px;
-	margin-top: 8px;
+.custom-table {
+	border-collapse: separate;
+	border-spacing: 0; /* Ensures spacing doesn't break borders */
+	width: 100%;
 }
-.price-tier-calculators {
-	border:1px solid ;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
-	border-radius: 2px;
-	margin-top: 20px;
+
+.custom-table th,
+.custom-table td {
+	position: relative;
+	text-align: center;
+	background: white;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-image-source: linear-gradient(90deg, orange, red);
+	border-image-slice: 1;
 }
-.temp_table {
-	border:1px solid ;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
-	border-radius: 2px;
-	margin-bottom: 2px;
+
+.custom-table thead th {
+	background: #f8f9fa; /* Slightly different background for header */
 }
-.temp_table table {
-	margin-bottom: 0px;
-	color: #000 !important;
-}
-.price-tier-calculators .table td{
-	border: 1px solid  !important;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1 !important;
-}
-.table td{
-	border: 0px solid  !important;
-}
-.table thead th {
-	border: 1px solid  !important;
-	border-top: none !important;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1 !important;
-	color: #000;
-}
-.border_right {
-	border-right: 1px solid ;
-}
-.border_right_dark {
-	border-right: 1px solid ;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
-}
-.price-tier-calculators table:not(:last-child) {
-	margin-bottom: 0.5rem;
-}
+
+
 
 .overlay-text {
 	position: absolute;
@@ -182,9 +209,9 @@
 .neon-border {
 	border: 1px solid;
 	border-radius: 10px;
-	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;
-	border-collapse: unset;
-	border-spacing: 0px;
+/*	border-image: linear-gradient(45deg, #8A2BE2, #87CEEB) 1;*/
+border-collapse: unset;
+border-spacing: 0px;
 }
 
 

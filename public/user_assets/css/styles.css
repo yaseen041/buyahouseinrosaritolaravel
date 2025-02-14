@@ -16507,7 +16507,7 @@ div.datedropper.my-style.picker-lkd .pick-submit {
   padding: 1.5rem;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
-  z-index: 90;
+  z-index: 20;
   margin-bottom: 0px;
   position: relative;
   border: 1px solid #eaeff5;

@@ -40,7 +40,12 @@ Route::get('/clearcache', function () {
 require 'admin.php';
 
 Route::get('/', [HomepageController::class, 'index']);
+
 Route::get('/properties', [PropertiesController::class, 'index']);
+Route::group(['prefix'  =>  'property'], function () {
+    Route::get('/{slug}', [PropertiesController::class, 'show']);
+});
+
 
 
 // Abdul Waheed

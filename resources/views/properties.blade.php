@@ -15,10 +15,10 @@
 <meta name="twitter:image" content="{{ $page['twitter_image'] }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    {!! $page['json_ld_code'] !!}
+    <?php echo $page['json_ld_code'] ?>
 </script>
 @endpush
-<div class="clearfix"></div>
+<div class="clearfix" style="height: 115px;"></div>
 <div class="homepage-4 agents hp-6 full">
     <section class="properties-right featured portfolio blog pt-5 ">
         <div class="container">
@@ -27,7 +27,7 @@
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
                             <div class="text-heading text-left">
-                                <p class="pb-2"><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Property Listings</span></p>
+                                <p class="pb-2"><a href="{{ url('/') }}">Home </a> &nbsp;/&nbsp; <span>Property Listings</span></p>
                             </div>
                             <h1 class="h1">Explore Our Exclusive Properties for Sale.</h1>
                             <p class="property-listing-description">Explore a variety of residential and commercial properties for sale and rent, including luxury homes, affordable options, and investment opportunities.</p>
@@ -183,24 +183,21 @@
                             <div class="detail-wrapper-body">
                                 <div class="listing-title-bar">
                                     <div class="text-heading text-left">
-                                        <p class="font-weight-bold mb-0 mt-3">8 Search results</p>
+                                        <p class="font-weight-bold mb-0 mt-3">{{$properties->total()}} Properties</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid">
-                                <div class="input-group border rounded input-group-lg w-auto mr-4">
+                                <div class="input-group border rounded input-group-lg w-auto">
                                     <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3" for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
-                                    <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby" data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3" id="inputGroupSelect01" name="sortby">
+                                    <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby" data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0" id="inputGroupSelect01" name="sortby">
                                         <option selected>Top Selling</option>
                                         <option value="1">Most Viewed</option>
                                         <option value="2">Price(low to high)</option>
                                         <option value="3">Price(high to low)</option>
                                     </select>
                                 </div>
-                                <div class="sorting-options">
-                                    <a href="properties-list-1.html" class="change-view-btn lde"><i class="fa fa-th-list"></i></a>
-                                    <a href="#" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a>
-                                </div>
+
                             </div>
                         </div>
                     </section>
@@ -210,7 +207,7 @@
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
                                     <div class="homes">
-                                        <a href="" class="homes-img">
+                                        <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
                                             <div class="homes-tag button alt featured">
                                                 @if($property->is_featured)
                                                 Featured
@@ -224,15 +221,15 @@
                                         </a>
                                     </div>
                                     <div class="button-effect">
-                                        <a href="" class="btn"><i class="fa fa-link"></i></a>
+                                        <a href="{{url('/property')}}/{{$property->slug}}" class="btn"><i class="fa fa-link"></i></a>
                                         <a href="{{ $property->video_url }}" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                        <a href="{{url('/property')}}/{{$property->slug}}" class="img-poppu btn"><i class="fa fa-photo"></i></a>
                                     </div>
                                 </div>
                                 <div class="homes-content">
-                                    <h3><a href="">{{ $property->name }}</a></h3>
+                                    <h3><a href="{{url('/property')}}/{{$property->slug}}">{{ $property->name }}</a></h3>
                                     <p class="homes-address mb-3">
-                                        <a href="">
+                                        <a href="{{url('/property')}}/{{$property->slug}}">
                                             <i class="fa fa-map-marker"></i><span>{{ $property->address }}</span>
                                         </a>
                                     </p>
@@ -256,7 +253,7 @@
                                     </ul>
                                     <div class="price-properties footer pt-3 pb-0">
                                         <h3 class="title mt-3">
-                                            <a href="">${{ number_format($property->price) }}</a>
+                                            <a href="{{url('/property')}}/{{$property->slug}}">${{ number_format($property->price) }}</a>
                                         </h3>
                                         <div class="compare">
                                             <a href="#" title="Compare">

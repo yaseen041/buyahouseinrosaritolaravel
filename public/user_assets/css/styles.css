@@ -24841,21 +24841,4 @@ section.ui-element {
   }
 }
 
-/* XL Custom css */
-.select2-container {
-  width: 100% !important;
-}
-.select2-container--default .select2-selection--multiple {
-  background-color: white !important;
-  border: 1px solid #dddddd !important;
-  border-radius: .25rem !important;
-  cursor: text !important;
-}
-.nice-select {
-  display: none !important;
-}
-
-.select2-container--default .select2-selection--multiple .select2-selection__rendered {
-  padding: 0 10px !important;
-}
 /*# sourceMappingURL=styles.css.map */

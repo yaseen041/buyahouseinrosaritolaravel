@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="{{ $page['twitter_image'] }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    {!! $page['json_ld_code'] !!}
+    <?php echo $page['json_ld_code']; ?>
 </script>
 
 @endpush

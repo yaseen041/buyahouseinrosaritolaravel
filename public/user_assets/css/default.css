@@ -2,10 +2,10 @@
 
 #header-container {
 	position: absolute;
-  width: 100%;
-  background-color: #09090963;
-  z-index: 9;
-  color: #fff;
+	width: 100%;
+	background-color: #09090963;
+	z-index: 9;
+	color: #fff;
 }
 #header {
 	position: relative;
@@ -37,7 +37,7 @@
 }
 
 .dark-overlay .main-search-inner {
-  bottom: 330px !important;
+	bottom: 330px !important;
 }
 
 .heading_american:after{
@@ -221,4 +221,21 @@ border-spacing: 0px;
 
 .news-item.news-item-sm {
 	height: 100%;
+}
+
+.select2-container {
+	width: 100% !important;
+}
+.select2-container--default .select2-selection--multiple {
+	background-color: white !important;
+	border: 1px solid #dddddd !important;
+	border-radius: .25rem !important;
+	cursor: text !important;
+}
+#contact_form .nice-select {
+	display: none !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	padding: 0 10px !important;
 }

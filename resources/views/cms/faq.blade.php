@@ -29,16 +29,17 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
         </div>
     </div>
 </section>
-<section class="faq service-details bg-white">
+<section class="faq service-details ui-elements bg-white">
     <div class="container">
         <h3 class="mb-5">FREQUENTLY ASKED QUESTIONS</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h5 class="uppercase mb40">Questions about Selling</h5>
+                <h5 class="uppercase mb40">Questions About Selling</h5>
                 <ul class="accordion accordion-1 one-open">
                     <li class="active">
                         <div class="title">
                             <span>What payment methods are available?</span>
+                            <strong class="toggle-icon"><i class="fas fa-minus"></i></strong>
                         </div>
                         <div class="content">
                             <p>
@@ -49,6 +50,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>How can i get findhouses aid to live off campus?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -59,6 +61,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>Does findhouses share my information with others?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -69,6 +72,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>What kind of real estate advice do you give?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -79,6 +83,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>How do i link multiple accounts with my profile?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -89,6 +94,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>What kind of real estate advice do you give?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -99,6 +105,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>Is your advice really be helf full?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -109,6 +116,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>How can i get real estate aid to live off campus?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -119,6 +127,7 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
                     <li>
                         <div class="title">
                             <span>Does realhome share my information with others?</span>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="content">
                             <p>
@@ -133,11 +142,27 @@ $seo_data = get_single_row('seos', 'page_name', 'faq');
 </section>
 @endsection
 @push('scripts')
-<script src="{{ asset('user_assets/js/popper.js') }}"></script>
-<script src="{{ asset('user_assets/js/inner.js') }}"></script>
 <script>
-    $(".accordion li").click(function() {
-        $(this).closest(".accordion").hasClass("one-open") ? ($(this).closest(".accordion").find("li").removeClass("active"), $(this).addClass("active")) : $(this).toggleClass("active"), "undefined" != typeof window.mr_parallax && setTimeout(mr_parallax.windowLoad, 500)
+    $(document).ready(function () {
+        $(".accordion .title").click(function () {
+            var $li = $(this).parent();
+            var $accordion = $li.closest(".accordion");
+            if ($accordion.hasClass("one-open")) {
+                $accordion.find("li").not($li).removeClass("active").find(".content").slideUp();
+                $accordion.find(".toggle-icon i").removeClass("fa-minus").addClass("fa-plus");
+            }
+            $li.toggleClass("active");
+            $li.find(".content").slideToggle();
+            var $icon = $li.find(".toggle-icon i");
+            if ($li.hasClass("active")) {
+                $icon.removeClass("fa-plus").addClass("fa-minus");
+            } else {
+                $icon.removeClass("fa-minus").addClass("fa-plus");
+            }
+            if ($accordion.find("li.active").length === 0) {
+                $accordion.find(".toggle-icon i").removeClass("fa-minus").addClass("fa-plus");
+            }
+        });
     });
 </script>
 @endpush

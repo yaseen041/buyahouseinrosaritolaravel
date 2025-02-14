@@ -19,26 +19,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 <script type="application/ld+json">
     <?php echo $seo_data->json_ld_code; ?>
 </script>
-
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
-<style type="text/css">
-    .select2-container {
-        width: 100% !important;
-    }
-    .select2-container--default .select2-selection--multiple {
-        background-color: white !important;
-        border: 1px solid #dddddd !important;
-        border-radius: .25rem !important;
-        cursor: text !important;
-    }
-    .nice-select {
-        display: none !important;
-    }
-
-    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
-        padding: 0 10px !important;
-    }
-</style>
 @endpush
 @section('content')
 

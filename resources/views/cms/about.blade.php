@@ -1,6 +1,6 @@
 @extends('app')
 <?php
-$seo_data = get_single_row('seos', 'page_name', 'contact');
+$seo_data = get_single_row('seos', 'page_name', 'about');
 ?>
 @push('styles')
 <title>{{ $seo_data->meta_title }}</title>
@@ -19,26 +19,6 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 <script type="application/ld+json">
     <?php echo $seo_data->json_ld_code; ?>
 </script>
-
-<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
-<style type="text/css">
-    .select2-container {
-        width: 100% !important;
-    }
-    .select2-container--default .select2-selection--multiple {
-        background-color: white !important;
-        border: 1px solid #dddddd !important;
-        border-radius: .25rem !important;
-        cursor: text !important;
-    }
-    .nice-select {
-        display: none !important;
-    }
-
-    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
-        padding: 0 10px !important;
-    }
-</style>
 @endpush
 @section('content')
 
@@ -123,61 +103,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 </section>
 @endsection
 @push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy2l4KGGTm4cTqoSl6h8UAOAob87sHBsA&callback=initMap" async defer></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#propertySelect').select2({
-            placeholder: "Select Property",
-            allowClear: true
-        });
-    });
-    function initMap() {
-        var location = { lat: 32.4778975780612, lng: -116.88062589946308 };
-        var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: location,
-        });
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: "Chichen Itza 8170, Rosarito, Mexico",
-        });
-    }
 
-    $(document).on("click" , "#btn_submit_contact" , function() {
-        event.preventDefault();
-        var btn = $(this);
-        btn.prop("disabled", true).text("Please Wait...");
-        var formData =  new FormData($("#contact_form")[0]);
-        $.ajax({
-            url:"{{ url('submit_contact') }}",
-            type: 'POST',
-            data: formData,
-            dataType:'json',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success:function(status){
-                 btn.prop("disabled", false).text("Submit");
-                if(status.msg=='success') {
-                    toastr.success(status.response,"Success");
-                    $('#contact_form')[0].reset();
-                    setTimeout(function(){
-                        location.reload(true);
-                    }, 2000);
-                } else if(status.msg == 'error') {
-                    toastr.error(status.response,"Error");
-                } else if(status.msg == 'lvl_error') {
-                    var message = "";
-                    $.each(status.response, function (key, value) {
-                        message += value+"<br>";
-                    });
-                    toastr.error(message, "Error");
-                }
-            }
-        });
-    });
 </script>
 @endpush

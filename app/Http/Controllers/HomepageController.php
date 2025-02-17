@@ -23,7 +23,7 @@ class HomepageController extends Controller
         $page->twitter_image = asset('assets/images/' . $page->twitter_image);
 
         // Types
-        $types = Types::all();
+        $types = Types::whereHas('propertyTypes')->get();
         foreach ($types as $type) {
             $type->banner = asset('uploads/types/' . $type->banner);
             $type->property_count = PropertyType::where('type_id', $type->id)->count();
@@ -37,9 +37,8 @@ class HomepageController extends Controller
 
         // Cities
         $cities = City::select('id', 'name', 'slug', 'state', 'country', 'image')
-        ->withCount(['properties' => function ($query) {
-            $query->whereNotNull('id');
-        }])
+        ->whereHas('properties')
+        ->withCount('properties')
         ->get();
         foreach ($cities as $city) {
             $city->image = asset('uploads/cities/' . $city->image);

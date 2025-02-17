@@ -17,4 +17,9 @@ class Types extends Model
         'banner',
         'status',
     ];
+
+    public function propertyTypes()
+    {
+        return $this->hasMany(PropertyType::class, 'type_id');
+    }
 }

@@ -42,7 +42,7 @@
             <h4 style="color: #1F4B43; margin-top: 20px; margin-bottom: 5px; font-size: 18px;">Client Details</h4>
             <div style="background-color: #f4f4f4; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-top: 10px;">
                 <p style="margin: 5px 0; font-size: 14px; color: #555;"><strong>Email:</strong> <a href="mailto:{{$data['email']}}" target="_blank" style="color: #1F4B43; text-decoration: none;">{{$data['email']}}</a></p>
-                <p style="margin: 5px 0; font-size: 14px; color: #555;"><strong>Phone:</strong> <a href="tel:+{{$data['phone']}}" target="_blank" style="color: #1F4B43; text-decoration: none;">+{{$data['phone']}}</a></p>
+                <p style="margin: 5px 0; font-size: 14px; color: #555;"><strong>Phone:</strong> <a href="tel:{{$data['phone']}}" target="_blank" style="color: #1F4B43; text-decoration: none;">{{$data['phone']}}</a></p>
             </div>
 
             <h4 style="color: #1F4B43; margin-top: 20px; margin-bottom: 5px; font-size: 18px;">Message</h4>

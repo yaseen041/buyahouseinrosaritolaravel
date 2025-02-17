@@ -17,10 +17,6 @@
 <script type="application/ld+json">
     <?php echo $property['json_ld_code'] ?>
 </script>
-<link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.css') }}">
-<link rel="stylesheet" href="{{ asset('user_assets/css/leaflet-gesture-handling.min.css') }}">
-<link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.markercluster.css') }}">
-<link rel="stylesheet" href="{{ asset('user_assets/css/leaflet.markercluster.default.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/timedropper.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/datedropper.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/animate.css') }}">
@@ -29,7 +25,6 @@
 <link rel="stylesheet" href="{{ asset('user_assets/css/swiper.min.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/owl.carousel.min.css') }}">
 @endpush
-
 <section class="headings">
     <div class="text-heading text-center">
         <div class="container">
@@ -40,82 +35,20 @@
 </section>
 <div class="inner-pages sin-1 homepage-4 hd-white">
     <div class="swiper-container">
-            <div class="swiper-wrapper">
+        <div class="swiper-wrapper">
             @foreach($property->gallery as $index => $image)
-                <div class="swiper-slide">
+            <div class="swiper-slide">
                 <a href="{{ $image }}" target="_blank" class="grid image-link">
                     <img src="{{ $image }}" class="img-fluid" alt="#">
-                    </a>
-                </div>
+                </a>
+            </div>
             @endforeach
-            </div>
-
-            <div class="swiper-pagination swiper-pagination-white"></div>
-
-            <div class="swiper-button-next swiper-button-white mr-3"></div>
-            <div class="swiper-button-prev swiper-button-white ml-3"></div>
         </div>
-</div>
-
-
-<div class="single-property-4">
-    <div class="container-fluid p0">
-        <div class="row">
-            {{-- @foreach($property->gallery as $index => $image)
-            @if ($index == 0)
-            <div class="col-sm-6 col-lg-6 p0">
-                <div class="row m0">
-                    <div class="col-lg-12 p0">
-                        <div class="popup-images">
-                            <a class="popup-img" href="{{ $image }}">
-                                <img class="img-fluid w100" src="{{ $image }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @elseif ($index == 1)
-            <div class="col-sm-6 col-lg-6 p0">
-                <div class="row m0">
-                    <div class="col-sm-6 col-lg-6 p0">
-                        <div class="popup-images">
-                            <a class="popup-img" href="{{ $image }}">
-                                <img class="img-fluid w100" src="{{ $image }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    @elseif ($index == 2)
-                    <div class="col-sm-6 col-lg-6 p0">
-                        <div class="popup-images">
-                            <a class="popup-img" href="{{ $image }}">
-                                <img class="img-fluid w100" src="{{ $image }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    @elseif ($index == 3)
-                    <div class="col-sm-6 col-lg-6 p0">
-                        <div class="popup-images">
-                            <a class="popup-img" href="{{ $image }}">
-                                <img class="img-fluid w100" src="{{ $image }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    @elseif ($index == 4)
-                    <div class="col-sm-6 col-lg-6 p0">
-                        <div class="popup-images">
-                            <a class="popup-img" href="{{ $image }}">
-                                <img class="img-fluid w100" src="{{ $image }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            @endforeach --}}
-        </div>
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <div class="swiper-button-next swiper-button-white mr-3"></div>
+        <div class="swiper-button-prev swiper-button-white ml-3"></div>
     </div>
 </div>
-
 <section class="single-proper blog details">
     <div class="container">
         <div class="row">
@@ -214,14 +147,11 @@
                     <h5>Location</h5>
                     <div class="divider-fade"></div>
                     <div id="map" class="contact-map"></div>
-                    {{-- <div id="map-contact" class="contact-map"></div> --}}
                 </div>
             </div>
-
-
             <aside class="col-lg-4 col-md-12 car">
                 <div class="single widget">
-                    <div class="schedule widget-boxed mt-30">
+                    {{-- <div class="schedule widget-boxed mt-30">
                         <div class="widget-boxed-header">
                             <h4><i class="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
                         </div>
@@ -270,9 +200,9 @@
                             </div>
                             <a href="payment-method.html" class="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="sidebar">
-                        <div class="widget-boxed mt-33 mt-5">
+                        <div class="widget-boxed">
                             <div class="widget-boxed-header">
                                 <h4>Agent Information</h4>
                             </div>
@@ -285,12 +215,14 @@
                                     </div>
                                     <div class="agent-contact-form-sidebar">
                                         <h4>Request Inquiry</h4>
-                                        <form name="contact_form" method="post" action="https://code-theme.com/html/findhouses/functions.php">
-                                            <input type="text" id="fname" name="full_name" placeholder="Full Name" required />
-                                            <input type="number" id="pnumber" name="phone_number" placeholder="Phone Number" required />
-                                            <input type="email" id="emailid" name="email_address" placeholder="Email Address" required />
+                                        <form id="contact_form" class="contact-form" name="contact_form" method="post" novalidate>
+                                            @csrf
+                                            <input type="text" id="fname" name="name" placeholder="Name" required />
+                                            <input type="text" id="pnumber" name="phone" placeholder="Phone Number" required />
+                                            <input type="email" id="emailid" name="email" placeholder="Email Address" required />
+                                            <input type="hidden" name="property[]" value="{{ $property->id}}" placeholder="Property">
                                             <textarea placeholder="Message" name="message" required></textarea>
-                                            <input type="submit" name="sendmessage" class="multiple-send-message" value="Submit Request" />
+                                            <input type="button" id="btn_submit_contact" name="sendmessage" class="multiple-send-message" value="Submit Request" />
                                         </form>
                                     </div>
                                 </div>
@@ -322,6 +254,7 @@
                 </div>
             </aside>
         </div>
+        @if($related_listings->isNotEmpty())
         <section class="similar-property featured portfolio p-0 bg-white-inner">
             <div class="container">
                 <h5>Similar Properties</h5>
@@ -379,6 +312,7 @@
                 </div>
             </div>
         </section>
+        @endif
     </div>
 </section>
 @endsection
@@ -390,14 +324,42 @@
 <script src="{{ asset('user_assets/js/timedropper.js') }}"></script>
 <script src="{{ asset('user_assets/js/datedropper.js') }}"></script>
 <script src="{{ asset('user_assets/js/jqueryadd-count.js') }}"></script>
-{{-- <script src="{{ asset('user_assets/js/leaflet.js') }}"></script>
-<script src="{{ asset('user_assets/js/leaflet-gesture-handling.min.js') }}"></script>
-<script src="{{ asset('user_assets/js/leaflet-providers.js') }}"></script>
-<script src="{{ asset('user_assets/js/leaflet.markercluster.js') }}"></script>
-<script src="{{ asset('user_assets/js/map-single.js') }}"></script> --}}
 <script src="{{ asset('user_assets/js/inner.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy2l4KGGTm4cTqoSl6h8UAOAob87sHBsA&callback=initMap" async defer></script>
 <script>
+    $(document).on("click" , "#btn_submit_contact" , function() {
+        event.preventDefault();
+        var btn = $(this);
+        btn.prop("disabled", true).text("Please Wait...");
+        var formData =  new FormData($("#contact_form")[0]);
+        $.ajax({
+            url:"{{ url('submit_contact') }}",
+            type: 'POST',
+            data: formData,
+            dataType:'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(status){
+                btn.prop("disabled", false).text("Submit");
+                if(status.msg=='success') {
+                    toastr.success(status.response,"Success");
+                    $('#contact_form')[0].reset();
+                    setTimeout(function(){
+                        location.reload(true);
+                    }, 2000);
+                } else if(status.msg == 'error') {
+                    toastr.error(status.response,"Error");
+                } else if(status.msg == 'lvl_error') {
+                    var message = "";
+                    $.each(status.response, function (key, value) {
+                        message += value+"<br>";
+                    });
+                    toastr.error(message, "Error");
+                }
+            }
+        });
+    });
     function initMap() {
         var location = { lat: 32.4778975780612, lng: -116.88062589946308 };
         var map = new google.maps.Map(document.getElementById("map"), {

@@ -61,6 +61,13 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                     </div>
                     @endif
                 </div>
+                <nav aria-label="..." class="pt-5">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-xs-12 pagebuttons">
+                            {{ $blogs->links('pagination::bootstrap-4') }}
+                        </div>
+                    </div>
+                </nav>
             </div>
             <aside class="col-lg-3 col-md-12">
                 <div class="widget">
@@ -98,13 +105,6 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                 </div>
             </aside>
         </div>
-        <nav aria-label="..." class="pt-5">
-            <div class="row">
-                <div class="col-md-6 pagebuttons">
-                    {{ $blogs->links('pagination::bootstrap-4') }}
-                </div>
-            </div>
-        </nav>
     </div>
 </section>
 @endsection

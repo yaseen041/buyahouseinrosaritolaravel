@@ -217,9 +217,9 @@ width: 100%;
 	border-image-slice: 1 !important;
 	padding: 10px;
 }
- #logo{
- 	margin-right: 0px !important;
- }
+#logo{
+	margin-right: 0px !important;
+}
 
 .nice-select .list::-webkit-scrollbar {
 	width: 8px;
@@ -482,4 +482,17 @@ hr {
 .single.detail-wrapper {
 	margin-left: 0rem;
 }
+#btn_subscribeEmail {
+	background: #FF385C;
+	margin-top: 0px;
+	border: 1px solid #FF385C;
+	color: #fff;
+	padding: .8rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	transition: all .5s ease;
 
+}

@@ -102,4 +102,40 @@
 	});
 </script>
 
+<script>
+    $(document).on("click" , "#btn_subscribeEmail" , function() {
+        event.preventDefault();
+        var btn = $(this);
+        btn.prop("disabled", true).text("Please Wait...");
+        var formData =  new FormData($("#subscribe_form")[0]);
+        $.ajax({
+            url:"{{ url('submit_newsletter') }}",
+            type: 'POST',
+            data: formData,
+            dataType:'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(status){
+                 btn.prop("disabled", false).text("Submit");
+                if(status.msg=='success') {
+                    toastr.success(status.response,"Success");
+                    $('#subscribe_form')[0].reset();
+                    setTimeout(function(){
+                        location.reload(true);
+                    }, 2000);
+                } else if(status.msg == 'error') {
+                    toastr.error(status.response,"Error");
+                } else if(status.msg == 'lvl_error') {
+                    var message = "";
+                    $.each(status.response, function (key, value) {
+                        message += value+"<br>";
+                    });
+                    toastr.error(message, "Error");
+                }
+            }
+        });
+    });
+</script>
+
 @stack('scripts')

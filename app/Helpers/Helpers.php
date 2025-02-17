@@ -831,3 +831,16 @@ if (!function_exists('getCities')) {
     }
 }
 
+if (!function_exists('get_properties_cities')) {
+	function get_properties_cities()
+	{
+		$data = DB::table('cities')
+			->select('cities.id', 'cities.name', 'cities.slug',  DB::raw('COUNT(properties.id) as property_count'))
+			->join('properties', 'cities.id', '=', 'properties.city_id')
+			->groupBy('cities.id', 'cities.name', 'cities.slug')
+			->orderByDesc('property_count')
+			->limit(6)
+			->get();
+		return $data;
+	}
+}

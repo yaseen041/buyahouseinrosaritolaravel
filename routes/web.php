@@ -56,4 +56,4 @@ Route::get('about', [CMSontroller::class, 'about'])->name('about');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/{slug}', [BlogController::class, 'handleSlug'])->where('slug', '.*')->name('slugHandler');
 
-Route::post('newsletter/submit', [NewsletterSubsController::class, 'store']);
+Route::post('submit_newsletter', [NewsletterSubsController::class, 'store']);

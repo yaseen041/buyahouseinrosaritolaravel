@@ -253,7 +253,7 @@
                                             <tr>
                                                 <td class="bg-light py-2" >
                                                     <div class="input-group mx-auto">
-                                                        <input type="number" class="form-control input-custom input_custom input-full" placeholder="Enter M²">
+                                                        <input type="text" class="form-control input-custom input_custom input-full" placeholder="Enter M²">
                                                     </div>
                                                 </td>
                                                 <td class="bg-light py-2 text-center align-middle" style="border-left:0;" >
@@ -1484,7 +1484,10 @@
 
         $(document).ready(function() {
             $(".input_custom").on("input", function() {
-                let sqm = parseFloat($(this).val());
+                let inputVal1 = $(this).val();
+                inputVal1 = inputVal1.replace(/[^0-9]/g, "").slice(0, 20);
+                $(this).val(inputVal1);
+                let sqm = parseFloat(inputVal1);
                 if (!isNaN(sqm) && sqm >= 0) {
                     let sqft = (sqm * 10.7639).toFixed(2);
                     $(".result_in_squere_feet").text(sqft);

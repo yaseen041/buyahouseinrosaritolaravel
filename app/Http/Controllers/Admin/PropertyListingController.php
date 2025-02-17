@@ -145,6 +145,7 @@ class PropertyListingController extends Controller
         $property->country = $neighborhood->country;
         $property->state = $neighborhood->state;
         $property->city = $neighborhood->city->name;
+        $property->city_id = $neighborhood->city_id;
         $property->dev_lvl = $request->dev_lvl;
         $property->year_built = $request->year_built;
         $property->listing_type = $request->listing_type;
@@ -467,6 +468,7 @@ class PropertyListingController extends Controller
         $property->country = $neighborhood->country;
         $property->state = $neighborhood->state;
         $property->city = $neighborhood->city->name;
+        $property->city_id = $neighborhood->city_id;
         $property->dev_lvl = $request->dev_lvl;
         $property->year_built = $request->year_built;
         $property->listing_type = $request->listing_type;

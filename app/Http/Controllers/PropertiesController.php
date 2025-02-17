@@ -89,7 +89,7 @@ class PropertiesController extends Controller
 		return view('properties/properties', compact('page', 'properties', 'pages'));
 	}
 
-	public function show($slug)
+	public function get_properties($slug)
 	{
 		$property = Property::where('slug', $slug)->first();
 		if ($property) {
@@ -123,6 +123,64 @@ class PropertiesController extends Controller
 			return view('common.view_404');
 		}
 	}
+
+
+	public function HandlerProperties($slug, Request $request)
+	{
+		$types = Types::where('slug', $slug)->first();
+		if ($types) {
+			return $this->get_properties_types($slug);
+		}
+		$types = City::where('slug', $slug)->first();
+		if ($types) {
+			return $this->get_properties_cities($slug);
+		}
+		$blog = Property::where('slug', $slug)->first();
+		if ($blog) {
+			return $this->get_properties($slug);
+		}
+		return view('common.view_404');
+	}
+
+	public function get_properties_types($slug)
+	{
+		$page = SEO::where('page_name', 'property')->first();
+		$page->fb_image = asset('assets/images/' . $page->fb_image);
+		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
+
+		$type = Types::where('slug', $slug)->first();
+		$properties = Property::query()->orderBy('created_at', 'desc');
+		if ($type) {
+			$properties->whereHas('propertyTypes', function ($query) use ($type) {
+				$query->where('type_id', $type->id);
+			});
+		}
+		$properties = $properties->paginate(8);
+		$total = $properties->total();
+		$pages = ceil($total / 8);
+		return view('properties/properties', compact('page', 'properties', 'pages'));
+	}
+
+	public function get_properties_cities($slug)
+	{
+		$page = SEO::where('page_name', 'property')->first();
+		$page->fb_image = asset('assets/images/' . $page->fb_image);
+		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
+		$city = City::where('slug', $slug)->first();
+		if (!$city) {
+			return view('common.view_404');
+		}
+		$properties = Property::where('city_id', $city->id)
+		->orderBy('created_at', 'desc')
+		->paginate(8);
+		$total = $properties->total();
+		$pages = ceil($total / 8);
+		return view('properties/properties', compact('page', 'properties', 'pages'));
+	}
+
+
+
+
 
 
 

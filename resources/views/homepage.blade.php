@@ -169,7 +169,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8">
-                   <div class="welcome-text text-center d-flex flex-column align-items-center">
+                 <div class="welcome-text text-center d-flex flex-column align-items-center">
                     <h1 class="h1 text-danger">
                         Rosarito isn't just a beach, it's a community...
                     </h1>
@@ -1193,7 +1193,7 @@
                     @foreach($types as $type)
                     <div class="agents-grid">
                         <div class="landscapes listing-item compact thehp-1" data-aos="fade-up" data-aos-delay="150">
-                            <a href="{{ url('/properties?type=' . $type->slug) }}" class="recent-16">
+                            <a href="{{ route('HandlerProperties', ['slug' => $type->slug]) }}" class="recent-16">
                                 <div class="recent-img16 img-fluid img-center" style="background-image: url('{{$type->banner}}');"></div>
                                 <div class="recent-content"></div>
                                 <div class="recent-details">
@@ -1263,7 +1263,7 @@
                     @foreach($cities as $city)
                     <div class="agents-grid">
                         <div class="landscapes listing-item compact thehp-1" data-aos="fade-up" data-aos-delay="150">
-                            <a href="{{ url('/properties?city=' . $city->slug) }}" class="recent-16">
+                            <a href="{{ route('HandlerProperties', ['slug' => $city->slug]) }}" class="recent-16">
                                 <div class="recent-img16 img-fluid img-center" style="background-image: url('{{$city->image}}');"></div>
                                 <div class="recent-content"></div>
                                 <div class="recent-details">

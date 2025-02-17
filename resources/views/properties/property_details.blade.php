@@ -139,10 +139,18 @@
                         @endforeach
                     </ul>
                 </div>
+                @if(!empty($property->files))
                 <div class="floor-plan property wprt-image-video w50 pro">
-                    <h5>Floor Plans</h5>
-                    <img alt="image" src="images/bg/floor-plan-1.png">
+                    <h5>Atteched Files</h5>
+                    <div class="row">
+                        @foreach($property->files as $docs)
+                        <a href="{{ $docs }}" target="_blank" class="grid image-link mb-2">
+                            <img alt="file" src="{{ asset('user_assets/images/pdf_files.png') }}" width="100px" class="">
+                        </a>
+                        @endforeach
+                    </div>
                 </div>
+                @endif
                 <div class="property-location map">
                     <h5>Location</h5>
                     <div class="divider-fade"></div>
@@ -264,7 +272,7 @@
                         <div class="project-single">
                             <div class="project-inner project-head">
                                 <div class="homes">
-                                    <a href="{{ route('property', ['slug' => $rela_property->slug]) }}" class="homes-img">
+                                    <a href="{{url('/property')}}/{{$rela_property->slug}}" class="homes-img">
                                         @if($property->is_featured == '2')
                                         <div class="homes-tag button alt sale">
                                             Featured
@@ -281,9 +289,9 @@
                                 </div>
                             </div>
                             <div class="homes-content">
-                                <h3><a href="{{ route('property', ['slug' => $rela_property->slug]) }}">{{ $rela_property->title }}</a></h3>
+                                <h3><a href="{{url('/property')}}/{{$rela_property->slug}}">{{ $rela_property->title }}</a></h3>
                                 <p class="homes-address mb-3">
-                                    <a href="{{ route('property', ['slug' => $rela_property->slug]) }}">
+                                    <a href="{{url('/property')}}/{{$rela_property->slug}}">
                                         <i class="fa fa-map-marker"></i><span>{{ $rela_property->address }}</span>
                                     </a>
                                 </p>

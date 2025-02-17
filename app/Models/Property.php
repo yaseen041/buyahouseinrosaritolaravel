@@ -33,6 +33,7 @@ class Property extends Model
         'country',
         'state',
         'city',
+        'city_id',
         'dev_lvl',
         'year_built',
         'property_tax',

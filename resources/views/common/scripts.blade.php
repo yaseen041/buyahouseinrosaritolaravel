@@ -20,8 +20,8 @@
 <script src="{{ asset('user_assets/js/search.js') }}"></script>
 <script src="{{ asset('user_assets/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('user_assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('user_assets/js/ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('user_assets/js/newsletter.js') }}"></script>
+{{-- <script src="{{ asset('user_assets/js/ajaxchimp.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('user_assets/js/newsletter.js') }}"></script> --}}
 <script src="{{ asset('user_assets/js/jquery.form.js') }}"></script>
 <script src="{{ asset('user_assets/js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('user_assets/js/searched.js') }}"></script>

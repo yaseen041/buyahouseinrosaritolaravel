@@ -8,6 +8,7 @@ use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CMSontroller;
+use App\Http\Controllers\NewsletterSubsController;
 
 
 
@@ -54,3 +55,5 @@ Route::get('about', [CMSontroller::class, 'about'])->name('about');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/{slug}', [BlogController::class, 'handleSlug'])->where('slug', '.*')->name('slugHandler');
+
+Route::post('newsletter/submit', [NewsletterSubsController::class, 'store']);

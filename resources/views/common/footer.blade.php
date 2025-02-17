@@ -63,14 +63,14 @@
  						<h3>Newsletters</h3>
  						<p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in your inbox.</p>
  					</div>
- 					<form class="bloq-email mailchimp d-block w-75" method="post">
+ 					<form action="{{url('newsletter/submit')}}" class="bloq-email mailchimp d-block w-75" method="post">
+ 						@csrf
  						<label for="subscribeEmail" class="error"></label>
  						<div class="email d-flex">
- 							<input type="email" id="subscribeEmail" name="EMAIL" placeholder="Enter Your Email">
+ 							<input type="email" id="subscribeEmail" name="email" placeholder="Enter Your Email">
  							<input type="submit" value="Subscribe">
  							<p class="subscription-success"></p>
  						</div>
-
  					</form>
  				</div>
  			</div>

@@ -22,8 +22,6 @@ class PropertiesController extends Controller
 		$page = SEO::where('page_name', 'property')->first();
 		$page->fb_image = asset('assets/images/' . $page->fb_image);
 		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
-
-
 		$search = $request->search;
 		$sorting = $request->sorting;
 		$listing_status = $request->listing_status;
@@ -35,7 +33,6 @@ class PropertiesController extends Controller
 		$type = $request->type;
 		$city = $request->city;
 		$properties = Property::query();
-
 		$sortingOptions = [
 			1 => ['created_at', 'desc'],
 			2 => ['is_featured', 'desc'],
@@ -45,7 +42,6 @@ class PropertiesController extends Controller
 			6 => ['created_at', 'asc'],
 			7 => ['created_at', 'desc'],
 		];
-
 		if ($search) {
 			$properties->where(function ($query) use ($search) {
 				$query->where('title', 'like', '%' . $search . '%')
@@ -53,55 +49,38 @@ class PropertiesController extends Controller
 				->orWhere('short_description', 'like', '%' . $search . '%');
 			});
 		}
-
-
 		if (isset($sortingOptions[$sorting])) {
 			$properties = $properties->orderBy(...$sortingOptions[$sorting]);
 		} else {
 			$properties = $properties->orderBy('created_at', 'desc');
 		}
-
 		if ($bedrooms) {
 			$properties->where('bedrooms', $bedrooms);
 		}
-
 		if ($bathrooms) {
 			$properties->where('bathrooms', $bathrooms);
 		}
-
 		if ($listing_status) {
 			$properties->where('listing_status', $listing_status);
 		}
-
 		if ($city) {
 			$properties->where('city', $city);
-		}
-		if ($property_type) {
-			$properties->where('listing_type', $property_type);
 		}
 		if ($is_featured) {
 			$properties->where('is_featured', $is_featured);
 		}
-
-
 		if ($property_type) {
-    // Get the type by slug and select only the 'id' column
 			$typeid = Types::select('id')->where('slug', $property_type)->first();
-
-    // Check if the type exists and access the id using ->id
 			if ($typeid && $typeid->id) {
 				$properties->whereHas('propertyTypes', function ($query) use ($typeid) {
-            // Filter based on the type_id of the found type
 					$query->where('type_id', $typeid->id);
 				});
 			}
 		}
 
-
 		if ($features) {
 			$featureSlugsArray = explode(',', $features);
 			$featureIds = Feature::whereIn('slug', $featureSlugsArray)->pluck('id');
-
 			if ($featureIds->isNotEmpty()) {
 				$properties->whereHas('propertyFeatures', function ($query) use ($featureIds) {
 					$query->whereIn('feature_id', $featureIds);
@@ -109,11 +88,11 @@ class PropertiesController extends Controller
 			}
 		}
 
-		if ($type) {
-			$properties->whereHas('propertyTypes', function ($query) use ($type) {
-				$query->where('type_id', $type);
-			});
-		}
+		// if ($type) {
+		// 	$properties->whereHas('propertyTypes', function ($query) use ($type) {
+		// 		$query->where('type_id', $type);
+		// 	});
+		// }
 
 		$properties = $properties->paginate(8);
 		$pages = ceil($properties->total() / 6);

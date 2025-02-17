@@ -83,6 +83,7 @@ class PropertiesController extends Controller
 				return $found;
 			});
 		}
+
 		$total = $properties->count();
 		$pages = ceil($total / 6);
 		$properties = $properties->paginate(8);
@@ -99,7 +100,12 @@ class PropertiesController extends Controller
 		if ($property) {
 			$property->increment('views');
 
-			// $property = $this->refine($property);
+			$gallery = json_decode($property->gallery);
+			foreach ($gallery as $key => $image) {
+				$gallery[$key] = asset('uploads/properties/' . $image);
+			}
+			$property->gallery = $gallery;
+
 
 			$related_listings = Property::where('listing_status', '1')
 			->where('neighborhood_id', $property->neighborhood_id)

@@ -21,11 +21,11 @@
 }
 
 @media screen and (max-width: 576px) {
-  .welcome-text h1 {
-    font-size: 40px !important;
-    line-height: 46px !important;
-    max-width: 92% !important;
-  }
+	.welcome-text h1 {
+		font-size: 40px !important;
+		line-height: 46px !important;
+		max-width: 92% !important;
+	}
 }
 
 .header-user-menu {
@@ -57,7 +57,6 @@
 }
 .family-image {
 	max-width: 100%;
-	border-radius: 10px;
 }
 
 .dark-overlay .main-search-inner {
@@ -134,6 +133,16 @@
 
 }
 
+
+.swiper-container .swiper-slide {
+	height: 400px;
+}
+
+.swiper-container .img-fluid {
+	height: 100% !important;
+	object-fit: cover;
+	width: 100%;
+}
 
 
 .video_banner {
@@ -364,5 +373,5 @@ hr {
 }
 
 .single.detail-wrapper {
-  margin-left: 0rem;
+	margin-left: 0rem;
 }

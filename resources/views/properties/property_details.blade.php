@@ -38,74 +38,29 @@
         </div>
     </div>
 </section>
-<div class="swiper-container swiper-container-initialized swiper-container-horizontal">
-    <div class="swiper-wrapper" style="transform: translate3d(-1903px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 634.333px;">
-        <a href="images/single-property/s-4.jpg" class="grid image-link">
-            <img src="images/single-property/s-4.jpg" class="img-fluid" alt="#">
-        </a>
-    </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 634.333px;">
-        <a href="images/single-property/s-5.jpg" class="grid image-link">
-            <img src="images/single-property/s-5.jpg" class="img-fluid" alt="#">
-        </a>
-    </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="5" style="width: 634.333px;">
-        <a href="images/single-property/s-6.jpg" class="grid image-link">
-            <img src="images/single-property/s-6.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 634.333px;">
-        <a href="images/single-property/s-1.jpg" class="grid image-link">
-            <img src="images/single-property/s-1.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 634.333px;">
-        <a href="images/single-property/s-2.jpg" class="grid image-link">
-            <img src="images/single-property/s-2.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide" data-swiper-slide-index="2" style="width: 634.333px;">
-        <a href="images/single-property/s-3.jpg" class="grid image-link">
-            <img src="images/single-property/s-3.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide" data-swiper-slide-index="3" style="width: 634.333px;">
-        <a href="images/single-property/s-4.jpg" class="grid image-link">
-            <img src="images/single-property/s-4.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide" data-swiper-slide-index="4" style="width: 634.333px;">
-        <a href="images/single-property/s-5.jpg" class="grid image-link">
-            <img src="images/single-property/s-5.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="5" style="width: 634.333px;">
-        <a href="images/single-property/s-6.jpg" class="grid image-link">
-            <img src="images/single-property/s-6.jpg" class="img-fluid" alt="#">
-        </a>
-    </div>
-    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 634.333px;">
-        <a href="images/single-property/s-1.jpg" class="grid image-link">
-            <img src="images/single-property/s-1.jpg" class="img-fluid" alt="#">
-        </a>
-    </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 634.333px;">
-        <a href="images/single-property/s-2.jpg" class="grid image-link">
-            <img src="images/single-property/s-2.jpg" class="img-fluid" alt="#">
-        </a>
-    </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 634.333px;">
-        <a href="images/single-property/s-3.jpg" class="grid image-link">
-            <img src="images/single-property/s-3.jpg" class="img-fluid" alt="#">
-        </a>
-    </div></div>
+<div class="inner-pages sin-1 homepage-4 hd-white">
+    <div class="swiper-container">
+            <div class="swiper-wrapper">
+            @foreach($property->gallery as $index => $image)
+                <div class="swiper-slide">
+                <a href="{{ $image }}" target="_blank" class="grid image-link">
+                    <img src="{{ $image }}" class="img-fluid" alt="#">
+                    </a>
+                </div>
+            @endforeach
+            </div>
 
-    <div class="swiper-pagination swiper-pagination-white swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
 
-    <div class="swiper-button-next swiper-button-white mr-3" tabindex="0" role="button" aria-label="Next slide"></div>
-    <div class="swiper-button-prev swiper-button-white ml-3" tabindex="0" role="button" aria-label="Previous slide"></div>
-    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            <div class="swiper-button-next swiper-button-white mr-3"></div>
+            <div class="swiper-button-prev swiper-button-white ml-3"></div>
+        </div>
+</div>
 
 
-    <div class="single-property-4">
-        <div class="container-fluid p0">
-            <div class="row">
+<div class="single-property-4">
+    <div class="container-fluid p0">
+        <div class="row">
             {{-- @foreach($property->gallery as $index => $image)
             @if ($index == 0)
             <div class="col-sm-6 col-lg-6 p0">

@@ -362,3 +362,7 @@ hr {
 .slick_featured .listing-hidden-content {
 	font-size: 12px !important;
 }
+
+.single.detail-wrapper {
+  margin-left: 0rem;
+}

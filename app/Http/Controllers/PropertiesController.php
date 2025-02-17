@@ -127,10 +127,6 @@ class PropertiesController extends Controller
 
 	public function HandlerProperties($slug, Request $request)
 	{
-		$types = Types::where('slug', $slug)->first();
-		if ($types) {
-			return $this->get_properties_types($slug);
-		}
 		$types = City::where('slug', $slug)->first();
 		if ($types) {
 			return $this->get_properties_cities($slug);
@@ -142,7 +138,7 @@ class PropertiesController extends Controller
 		return view('common.view_404');
 	}
 
-	public function get_properties_types($slug)
+	public function get_properties_types($slug, Request $request)
 	{
 		$page = SEO::where('page_name', 'property')->first();
 		$page->fb_image = asset('assets/images/' . $page->fb_image);

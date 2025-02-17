@@ -1193,7 +1193,7 @@
                     @foreach($types as $type)
                     <div class="agents-grid">
                         <div class="landscapes listing-item compact thehp-1" data-aos="fade-up" data-aos-delay="150">
-                            <a href="{{ route('HandlerProperties', ['slug' => $type->slug]) }}" class="recent-16">
+                            <a href="{{ url('property/type/') }}/{{  $type->slug }}" class="recent-16">
                                 <div class="recent-img16 img-fluid img-center" style="background-image: url('{{$type->banner}}');"></div>
                                 <div class="recent-content"></div>
                                 <div class="recent-details">

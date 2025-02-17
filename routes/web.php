@@ -42,6 +42,8 @@ require 'admin.php';
 Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/properties', [PropertiesController::class, 'index']);
+Route::get('/property/type/{slug}', [PropertiesController::class, 'get_properties_types'])->name('get_properties_types');
+// Route::get('/property/type/{slug}', [PropertiesController::class, 'get_properties_types'])->where('slug', '.*')->name('get_properties_types');
 Route::get('/property/{slug}', [PropertiesController::class, 'HandlerProperties'])->where('slug', '.*')->name('HandlerProperties');
 
 // Abdul Waheed

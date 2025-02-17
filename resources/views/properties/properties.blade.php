@@ -18,22 +18,17 @@
     <?php echo $page['json_ld_code'] ?>
 </script>
 @endpush
-<section class="headings">
-    <div class="text-heading text-center">
-        <div class="container">
-            <h1>Property Listings</h1>
-            <h2><a href="{{url('/')}}">Home </a> &nbsp;/&nbsp; Property Listings</h2>
-        </div>
-    </div>
-</section>
-
+<div class="clearfix" style="height: 115px;"></div>
 <div class="homepage-4 agents hp-6 full">
     <section class="properties-right featured portfolio blog pt-5 ">
         <div class="container">
-            <section class="headings-2 py-0">
+            <section class="headings-2 pt-0 pb-55">
                 <div class="pro-wrapper">
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
+                            <div class="text-heading text-left">
+                                <p class="pb-2"><a href="{{ url('/') }}">Home </a> &nbsp;/&nbsp; <span>Property Listings</span></p>
+                            </div>
                             <h1 class="h1">Explore Our Exclusive Properties for Sale.</h1>
                             <p class="property-listing-description">Explore a variety of residential and commercial properties for sale and rent, including luxury homes, affordable options, and investment opportunities.</p>
                         </div>
@@ -331,161 +326,49 @@
                                                     @if($fpitem->listing_status == '1')
                                                     <span>For Sale</span>
                                                     @endif
-                                                    >>>>>>> 1110cbbfa7f9e11bdf6fadc050968259472f7336
                                                 </div>
-                                                @endif
-                                                @if($property->listing_status == '1')
-                                                <div class="homes-tag button alt featured">
-                                                    For Sale
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">{{ limit_words($fpitem->title, 3)}}</span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
+                                                        <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
+                                                        <li>Garages <span>{{ $fpitem->parking_spaces }}</span></li>
+                                                        <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
+                                                    </ul>
                                                 </div>
-                                                @endif
-                                                <div class="homes-price">${{ number_format($property->price) }}</div>
-                                                <img src="{{ asset('uploads/properties').'/'.$property->banner }}" alt="Property image" class="img-responsive">
+                                                <img src="{{ asset('user_assets/images/feature-properties/fp-1.jpg') }}" alt="">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="homes-content">
-                                        <h3><a href="{{url('/property')}}/{{$property->slug}}">{{ $property->name }}</a></h3>
-                                        <p class="homes-address mb-3">
-                                            <a href="{{url('/property')}}/{{$property->slug}}">
-                                                <i class="fa fa-map-marker"></i><span>{{ $property->address }}</span>
-                                            </a>
-                                        </p>
-                                        <ul class="homes-list clearfix pb-3">
-                                            <li class="the-icons">
-                                                <i class="flaticon-bed mr-2" aria-hidden="true"></i>
-                                                <span>{{ $property->bedrooms }} Bedrooms</span>
-                                            </li>
-                                            <li class="the-icons">
-                                                <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
-                                                <span>{{ $property->bathrooms }} Bathrooms</span>
-                                            </li>
-                                            <li class="the-icons">
-                                                <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                                <span>{{ $property->size }} sq ft</span>
-                                            </li>
-                                            <li class="the-icons">
-                                                <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                                <span>{{ $property->parking_spaces }} Garages</span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            @endforeach
-                        </div>
-                        <div class="row">
-                            <nav aria-label="..." class="pt-55">
-                                <ul class="pagination">
-                                    @if ($properties->onFirstPage())
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                    </li>
-                                    @else
-                                    <li class="page-item">
-                                        <a class="page-link" href="{{ $properties->previousPageUrl() }}">Previous</a>
-                                    </li>
-                                    @endif
-                                    @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
-                                    <li class="page-item {{ $page == $properties->currentPage() ? 'active' : '' }}">
-                                        <a class="page-link" href="{{ $url }}">{{ $page }} <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    @endforeach
-                                    @if ($properties->hasMorePages())
-                                    <li class="page-item">
-                                        <a class="page-link" href="{{ $properties->nextPageUrl() }}">Next</a>
-                                    </li>
-                                    @else
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                    @endif
-                                </ul>
-                            </nav>
                         </div>
                     </div>
-
-                    <aside class="col-lg-4 col-md-12 car">
-                        <div class="widget">
-
-                            <div class="widget-boxed mt-5">
-                                <div class="widget-boxed-header">
-                                    <h4>Recent Properties</h4>
-                                </div>
-                                <div class="widget-boxed-body">
-                                    <div class="recent-post">
-                                        @foreach(get_recent_properties() as $pitem)
-                                        <div class="recent-main mb-4">
-                                            <div class="recent-img">
-                                                <a href="{{url('/property')}}/{{$pitem->slug}}"><img src="{{ asset('uploads/properties').'/'.$pitem->banner }}" alt=""></a>
-                                            </div>
-                                            <div class="info-img">
-                                                <a href="{{url('/property')}}/{{$pitem->slug}}"><h6>{{ limit_words($pitem->title, 3)}}</h6></a>
-                                                <p>${{ number_format($pitem->price) }}</p>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="widget-boxed mt-5">
-                                <div class="widget-boxed-header mb-5">
-                                    <h4>Feature Properties</h4>
-                                </div>
-                                <div class="widget-boxed-body">
-                                    <div class="slick_featured">
-                                        @foreach(get_recent_featured_properties() as $fpitem)
-                                        <div class="agents-grid mr-0">
-                                            <div class="listing-item compact">
-                                                <a href="#" class="listing-img-container">
-                                                    <div class="listing-badges">
-                                                        <span class="featured">${{ number_format($fpitem->price) }}</span>
-                                                        @if($fpitem->listing_status == '1')
-                                                        <span>For Sale</span>
-                                                        @endif
-                                                    </div>
-                                                    <div class="listing-img-content">
-                                                        <span class="listing-compact-title">{{ limit_words($fpitem->title, 3)}}</span>
-                                                        <ul class="listing-hidden-content">
-                                                            <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
-                                                            <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
-                                                            <li>Garages <span>{{ $fpitem->parking_spaces }}</span></li>
-                                                            <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <img src="{{ asset('user_assets/images/feature-properties/fp-1.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
+                </aside>
             </div>
-        </section>
-    </div>
-    @endsection
-    @push('scripts')
-    <script src="{{ asset('user_assetsjs/rangeSlider.js') }}"></script>
-    <script src="{{ asset('user_assetsjs/popper.min.js') }}"></script>
-    <script src="{{ asset('user_assetsjs/light.js') }}"></script>
-    <script src="{{ asset('user_assetsjs/popup.js') }}"></script>
-    <script src="{{ asset('user_assetsjs/searched.js') }}"></script>
-    <script src="{{ asset('user_assetsjs/inner.js') }}"></script>
-    <script>
-        $(".dropdown-filter").on('click', function() {
-            $(".explore__form-checkbox-list").toggleClass("filter-block");
-        });
-        $('.slick_featured').slick({
-            infinite: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: true,
-            adaptiveHeight: true,
-        });
-    </script>
-    @endpush
+        </div>
+    </section>
+</div>
+@endsection
+@push('scripts')
+<script src="{{ asset('user_assetsjs/rangeSlider.js') }}"></script>
+<script src="{{ asset('user_assetsjs/popper.min.js') }}"></script>
+<script src="{{ asset('user_assetsjs/light.js') }}"></script>
+<script src="{{ asset('user_assetsjs/popup.js') }}"></script>
+<script src="{{ asset('user_assetsjs/searched.js') }}"></script>
+<script src="{{ asset('user_assetsjs/inner.js') }}"></script>
+<script>
+    $(".dropdown-filter").on('click', function() {
+        $(".explore__form-checkbox-list").toggleClass("filter-block");
+    });
+    $('.slick_featured').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        adaptiveHeight: true,
+    });
+</script>
+@endpush

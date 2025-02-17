@@ -36,6 +36,6 @@ class City extends Model
     }
     public function properties()
     {
-        return $this->hasMany(Property::class, 'city', 'name');
+        return $this->hasMany(Property::class, 'city_id');
     }
 }

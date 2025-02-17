@@ -36,14 +36,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="hero-inner2">
-                                <div class="welcome-text text-center d-flex flex-column align-items-center">
-                                    <h1 class="h1">
-                                        Rosarito isn't just a beach, it's a community...
-                                    </h1>
-                                    <h2 class="text-light">
-                                        and you're invited! -The Hansome Family
-                                    </h2>
-                                </div>
+
                                 <div class="col-12">
                                     <div class="banner-search-wrap">
 
@@ -171,15 +164,21 @@
     </div>
 
 
+
     <section class="family-section bg-light">
         <div class="container">
-            <div class="row align-items-center">
-               {{--  <div class="col-md-4">
-                    <h2 class="font-weight-bold">Rosarito isn't just a beach, it's a community...</h2>
-                    <p class="text-muted">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                 <div class="welcome-text text-center d-flex flex-column align-items-center">
+                    <h1 class="h1 text-danger">
+                        Rosarito isn't just a beach, it's a community...
+                    </h1>
+                    <h2 class="text-dark">
                         and you're invited! -The Hansome Family
-                    </p>
-                </div> --}}
+                    </h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
                 <div class="col-md-12 text-center">
                     <img src="{{ asset('assets/images/banner.jpg') }}" alt="Our Handsome Family" class="family-image">
                 </div>

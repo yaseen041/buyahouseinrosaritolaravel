@@ -130,8 +130,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
     $(document).on("click" , "#btn_submit_contact" , function() {
         event.preventDefault();
         var btn = $(this);
-        // btn.prop("disabled", true).text("Please Wait...");
-
+        btn.prop("disabled", true).text("Please Wait...");
         var formData =  new FormData($("#contact_form")[0]);
         $.ajax({
             url:"{{ url('submit_contact') }}",
@@ -142,7 +141,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
             contentType: false,
             processData: false,
             success:function(status){
-                 // btn.prop("disabled", false).text("Submit");
+                 btn.prop("disabled", false).text("Submit");
                 if(status.msg=='success') {
                     toastr.success(status.response,"Success");
                     $('#contact_form')[0].reset();

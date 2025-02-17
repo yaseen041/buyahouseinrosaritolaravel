@@ -178,7 +178,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center mt-5">
                 <div class="col-md-12 text-center">
                     <img src="{{ asset('assets/images/banner.jpg') }}" alt="Our Handsome Family" class="family-image">
                 </div>

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Feature;
@@ -14,7 +12,6 @@ use App\Models\Blogs;
 use App\Models\Categories;
 use App\Models\SEO;
 use App\Models\Agents;
-
 class PropertiesController extends Controller
 {
 	public function index(Request $request)
@@ -77,7 +74,6 @@ class PropertiesController extends Controller
 				});
 			}
 		}
-
 		if ($features) {
 			$featureSlugsArray = explode(',', $features);
 			$featureIds = Feature::whereIn('slug', $featureSlugsArray)->pluck('id');
@@ -87,18 +83,9 @@ class PropertiesController extends Controller
 				});
 			}
 		}
-
-		// if ($type) {
-		// 	$properties->whereHas('propertyTypes', function ($query) use ($type) {
-		// 		$query->where('type_id', $type);
-		// 	});
-		// }
-
 		$properties = $properties->paginate(8);
 		$pages = ceil($properties->total() / 6);
-
 		$filters = $request->all();
-
 		return view('properties/properties', compact('page', 'properties', 'pages', 'filters'));
 	}
 
@@ -112,7 +99,6 @@ class PropertiesController extends Controller
 				$gallery[$key] = asset('uploads/properties/' . $image);
 			}
 			$property->gallery = $gallery;
-
 			$files = json_decode($property->files);
 			if($files){
 				foreach ($files as $key => $file) {
@@ -120,13 +106,11 @@ class PropertiesController extends Controller
 				}
 				$property->files = $files;
 			}
-
 			$related_listings = Property::where('listing_status', '1')
 			->where('neighborhood_id', $property->neighborhood_id)
 			->where('id', '!=', $property->id)
 			->limit(4)
 			->get();
-
 			$featureIds = PropertyFeature::where('property_id', $property['id'])->pluck('feature_id');
 			$features = Feature::whereIn('id', $featureIds)->get();
 			$agent = Agents::where('id', $property['agent'])->first();
@@ -136,7 +120,6 @@ class PropertiesController extends Controller
 			return view('common.view_404');
 		}
 	}
-
 
 	public function HandlerProperties($slug, Request $request)
 	{
@@ -156,7 +139,6 @@ class PropertiesController extends Controller
 		$page = SEO::where('page_name', 'property')->first();
 		$page->fb_image = asset('assets/images/' . $page->fb_image);
 		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
-
 		$type = Types::where('slug', $slug)->first();
 		$properties = Property::query()->orderBy('created_at', 'desc');
 		if ($type) {
@@ -187,7 +169,6 @@ class PropertiesController extends Controller
 		return view('properties/properties', compact('page', 'properties', 'pages'));
 	}
 
-
 	public function feature_mapping($features, $property_features)
 	{
 		foreach ($features as $feature) {
@@ -207,7 +188,6 @@ class PropertiesController extends Controller
 
 	public function refine($property)
 	{
-
 		$property->banner = asset('uploads/properties/' . $property->banner);
 		$gallery = json_decode($property->gallery);
 		foreach ($gallery as $key => $image) {
@@ -251,8 +231,6 @@ class PropertiesController extends Controller
 		} elseif ($property->is_featured == 1) {
 			$property->is_featured = false;
 		}
-
-
 		$property->listing_status = mapListingStatus($property->listing_status);
 		$property->rent_cycle = mapRentCycleAPI($property->rent_cycle);
 		$interior_features = Feature::where('type', 1)->get();
@@ -283,8 +261,6 @@ class PropertiesController extends Controller
 			return $types->where('id', $property_type->type_id)->first();
 		});
 		$property->types = $property_types;
-        // $related_listings = 4 properties of same type and area
 		return $property;
 	}
-
 }

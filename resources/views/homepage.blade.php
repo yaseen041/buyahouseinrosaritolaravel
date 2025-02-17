@@ -1404,7 +1404,7 @@
         <div class="container-fluid">
             <div class="section-title">
                 <h3>Latest</h3>
-                <h2>News</h2>
+                <h2>Posts</h2>
             </div>
             <div class="news-wrap">
                 <div class="row">
@@ -1418,9 +1418,8 @@
                             </a>
                             <div class="news-item-text">
                                 <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}"><h3>{{ $blog->title }}</h3></a>
-                                <span class="date">{{ $blog->created_at->format('M d, Y') }} &nbsp;/&nbsp; By {{ $blog->author->name ?? 'Admin' }}</span>
                                 <div class="news-item-descr">
-                                    <p>{{ \Str::limit($blog->meta_description, 100) }}</p>
+                                    <p>{{ limit_words($blog->short_description, 30) }}</p>
                                 </div>
                                 <div class="news-item-bottom">
                                     <a href="{{ route('slugHandler', ['slug' => $blog->post_url]) }}" class="news-link">Read more...</a>

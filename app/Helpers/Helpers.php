@@ -844,3 +844,9 @@ if (!function_exists('get_properties_cities')) {
 		return $data;
 	}
 }
+if (!function_exists('get_cities')) {
+    function get_cities()
+    {
+        return City::select('name', 'slug')->limit(6)->get();
+    }
+}

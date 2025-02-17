@@ -139,10 +139,18 @@
                         @endforeach
                     </ul>
                 </div>
+                @if(!empty($property->files))
                 <div class="floor-plan property wprt-image-video w50 pro">
-                    <h5>Floor Plans</h5>
-                    <img alt="image" src="images/bg/floor-plan-1.png">
+                    <h5>Atteched Files</h5>
+                    <div class="row">
+                        @foreach($property->files as $docs)
+                        <a href="{{ $docs }}" target="_blank" class="grid image-link mb-2">
+                            <img alt="file" src="{{ asset('user_assets/images/pdf_files.png') }}" width="100px" class="">
+                        </a>
+                        @endforeach
+                    </div>
                 </div>
+                @endif
                 <div class="property-location map">
                     <h5>Location</h5>
                     <div class="divider-fade"></div>

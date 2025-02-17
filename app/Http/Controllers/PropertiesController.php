@@ -99,6 +99,15 @@ class PropertiesController extends Controller
 				$gallery[$key] = asset('uploads/properties/' . $image);
 			}
 			$property->gallery = $gallery;
+
+			$files = json_decode($property->files);
+			if($files){
+				foreach ($files as $key => $file) {
+					$files[$key] = asset('uploads/properties/' . $file);
+				}
+				$property->files = $files;
+			}
+
 			$related_listings = Property::where('listing_status', '1')
 			->where('neighborhood_id', $property->neighborhood_id)
 			->where('id', '!=', $property->id)

@@ -12,6 +12,26 @@
 	padding: 5px 0 110px 0;
 }
 
+@media screen and (max-width: 1024px){
+	#header {
+		position: relative;
+		z-index: 999;
+		padding: 37px 0 120px 0;
+	}
+}
+
+@media screen and (max-width: 576px) {
+  .welcome-text h1 {
+    font-size: 40px !important;
+    line-height: 46px !important;
+    max-width: 92% !important;
+  }
+}
+
+.header-user-menu {
+	margin-right: 0px;
+}
+
 #logo img {
 	width: 90px;
 }
@@ -28,8 +48,8 @@
 }
 
 .agents #header, .sin-1 #header {
-  -webkit-box-shadow: none;
-  box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .family-section {
@@ -204,13 +224,13 @@
 }
 
 .dark-overlay h1 {
-  font-size: 50px;
+	font-size: 50px;
 /*  color: #fff;*/
-  color: #D51E4C;
-  line-height: 57px;
-  text-transform: capitalize;
-  text-align: center;
-  max-width: 64%;
+color: #D51E4C;
+line-height: 57px;
+text-transform: capitalize;
+text-align: center;
+max-width: 64%;
 }
 
 .temp_table thead tr,

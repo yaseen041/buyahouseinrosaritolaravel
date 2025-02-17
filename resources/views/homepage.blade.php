@@ -27,7 +27,7 @@
 
     <div id="map-container" class="fullwidth-home-map dark-overlay">
         <div class="video-container">
-            <video poster="{{asset('user_assets/images/bg/video-image.png')}}" loop autoplay muted>
+            <video loop autoplay muted>
                 <source src="{{ asset('user_assets/video/video-3.mp4') }}" type="video/mp4">
                 </video>
             </div>
@@ -1199,9 +1199,7 @@
         <script src="{{asset('user_assets/js/range.js')}}"></script>
         <script>
             $(".dropdown-filter").on('click', function() {
-
                 $(".explore__form-checkbox-list").toggleClass("filter-block");
-
             });
 
 
@@ -1242,7 +1240,7 @@
             $(document).ready(function () {
                 $(".input_amount").on("input", function () {
                     let inputVal = $(this).val();
-                    inputVal = inputVal.replace(/[^0-9]/g, "").slice(0, 10);
+                    inputVal = inputVal.replace(/[^0-9]/g, "").slice(0, 20);
                     $(this).val(inputVal);
                     let budget = parseFloat(inputVal);
                     if (!isNaN(budget)) {

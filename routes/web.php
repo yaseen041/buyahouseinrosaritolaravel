@@ -42,11 +42,7 @@ require 'admin.php';
 Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/properties', [PropertiesController::class, 'index']);
-Route::group(['prefix'  =>  'property'], function () {
-    Route::get('/{slug}', [PropertiesController::class, 'show']);
-});
-
-
+Route::get('/property/{slug}', [PropertiesController::class, 'show'])->name('show');
 
 // Abdul Waheed
 Route::get('contact', [ContactController::class, 'index'])->name('contact');

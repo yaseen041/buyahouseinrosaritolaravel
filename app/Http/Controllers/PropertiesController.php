@@ -97,11 +97,11 @@ class PropertiesController extends Controller
 
 		$properties = $properties->paginate(8);
 
-		foreach ($properties as $property) {
-			$this->refine($property);
-		}
+		// foreach ($properties as $property) {
+		// 	$this->refine($property);
+		// }
 
-		return view('properties', compact('page', 'properties', 'pages'));
+		return view('properties/properties', compact('page', 'properties', 'pages'));
 	}
 
 

@@ -75,4 +75,10 @@ class Property extends Model
     {
         return $this->belongsTo(Agents::class, 'agent');
     }
+
+    public function propertyFeatures()
+    {
+        return $this->hasMany(PropertyFeature::class, 'property_id');
+    }
+
 }

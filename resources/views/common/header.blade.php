@@ -5,12 +5,14 @@
 				<div id="logo">
 					<a href="{{ url('/')}}"><img src="{{ asset('assets/img') }}/{{ get_section_content('project', 'site_logo') }}" data-sticky-logo="images/logo-red.svg" alt=""></a>
 				</div>
+				<div class="triger-div">
 				<div class="mmenu-trigger">
 					<button class="hamburger hamburger--collapse" type="button">
 						<span class="hamburger-box">
 							<span class="hamburger-inner"></span>
 						</span>
 					</button>
+				</div>
 				</div>
 				<nav id="navigation" class="style-1 white">
 					<ul id="responsive">
@@ -22,14 +24,14 @@
 						<li><a href="{{ url('contact')}}">Contact</a></li>
 					</ul>
 				</nav>
-				<div class="header-user-menu link mt-3 d-block d-lg-none">
+				<div class="header-user-menu link d-block d-xl-none">
 					<div class="header-user-name">
 						<a href="tel:+161925897442" class=""><i class="fa fa-phone ml-2"></i> +1 (619) 2589-7442 </a>
 					</div>
 				</div>
 			</div>
 
-			<div class="header-user-menu link mt-3 d-none d-lg-block">
+			<div class="header-user-menu link mt-3 d-none d-xl-block">
 				<div class="header-user-name">
 					<a href="tel:+161925897442" class=""><i class="fa fa-phone ml-2"></i> +1 (619) 2589-7442 </a>
 				</div>

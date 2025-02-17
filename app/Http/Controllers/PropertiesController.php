@@ -22,72 +22,93 @@ class PropertiesController extends Controller
 		$page = SEO::where('page_name', 'property')->first();
 		$page->fb_image = asset('assets/images/' . $page->fb_image);
 		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
-		$sorting = $request->sorting ?? null;
-		$listing_status = $request->listing_status ?? null;
-		$listing_type = $request->listing_type ?? null;
-		$is_featured = $request->is_featured ?? null;
-		$feature = $request->feature ?? null;
-		$type = $request->type ?? null;
+
+
+		$search = $request->search;
+		$sorting = $request->sorting;
+		$listing_status = $request->listing_status;
+		$property_type = $request->type;
+		$is_featured = $request->is_featured;
+		$features = $request->features;
+		$bedrooms = $request->bedrooms;
+		$bathrooms = $request->bathrooms;
+		$type = $request->type;
+		$city = $request->city;
 		$properties = Property::query();
-		if ($sorting) {
-			if ($sorting == 1) {
-				$properties = $properties->orderBy('created_at', 'desc');
-			} else if ($sorting == 2) {
-				$properties = $properties->orderBy('is_featured', 'desc');
-			} else if ($sorting == 3) {
-				$properties = $properties->orderBy('views', 'desc');
-			} else if ($sorting == 4) {
-				$properties = $properties->orderBy('price');
-			} else if ($sorting == 5) {
-				$properties = $properties->orderBy('price', 'desc');
-			} else if ($sorting == 6) {
-				$properties = $properties->orderBy('created_at');
-			} else if ($sorting == 7) {
-				$properties = $properties->orderBy('created_at', 'desc');
-			}
+
+		$sortingOptions = [
+			1 => ['created_at', 'desc'],
+			2 => ['is_featured', 'desc'],
+			3 => ['views', 'desc'],
+			4 => ['price', 'asc'],
+			5 => ['price', 'desc'],
+			6 => ['created_at', 'asc'],
+			7 => ['created_at', 'desc'],
+		];
+
+		if ($search) {
+			$properties->where(function ($query) use ($search) {
+				$query->where('title', 'like', '%' . $search . '%')
+				->orWhere('description', 'like', '%' . $search . '%')
+				->orWhere('short_description', 'like', '%' . $search . '%');
+			});
+		}
+
+
+		if (isset($sortingOptions[$sorting])) {
+			$properties = $properties->orderBy(...$sortingOptions[$sorting]);
 		} else {
 			$properties = $properties->orderBy('created_at', 'desc');
 		}
-		if ($listing_status) {
-			$properties = $properties->where('listing_status', $listing_status);
+
+		if ($bedrooms) {
+			$properties->where('bedrooms', $bedrooms);
 		}
-		if ($listing_type) {
-			$properties = $properties->where('listing_type', $listing_type);
+
+		if ($bathrooms) {
+			$properties->where('bathrooms', $bathrooms);
+		}
+
+		if ($listing_status) {
+			$properties->where('listing_status', $listing_status);
+		}
+
+		if ($city) {
+			$properties->where('city', $city);
+		}
+		if ($property_type) {
+			$properties->where('listing_type', $property_type);
 		}
 		if ($is_featured) {
-			$properties = $properties->where('is_featured', $is_featured);
+			$properties->where('is_featured', $is_featured);
 		}
-		if ($feature) {
-			$properties = $properties->filter(function ($property) use ($feature) {
-				$property_features = PropertyFeature::where('property_id', $property->id)->get();
-				$found = false;
-				foreach ($property_features as $property_feature) {
-					if ($property_feature->feature_id == $feature) {
-						$found = true;
-						break;
-					}
-				}
-				return $found;
-			});
+
+
+		if ($features) {
+			$featureSlugsArray = explode(',', $features);
+			$featureIds = Feature::whereIn('slug', $featureSlugsArray)->pluck('id');
+
+			if ($featureIds->isNotEmpty()) {
+				$properties->whereHas('propertyFeatures', function ($query) use ($featureIds) {
+					$query->whereIn('feature_id', $featureIds);
+				});
+			}
 		}
+
 		if ($type) {
-			$properties = $properties->filter(function ($property) use ($type) {
-				$property_types = PropertyType::where('property_id', $property->id)->get();
-				$found = false;
-				foreach ($property_types as $property_type) {
-					if ($property_type->type_id == $type) {
-						$found = true;
-						break;
-					}
-				}
-				return $found;
+			$properties->whereHas('propertyTypes', function ($query) use ($type) {
+				$query->where('type_id', $type);
 			});
 		}
-		$total = $properties->count();
-		$pages = ceil($total / 6);
+
 		$properties = $properties->paginate(8);
-		return view('properties/properties', compact('page', 'properties', 'pages'));
+		$pages = ceil($properties->total() / 6);
+
+		$filters = $request->all();
+
+		return view('properties/properties', compact('page', 'properties', 'pages', 'filters'));
 	}
+
 
 	public function show($slug)
 	{

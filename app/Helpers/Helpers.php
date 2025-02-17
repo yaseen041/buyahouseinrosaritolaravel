@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\Blogs;
+use App\Models\Types;
+use App\Models\City;
+use App\Models\Feature;
 use Illuminate\Support\Facades\DB;
 
 if (!function_exists('admin_url')) {
@@ -797,3 +800,33 @@ if (!function_exists('get_recent_featured_properties')) {
 		return $data;
 	}
 }
+
+
+if (!function_exists('getTypes')) {
+    function getTypes()
+    {
+        return Feature::select('title', 'slug')->get();
+    }
+}
+
+if (!function_exists('getFeatures')) {
+    function getFeatures()
+    {
+        return Feature::select('title', 'slug')->get();
+    }
+}
+
+if (!function_exists('getComunities')) {
+    function getComunities()
+    {
+        return Feature::select('title', 'slug')->get();
+    }
+}
+
+if (!function_exists('getCities')) {
+    function getCities()
+    {
+        return City::select('name', 'slug')->get();
+    }
+}
+

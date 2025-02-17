@@ -1409,7 +1409,7 @@ transform: rotate(-90deg);
     #logo {
         position: absolute;
         width: 100%;
-        margin: 0 auto;
+/*        margin: 0 auto;*/
         margin-top: 3px;
         width: 35%;
         text-align: center;
@@ -1473,7 +1473,7 @@ transform: rotate(-90deg);
     }
     #responsive {
         display: none;
-    }    
+    }
     /* Header Responsive Styles */
     .responsive-search input:focus {
         border: none;
@@ -1547,6 +1547,7 @@ transform: rotate(-90deg);
         text-align: left;
         top: 3px;
     }
+
 }
 @media (max-width: 360px) {
     .header-widget .sign-in {
@@ -1560,6 +1561,8 @@ transform: rotate(-90deg);
     }
 }
 @media only screen and (max-width: 575px) {
+
+
     #logo img {
         margin-right: 60px;
     }

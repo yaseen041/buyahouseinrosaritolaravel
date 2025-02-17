@@ -4,6 +4,7 @@ use App\Models\Blogs;
 use App\Models\Types;
 use App\Models\City;
 use App\Models\Feature;
+use App\Models\Neighborhood;
 use Illuminate\Support\Facades\DB;
 
 if (!function_exists('admin_url')) {
@@ -805,7 +806,7 @@ if (!function_exists('get_recent_featured_properties')) {
 if (!function_exists('getTypes')) {
     function getTypes()
     {
-        return Feature::select('title', 'slug')->get();
+        return Types::select('title', 'slug')->get();
     }
 }
 
@@ -819,7 +820,7 @@ if (!function_exists('getFeatures')) {
 if (!function_exists('getComunities')) {
     function getComunities()
     {
-        return Feature::select('title', 'slug')->get();
+        return Neighborhood::select('title', 'slug')->get();
     }
 }
 

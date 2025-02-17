@@ -84,6 +84,20 @@ class PropertiesController extends Controller
 		}
 
 
+		if ($property_type) {
+    // Get the type by slug and select only the 'id' column
+			$typeid = Types::select('id')->where('slug', $property_type)->first();
+
+    // Check if the type exists and access the id using ->id
+			if ($typeid && $typeid->id) {
+				$properties->whereHas('propertyTypes', function ($query) use ($typeid) {
+            // Filter based on the type_id of the found type
+					$query->where('type_id', $typeid->id);
+				});
+			}
+		}
+
+
 		if ($features) {
 			$featureSlugsArray = explode(',', $features);
 			$featureIds = Feature::whereIn('slug', $featureSlugsArray)->pluck('id');

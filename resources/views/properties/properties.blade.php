@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="rld-single-select ml-22">
                                                 <select name="type" class="select single-select">
-                                                    <option value="">Select Property type</option>
+                                                    <option value="">Select Property Type</option>
                                                     @foreach(getTypes() as $type)
                                                     <option value="{{ $type->slug }}" @if($type->slug == @$filters['type']) selected @endif>{{ $type->title }}</option>
                                                     @endforeach

@@ -83,55 +83,35 @@ class PropertiesController extends Controller
 				return $found;
 			});
 		}
-
 		$total = $properties->count();
 		$pages = ceil($total / 6);
 		$properties = $properties->paginate(8);
-		// foreach ($properties as $property) {
-		// 	$this->refine($property);
-		// }
 		return view('properties/properties', compact('page', 'properties', 'pages'));
 	}
-
 
 	public function show($slug)
 	{
 		$property = Property::where('slug', $slug)->first();
 		if ($property) {
 			$property->increment('views');
-
 			$gallery = json_decode($property->gallery);
 			foreach ($gallery as $key => $image) {
 				$gallery[$key] = asset('uploads/properties/' . $image);
 			}
 			$property->gallery = $gallery;
-
-
 			$related_listings = Property::where('listing_status', '1')
 			->where('neighborhood_id', $property->neighborhood_id)
 			->where('id', '!=', $property->id)
 			->limit(4)
 			->get();
 
-			// ->map(function ($listing) {
-			// 	return $this->refine($listing);
-			// });
-
 			$featureIds = PropertyFeature::where('property_id', $property['id'])->pluck('feature_id');
 			$features = Feature::whereIn('id', $featureIds)->get();
-
 			$agent = Agents::where('id', $property['agent'])->first();
-
 			$featured = Property::where('is_featured', 2)->orderBy('created_at', 'desc')->limit(4)->get();
-
-			// foreach ($featured as $property) {
-			// 	$this->refine($property);
-			// }
-
-
 			return view('properties.property_details', compact('property', 'features', 'agent', 'related_listings', 'featured'));
 		} else {
-			return view('404');
+			return view('common.view_404');
 		}
 	}
 

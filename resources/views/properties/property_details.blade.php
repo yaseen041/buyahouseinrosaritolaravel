@@ -29,8 +29,20 @@
 <link rel="stylesheet" href="{{ asset('user_assets/css/swiper.min.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/owl.carousel.min.css') }}">
 @endpush
+<<<<<<< HEAD
+
+<section class="headings">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1>{{ $property->title}}</h1>
+            <h2><a href="{{url('/')}}">Home </a> &nbsp;/&nbsp; {{ $property->title}}</h2>
+        </div>
+    </div>
+</section>
+=======
 {{-- {{ dd($property); }} --}}
 <div class="clearfix" style="height: 115px;"></div>
+>>>>>>> 35b593921344b46c185acc95c9991cd0c3fbe0ee
 <div class="single-property-4">
     <div class="container-fluid p0">
         <div class="row">

@@ -22,16 +22,13 @@ class PropertiesController extends Controller
 		$page = SEO::where('page_name', 'property')->first();
 		$page->fb_image = asset('assets/images/' . $page->fb_image);
 		$page->twitter_image = asset('assets/images/' . $page->twitter_image);
-
 		$sorting = $request->sorting ?? null;
 		$listing_status = $request->listing_status ?? null;
 		$listing_type = $request->listing_type ?? null;
 		$is_featured = $request->is_featured ?? null;
 		$feature = $request->feature ?? null;
 		$type = $request->type ?? null;
-
 		$properties = Property::query();
-
 		if ($sorting) {
 			if ($sorting == 1) {
 				$properties = $properties->orderBy('created_at', 'desc');
@@ -51,19 +48,15 @@ class PropertiesController extends Controller
 		} else {
 			$properties = $properties->orderBy('created_at', 'desc');
 		}
-
 		if ($listing_status) {
 			$properties = $properties->where('listing_status', $listing_status);
 		}
-
 		if ($listing_type) {
 			$properties = $properties->where('listing_type', $listing_type);
 		}
-
 		if ($is_featured) {
 			$properties = $properties->where('is_featured', $is_featured);
 		}
-
 		if ($feature) {
 			$properties = $properties->filter(function ($property) use ($feature) {
 				$property_features = PropertyFeature::where('property_id', $property->id)->get();
@@ -77,7 +70,6 @@ class PropertiesController extends Controller
 				return $found;
 			});
 		}
-
 		if ($type) {
 			$properties = $properties->filter(function ($property) use ($type) {
 				$property_types = PropertyType::where('property_id', $property->id)->get();
@@ -91,19 +83,14 @@ class PropertiesController extends Controller
 				return $found;
 			});
 		}
-
 		$total = $properties->count();
 		$pages = ceil($total / 6);
-
 		$properties = $properties->paginate(8);
-
 		// foreach ($properties as $property) {
 		// 	$this->refine($property);
 		// }
-
 		return view('properties/properties', compact('page', 'properties', 'pages'));
 	}
-
 
 
 	public function show($slug)
@@ -111,31 +98,29 @@ class PropertiesController extends Controller
 		$property = Property::where('slug', $slug)->first();
 		if ($property) {
 			$property->increment('views');
-			$property = $this->refine($property);
-			$related_listings = Property::where('listing_status', $property->listing_status)
+
+			// $property = $this->refine($property);
+
+			$related_listings = Property::where('listing_status', '1')
 			->where('neighborhood_id', $property->neighborhood_id)
 			->where('id', '!=', $property->id)
 			->limit(4)
-			->get()
-			->map(function ($listing) {
-				return $this->refine($listing);
-			});
+			->get();
 
-			$featureIds = PropertyFeature::where('property_id', $property['id'])
-			->pluck('feature_id');
+			// ->map(function ($listing) {
+			// 	return $this->refine($listing);
+			// });
+
+			$featureIds = PropertyFeature::where('property_id', $property['id'])->pluck('feature_id');
 			$features = Feature::whereIn('id', $featureIds)->get();
 
 			$agent = Agents::where('id', $property['agent'])->first();
-			$agent->image = asset('uploads/agents/' . $agent->image);
 
-			$featured = Property::where('is_featured', 2)
-			->orderBy('created_at', 'desc')
-			->limit(4)
-			->get();
+			$featured = Property::where('is_featured', 2)->orderBy('created_at', 'desc')->limit(4)->get();
 
-			foreach ($featured as $property) {
-				$this->refine($property);
-			}
+			// foreach ($featured as $property) {
+			// 	$this->refine($property);
+			// }
 
 
 			return view('properties.property_details', compact('property', 'features', 'agent', 'related_listings', 'featured'));

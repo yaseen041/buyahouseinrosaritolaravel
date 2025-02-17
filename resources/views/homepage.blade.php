@@ -168,7 +168,7 @@
     <section class="family-section bg-light">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-12 col-md-8">
                  <div class="welcome-text text-center d-flex flex-column align-items-center">
                     <h1 class="h1 text-danger">
                         Rosarito isn't just a beach, it's a community...
@@ -196,7 +196,7 @@
                             <h2 class="heading_american mb-4">Why Are More and More Americans Moving to Rosarito? The Answer May Surprise You!</h2>
                         </div>
                         <div class="wprt-image-video w50 w-100 h-100 position-relative ">
-                            <img src="{{asset('assets/images/video-2.jpg')}}" class="rounded-4" alt="image">
+                            <img src="{{asset('assets/images/video-2.jpg')}}" class="" alt="image">
                             <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=Yf61HtiwTlo&t=47s">
                                 <i class="fa fa-play"></i>
                             </a>
@@ -206,7 +206,7 @@
                                 <div class="waves wave-3"></div>
                             </div>
                         </div>
-                        <div class="pftext">
+                        <div class="pftext pt-5">
                             <div class="heading-section">
                                 <div class="text wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                                     <p class=""><a target="_blank" href="https://www.sandiegored.com/en/news/229355/Playas-de-Rosarito-becomes-paradise-for-retired-Americans/?utm_source=chatgpt.com">Rosarito, officially known as Playas de Rosarito</a> is quickly becoming one of the most sought-after destinations for Americans looking to escape the high cost of living and <a target="_blank" href="https://www.latimes.com/environment/story/2025-01-16/climate-change-california-fires">extreme climate in many U.S. cities.</a></p><p class="pt-3"><a target="_blank" href="https://www.realtor.com/international/mx/rosarito-baja-california-sur/"> Known for its stunning beachfront properties</a>, year-round mild climate, and affordability, Rosarito offers an unmatched lifestyle at a fraction of the price compared to U.S. cities like Los Angeles or Honolulu.</p>

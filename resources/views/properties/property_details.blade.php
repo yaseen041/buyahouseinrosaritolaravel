@@ -37,7 +37,6 @@
 
 {{-- {{ dd($property); }} --}}
 <div class="clearfix" style="height: 115px;"></div>
-<div class="clearfix"></div>
 <div class="single-property-4">
     <div class="container-fluid p0">
         <div class="row">

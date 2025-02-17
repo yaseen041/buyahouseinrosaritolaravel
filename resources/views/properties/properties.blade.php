@@ -18,17 +18,22 @@
     <?php echo $page['json_ld_code'] ?>
 </script>
 @endpush
-<div class="clearfix" style="height: 115px;"></div>
+<section class="headings">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1>Property Listings</h1>
+            <h2><a href="{{url('/')}}">Home </a> &nbsp;/&nbsp; Property Listings</h2>
+        </div>
+    </div>
+</section>
+
 <div class="homepage-4 agents hp-6 full">
     <section class="properties-right featured portfolio blog pt-5 ">
         <div class="container">
-            <section class="headings-2 pt-0 pb-55">
+            <section class="headings-2 py-0">
                 <div class="pro-wrapper">
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
-                            <div class="text-heading text-left">
-                                <p class="pb-2"><a href="{{ url('/') }}">Home </a> &nbsp;/&nbsp; <span>Property Listings</span></p>
-                            </div>
                             <h1 class="h1">Explore Our Exclusive Properties for Sale.</h1>
                             <p class="property-listing-description">Explore a variety of residential and commercial properties for sale and rent, including luxury homes, affordable options, and investment opportunities.</p>
                         </div>
@@ -212,8 +217,8 @@
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                         <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
-                                           @if($property->is_featured == '2')
-                                           <div class="homes-tag button alt sale">
+                                         @if($property->is_featured == '2')
+                                         <div class="homes-tag button alt sale">
                                             Featured
                                         </div>
                                         @endif

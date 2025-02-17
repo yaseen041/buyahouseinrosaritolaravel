@@ -354,3 +354,11 @@ hr {
 .first-footer {
 	border-top: 1px solid #ddd !important;
 }
+
+.portfolio .project-head::before {
+	z-index: 0 !important;
+}
+
+.slick_featured .listing-hidden-content {
+	font-size: 12px !important;
+}

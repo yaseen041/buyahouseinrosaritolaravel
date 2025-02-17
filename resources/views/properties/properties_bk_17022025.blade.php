@@ -35,6 +35,7 @@
                     </div>
                 </div>
             </section>
+
             <div class="row py-3">
                 <div class="col-12 px-0 parallax-searchs">
                     <div class="banner-search-wrap">
@@ -176,6 +177,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="row">
                 <div class="col-lg-8 col-md-12 blog-pots">
                     <section class="headings-2 pt-0">
@@ -201,6 +204,7 @@
                             </div>
                         </div>
                     </section>
+
                     <div class="row">
                         @foreach ($properties as $property)
                         <div class="item col-lg-6 col-md-6 col-xs-12 landscapes sale">
@@ -208,16 +212,18 @@
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                         <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
-                                            <div class="homes-tag button alt featured">
-                                                @if($property->is_featured)
-                                                Featured
-                                                @endif
-                                            </div>
+                                           @if($property->is_featured == '2')
                                             <div class="homes-tag button alt sale">
-                                                @if($property->listing_status == 'sale') For Sale @endif
+                                                Featured
                                             </div>
-                                            <div class="homes-price">${{ number_format($property->price) }}/mo</div>
-                                            <img src="{{$property->banner}}" alt="home-1" class="img-responsive">
+                                            @endif
+                                            @if($property->listing_status == '1')
+                                            <div class="homes-tag button alt featured">
+                                                For Sale
+                                            </div>
+                                            @endif
+                                            <div class="homes-price">${{ number_format($property->price) }}</div>
+                                            <img src="{{ asset('uploads/properties').'/'.$property->banner }}" alt="Property image" class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="button-effect">
@@ -272,6 +278,9 @@
                         </div>
                         @endforeach
                     </div>
+
+
+
                     <div class="row">
                         <nav aria-label="..." class="pt-55">
                             <ul class="pagination">
@@ -444,7 +453,7 @@
                                 <div class="slick-lancers">
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 230,000</span>
                                                     <span>For Sale</span>
@@ -464,7 +473,7 @@
                                     </div>
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 6,500</span>
                                                     <span class="rent">For Rent</span>
@@ -484,7 +493,7 @@
                                     </div>
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 230,000</span>
                                                     <span>For Sale</span>
@@ -504,7 +513,7 @@
                                     </div>
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 6,500</span>
                                                     <span class="rent">For Rent</span>
@@ -524,7 +533,7 @@
                                     </div>
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 230,000</span>
                                                     <span>For Sale</span>
@@ -544,7 +553,7 @@
                                     </div>
                                     <div class="agents-grid mr-0">
                                         <div class="listing-item compact">
-                                            <a href="properties-details.html" class="listing-img-container">
+                                            <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
                                                     <span class="featured">$ 6,500</span>
                                                     <span class="rent">For Rent</span>
@@ -573,28 +582,28 @@
                                 <div class="recent-post">
                                     <div class="recent-main">
                                         <div class="recent-img">
-                                            <a href="blog-details.html"><img src="images/feature-properties/fp-1.jpg" alt=""></a>
+                                            <a href="{{url('/')}}"><img src="images/feature-properties/fp-1.jpg" alt=""></a>
                                         </div>
                                         <div class="info-img">
-                                            <a href="blog-details.html"><h6>Family Modern Home</h6></a>
+                                            <a href="{{url('/')}}"><h6>Family Modern Home</h6></a>
                                             <p>$230,000</p>
                                         </div>
                                     </div>
                                     <div class="recent-main my-4">
                                         <div class="recent-img">
-                                            <a href="blog-details.html"><img src="images/feature-properties/fp-2.jpg" alt=""></a>
+                                            <a href="{{url('/')}}"><img src="images/feature-properties/fp-2.jpg" alt=""></a>
                                         </div>
                                         <div class="info-img">
-                                            <a href="blog-details.html"><h6>Luxury Villa House</h6></a>
+                                            <a href="{{url('/')}}"><h6>Luxury Villa House</h6></a>
                                             <p>$120,000</p>
                                         </div>
                                     </div>
                                     <div class="recent-main">
                                         <div class="recent-img">
-                                            <a href="blog-details.html"><img src="images/feature-properties/fp-3.jpg" alt=""></a>
+                                            <a href="{{url('/')}}"><img src="images/feature-properties/fp-3.jpg" alt=""></a>
                                         </div>
                                         <div class="info-img">
-                                            <a href="blog-details.html"><h6>Luxury Family Home</h6></a>
+                                            <a href="{{url('/')}}"><h6>Luxury Family Home</h6></a>
                                             <p>$150,000</p>
                                         </div>
                                     </div>

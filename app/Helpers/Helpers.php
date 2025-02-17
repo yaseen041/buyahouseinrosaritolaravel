@@ -772,3 +772,28 @@ if (!function_exists('limit_words')) {
 		return implode(' ', array_slice($words, 0, $limit)) . (count($words) > $limit ? '...' : '');
 	}
 }
+
+if (!function_exists('get_recent_properties')) {
+	function get_recent_properties()
+	{
+		$query = DB::table('properties');
+		$query->where('status', '1');
+		$query->orderBy('id', 'DESC');
+		$query->limit(5);
+		$data = $query->get();
+		return $data;
+	}
+}
+
+if (!function_exists('get_recent_featured_properties')) {
+	function get_recent_featured_properties()
+	{
+		$query = DB::table('properties');
+		$query->where('status', '1');
+		$query->where('is_featured', '2');
+		$query->orderBy('id', 'DESC');
+		$query->limit(6);
+		$data = $query->get();
+		return $data;
+	}
+}

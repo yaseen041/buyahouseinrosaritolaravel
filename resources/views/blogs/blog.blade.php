@@ -80,17 +80,27 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                             </span>
                         </div>
                     </form>
+                    @php
+                    $categories = get_categories_having_blogs();
+                    @endphp
+                    @if($categories->isNotEmpty())
                     <div class="recent-post py-5">
                         <h5 class="font-weight-bold">Category</h5>
                         <ul>
-                            @foreach(get_categories_having_blogs() as $citem)
+                            @foreach($categories as $citem)
                             <li><a href="{{ route('slugHandler', ['slug' => $citem->slug]) }}"><i class="fa fa-caret-right" aria-hidden="true"></i>{{limit_words($citem->title, 3)}}</a></li>
                             @endforeach
                         </ul>
                     </div>
+                    @endif
+
+                    @php
+                    $recentblogs = get_recent_blogs();
+                    @endphp
+                    @if($recentblogs->isNotEmpty())
                     <div class="recent-post pt-5">
                         <h5 class="font-weight-bold mb-4">Recent Posts</h5>
-                        @foreach(get_recent_blogs() as $bitem)
+                        @foreach($recentblogs as $bitem)
                         <div class="recent-main mb-4">
                             <div class="recent-img">
                                 <a href="{{ route('slugHandler', ['slug' => $bitem->post_url]) }}"><img src="{{ asset('assets/images').'/'.$bitem->featured_image }}" alt="blog image"></a>
@@ -102,6 +112,7 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
                         </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
             </aside>
         </div>

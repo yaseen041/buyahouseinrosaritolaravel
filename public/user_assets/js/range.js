@@ -14,63 +14,56 @@
 /*  Range Sliders
 /*----------------------------------------------------*/
 
-// Area Range
 $("#area-range").each(function () {
-
     var dataMin = $(this).attr('data-min');
     var dataMax = $(this).attr('data-max');
     var dataUnit = $(this).attr('data-unit');
+    var minArea = $(this).attr('data-minarea');
+    var maxArea = $(this).attr('data-maxarea');
 
-    $(this).append("<input type='text' class='first-slider-value'disabled/><input type='text' class='second-slider-value' disabled/>");
+    $(this).append("<input type='text' class='first-slider-value' disabled/><input type='text' class='second-slider-value' disabled/>");
 
     $(this).slider({
-
         range: true,
         min: dataMin,
         max: dataMax,
         step: 10,
-        values: [dataMin, dataMax],
-
+        values: [minArea, maxArea],
         slide: function (event, ui) {
-            event = event;
             $(this).children(".first-slider-value").val(ui.values[0] + " " + dataUnit);
             $(this).children(".second-slider-value").val(ui.values[1] + " " + dataUnit);
         }
     });
+
     $(this).children(".first-slider-value").val($(this).slider("values", 0) + " " + dataUnit);
     $(this).children(".second-slider-value").val($(this).slider("values", 1) + " " + dataUnit);
-
 });
-
 
 // Price Range
 $("#price-range").each(function () {
-
     var dataMin = $(this).attr('data-min');
     var dataMax = $(this).attr('data-max');
     var dataUnit = $(this).attr('data-unit');
+    var minPrice = $(this).attr('data-minprice');
+    var maxPrice = $(this).attr('data-maxprice');
 
     $(this).append("<input type='text' class='first-slider-value' disabled/><input type='text' class='second-slider-value' disabled/>");
 
-
     $(this).slider({
-
         range: true,
         min: dataMin,
         max: dataMax,
-        values: [dataMin, dataMax],
-
+        values: [minPrice, maxPrice],
         slide: function (event, ui) {
-            event = event;
-            $(this).children(".first-slider-value").val(dataUnit + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-            $(this).children(".second-slider-value").val(dataUnit + ui.values[1].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            $(this).children(".first-slider-value").val(dataUnit + ui.values[0].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+            $(this).children(".second-slider-value").val(dataUnit + ui.values[1].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
         }
     });
-    $(this).children(".first-slider-value").val(dataUnit + $(this).slider("values", 0).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-    $(this).children(".second-slider-value").val(dataUnit + $(this).slider("values", 1).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 
-
+    $(this).children(".first-slider-value").val(dataUnit + $(this).slider("values", 0).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+    $(this).children(".second-slider-value").val(dataUnit + $(this).slider("values", 1).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
 });
+
 
 /*----------------------------------------------------*/
 /*  Range Sliders 2

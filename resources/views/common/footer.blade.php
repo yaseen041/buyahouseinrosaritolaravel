@@ -14,19 +14,19 @@
  							<li>
  								<div class="info">
  									<i class="fa fa-map-marker" aria-hidden="true"></i>
- 									<p class="in-p">Chichen Itza 8170, Rosarito, Mexico, 22567</p>
+ 									<p class="in-p">{{ get_section_content('project', 'admin_address') }}</p>
  								</div>
  							</li>
  							<li>
  								<div class="info">
  									<i class="fa fa-phone" aria-hidden="true"></i>
- 									<p class="in-p">+1 (619) 2589-7442</p>
+ 									<p class="in-p"><a href="tel:{{ get_section_content('project', 'admin_phone') }}">{{ get_section_content('project', 'admin_phone') }}</a></p>
  								</div>
  							</li>
  							<li>
  								<div class="info">
  									<i class="fa fa-envelope" aria-hidden="true"></i>
- 									<p class="in-p ti">aaron@buyahouseinrosarito.com</p>
+ 									<p class="in-p ti"><a href="mailto:{{ get_section_content('project', 'admin_email') }}">{{ get_section_content('project', 'admin_email') }}</a></p>
  								</div>
  							</li>
  						</ul>
@@ -38,17 +38,24 @@
  						<h3>Discover</h3>
  						<div class="nav-footer">
  							<ul class="w-50">
+ 								@if(count(get_properties_cities()) > 0)
  								@foreach (get_properties_cities() as $city_item)
- 								<li><a href="{{ route('HandlerProperties', ['slug' => $city_item->slug]) }}"> {{ $city_item->name }}</a></li>
+ 								<li><a href="{{ route('HandlerProperties', ['slug' => $city_item->slug]) }}">{{ $city_item->name }}</a></li>
  								@endforeach
+ 								@else
+ 								@foreach (get_cities() as $city)
+ 								<li><a href="{{ route('HandlerProperties', ['slug' => $city->slug]) }}">{{ $city->name }}</a></li>
+ 								@endforeach
+ 								@endif
+
  							</ul>
  							<ul class="nav-right w-50">
- 								<li><a href="">About</a></li>
- 								<li><a href="">Contact</a></li>
- 								<li><a href="">FAQ</a></li>
- 								<li><a href="">Blog</a></li>
- 								<li><a href="">Privacy Policy</a></li>
- 								<li class="no-mgb"><a href="">Terms & Conditions</a></li>
+ 								<li><a href="{{ url('/about')}}">About</a></li>
+ 								<li><a href="{{ url('/contact')}}">Contact</a></li>
+ 								<li><a href="{{ url('/faq')}}">FAQ</a></li>
+ 								<li><a href="{{ url('/blog')}}">Blog</a></li>
+ 								<li><a href="#">Privacy Policy</a></li>
+ 								<li class="no-mgb"><a href="#">Terms & Conditions</a></li>
  							</ul>
  						</div>
  					</div>

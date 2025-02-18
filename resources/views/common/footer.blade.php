@@ -38,12 +38,9 @@
  						<h3>Discover</h3>
  						<div class="nav-footer">
  							<ul class="w-50">
- 								<li><a href="">Rosarito</a></li>
- 								<li><a href="">Los Angeles</a></li>
- 								<li><a href="">Mexico City </a></li>
- 								<li><a href="">Cancun</a></li>
- 								<li><a href="">Cabo San Lucas</a></li>
- 								<li class="no-mgb"><a href="">Playa del Carmen</a></li>
+ 								@foreach (get_properties_cities() as $city_item)
+ 								<li><a href="{{ route('HandlerProperties', ['slug' => $city_item->slug]) }}"> {{ $city_item->name }}</a></li>
+ 								@endforeach
  							</ul>
  							<ul class="nav-right w-50">
  								<li><a href="">About</a></li>
@@ -63,12 +60,12 @@
  						<h3>Newsletters</h3>
  						<p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in your inbox.</p>
  					</div>
- 					<form action="{{url('newsletter/submit')}}" class="bloq-email mailchimp d-block w-75" method="post">
+ 					<form action="{{ url('submit_newsletter') }}" id="subscribe_form" class="bloq-email mailchimp d-block w-75" method="post">
  						@csrf
  						<label for="subscribeEmail" class="error"></label>
  						<div class="email d-flex">
  							<input type="email" id="subscribeEmail" name="email" placeholder="Enter Your Email">
- 							<input type="submit" value="Subscribe">
+ 							<button type="button" id="btn_subscribeEmail">Subscribe</button>
  							<p class="subscription-success"></p>
  						</div>
  					</form>

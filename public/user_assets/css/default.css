@@ -482,67 +482,75 @@ hr {
 .single.detail-wrapper {
 	margin-left: 0rem;
 }
-
-
-
-
-/* Mega Menu Styles */
-.mega-menu {
-	width: 100%;
-	left: 0;
-	right: 0;
-	padding: 20px 0;
-	display: none;
-	position: absolute;
-	z-index: 999;
-}
-
-#navbarDropdown.dropdown-toggle::after {
-	border: 0px !important;
-}
-
-
-.nav-item:hover .mega-menu {
-	display: block;
-	min-width: 1000px !important;
-}
-
-.mega-menu .container {
-	background-color: #fff;
-	border-radius: 4px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.mega-menu .row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.mega-menu .col-md-2 {
-	padding: 10px 20px;
-}
-
-.mega-menu h5 {
-	font-size: 18px;
-	margin-bottom: 15px;
+#btn_subscribeEmail {
+	background: #FF385C;
+	margin-top: 0px;
+	border: 1px solid #FF385C;
+	color: #fff;
+	padding: .8rem;
+	text-transform: uppercase;
 	font-weight: bold;
-}
+	cursor: pointer;
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	transition: all .5s ease;
 
-.mega-menu ul {
-	list-style: none;
-	padding: 0;
-}
+	.mega-menu {
+		width: 100%;
+		left: 0;
+		right: 0;
+		padding: 20px 0;
+		display: none;
+		position: absolute;
+		z-index: 999;
+	}
 
-.mega-menu ul li {
-	padding: 8px 0;
-	font-size: 14px;
-}
+	#navbarDropdown.dropdown-toggle::after {
+		border: 0px !important;
+	}
 
-.mega-menu ul li i {
-	margin-right: 8px;
-	font-size: 16px;
-}
+
+	.nav-item:hover .mega-menu {
+		display: block;
+		min-width: 1000px !important;
+	}
+
+	.mega-menu .container {
+		background-color: #fff;
+		border-radius: 4px;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.mega-menu .row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.mega-menu .col-md-2 {
+		padding: 10px 20px;
+	}
+
+	.mega-menu h5 {
+		font-size: 18px;
+		margin-bottom: 15px;
+		font-weight: bold;
+	}
+
+	.mega-menu ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.mega-menu ul li {
+		padding: 8px 0;
+		font-size: 14px;
+	}
+
+	.mega-menu ul li i {
+		margin-right: 8px;
+		font-size: 16px;
+	}
 
 /* Hover Effect for Items */
 .mega-menu ul li:hover {

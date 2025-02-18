@@ -92,230 +92,230 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
                                                         <div class="form-group beds">
-                                                           <select name="bedrooms" class="select single-select wide">
-                                                            <option value="" class="option selected"> Bedrooms <i class="fa fa-bed" aria-hidden="true"></i></option>
-                                                            <?php
-                                                            $bedroomValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; ?>
-                                                            @foreach($bedroomValues as $bedroom)
-                                                            <option value="{{ $bedroom }}" @if($bedroom == @$filters['bedrooms']) selected @endif class="option">
-                                                                {{ $bedroom }}
-                                                            </option>
+                                                            <select name="bedrooms" class="select single-select wide">
+                                                                <option value="" class="option selected"> Bedrooms <i class="fa fa-bed" aria-hidden="true"></i></option>
+                                                                <?php
+                                                                $bedroomValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; ?>
+                                                                @foreach($bedroomValues as $bedroom)
+                                                                <option value="{{ $bedroom }}" @if($bedroom == @$filters['bedrooms']) selected @endif class="option">
+                                                                    {{ $bedroom }}
+                                                                </option>
 
-                                                            @endforeach
-                                                        </select>
+                                                                @endforeach
+                                                            </select>
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
-                                                    <div class="form-group bath">
-                                                        <select name="bathrooms" class="select single-select wide">
-                                                            <option value="" class="option selected">
-                                                                <i class="fa fa-bath" aria-hidden="true"></i> Bathrooms
-                                                            </option>
-                                                            <?php
-                                                            $bathroomValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; ?>
-                                                            @foreach($bathroomValues as $bathroom)
-                                                            <option value="{{ $bathroom }}" @if($bathroom == @$filters['bathrooms']) selected @endif class="option">
-                                                                {{ $bathroom }}
-                                                            </option>
+                                                    <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
+                                                        <div class="form-group bath">
+                                                            <select name="bathrooms" class="select single-select wide">
+                                                                <option value="" class="option selected">
+                                                                    <i class="fa fa-bath" aria-hidden="true"></i> Bathrooms
+                                                                </option>
+                                                                <?php
+                                                                $bathroomValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; ?>
+                                                                @foreach($bathroomValues as $bathroom)
+                                                                <option value="{{ $bathroom }}" @if($bathroom == @$filters['bathrooms']) selected @endif class="option">
+                                                                    {{ $bathroom }}
+                                                                </option>
 
-                                                            @endforeach
-                                                        </select>
+                                                                @endforeach
+                                                            </select>
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-sm-12 py-2 sld d-none d-lg-none d-xl-flex">
-                                                    <div class="main-search-field-2 w-100">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div  class="range-slider">
-                                                                    <label>Area Size</label>
-                                                                    <div name="area" id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
-                                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-12 py-2 sld d-none d-lg-none d-xl-flex">
+                                                        <div class="main-search-field-2 w-100">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div  class="range-slider">
+                                                                        <label>Area Size</label>
+                                                                        <div name="area" id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
+                                                                        <div class="clearfix"></div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
+                                                                <div class="col-md-6">
 
-                                                                <div class="range-slider">
-                                                                    <label>Price Range</label>
-                                                                    <div name="price" id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
-                                                                    <div class="clearfix"></div>
+                                                                    <div class="range-slider">
+                                                                        <label>Price Range</label>
+                                                                        <div name="price" id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
+                                                                        <div class="clearfix"></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                @foreach(getFeatures() as $index => $feature)
-                                                <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
-                                                    <div class="checkboxes one-in-row margin-bottom-10 ch-{{ $index + 1 }}">
-                                                        <input
-                                                        id="check-{{ $index + 1 }}"
-                                                        type="checkbox"
-                                                        class="feature-checkbox"
-                                                        value="{{ $feature->slug }}"
-                                                        @if(in_array($feature->slug, explode(',', @$filters['features']))) checked @endif
-                                                        >
-                                                        <label for="check-{{ $index + 1 }}">{{ ucfirst($feature->title) }}</label>
+                                                    @foreach(getFeatures() as $index => $feature)
+                                                    <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                        <div class="checkboxes one-in-row margin-bottom-10 ch-{{ $index + 1 }}">
+                                                            <input
+                                                            id="check-{{ $index + 1 }}"
+                                                            type="checkbox"
+                                                            class="feature-checkbox"
+                                                            value="{{ $feature->slug }}"
+                                                            @if(in_array($feature->slug, explode(',', @$filters['features']))) checked @endif
+                                                            >
+                                                            <label for="check-{{ $index + 1 }}">{{ ucfirst($feature->title) }}</label>
+                                                        </div>
                                                     </div>
+                                                    @endforeach
                                                 </div>
-                                                @endforeach
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-8 col-md-12 blog-pots">
-                <section class="headings-2 pt-0">
-                    <div class="pro-wrapper">
-                        <div class="detail-wrapper-body">
-                            <div class="listing-title-bar">
-                                <div class="text-heading text-left">
-                                    <p class="font-weight-bold mb-0 mt-3">{{$properties->total()}} Properties</p>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid">
-                            <div class="input-group border rounded input-group-lg w-auto">
-                                <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3" for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
-                                <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby" data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0" id="inputGroupSelect01" name="sortby">
-                                    <option selected>Top Selling</option>
-                                    <option value="1">Most Viewed</option>
-                                    <option value="2">Price(low to high)</option>
-                                    <option value="3">Price(high to low)</option>
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <div class="row">
-                    @foreach ($properties as $property)
-                    <div class="item col-lg-6 col-md-6 col-xs-12 landscapes sale">
-                        <div class="project-single" data-aos="fade-up">
-                            <div class="project-inner project-head">
-                                <div class="homes">
-                                    <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
-                                       @if($property->is_featured == '2')
-                                       <div class="homes-tag button alt sale">
-                                        Featured
-                                    </div>
-                                    @endif
-                                    @if($property->listing_status == '1')
-                                    <div class="homes-tag button alt featured">
-                                        For Sale
-                                    </div>
-                                    @endif
-                                    <div class="homes-price">${{ number_format($property->price) }}</div>
-                                    <img src="{{ asset('uploads/properties').'/'.$property->banner }}" alt="Property image" class="img-responsive">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="homes-content">
-                            <h3><a href="{{url('/property')}}/{{$property->slug}}">{{ $property->title }}</a></h3>
-                            <p class="homes-address mb-3">
-                                <a href="{{url('/property')}}/{{$property->slug}}">
-                                    <i class="fa fa-map-marker"></i><span>{{ $property->address }}</span>
-                                </a>
-                            </p>
-                            <ul class="homes-list clearfix pb-3">
-                                <li class="the-icons">
-                                    <i class="flaticon-bed mr-2" aria-hidden="true"></i>
-                                    <span>{{ $property->bedrooms }} Bedrooms</span>
-                                </li>
-                                <li class="the-icons">
-                                    <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
-                                    <span>{{ $property->bathrooms }} Bathrooms</span>
-                                </li>
-                                <li class="the-icons">
-                                    <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                    <span>{{ $property->size }} sq ft</span>
-                                </li>
-                                <li class="the-icons">
-                                    <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                    <span>{{ $property->parking_spaces }} Garages</span>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
-                @endforeach
             </div>
+
+
             <div class="row">
-                <div class="col-md-6 pagebuttons">
-                    {{ $properties->links('pagination::bootstrap-4') }}
-                </div>
-            </div>
-        </div>
-
-        <aside class="col-lg-4 col-md-12 car">
-            <div class="widget">
-
-                <div class="widget-boxed mt-5">
-                    <div class="widget-boxed-header">
-                        <h4>Recent Properties</h4>
-                    </div>
-                    <div class="widget-boxed-body">
-                        <div class="recent-post">
-                            @foreach(get_recent_properties() as $pitem)
-                            <div class="recent-main mb-4">
-                                <div class="recent-img">
-                                    <a href="{{url('/property')}}/{{$pitem->slug}}"><img src="{{ asset('uploads/properties').'/'.$pitem->banner }}" alt=""></a>
-                                </div>
-                                <div class="info-img">
-                                    <a href="{{url('/property')}}/{{$pitem->slug}}"><h6>{{ limit_words($pitem->title, 3)}}</h6></a>
-                                    <p>${{ number_format($pitem->price) }}</p>
+                <div class="col-lg-8 col-md-12 blog-pots">
+                    <section class="headings-2 pt-0">
+                        <div class="pro-wrapper">
+                            <div class="detail-wrapper-body">
+                                <div class="listing-title-bar">
+                                    <div class="text-heading text-left">
+                                        <p class="font-weight-bold mb-0 mt-3">{{$properties->total()}} Properties</p>
+                                    </div>
                                 </div>
                             </div>
-                            @endforeach
+                            <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid">
+                                <div class="input-group border rounded input-group-lg w-auto">
+                                    <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3" for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                                    <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby" data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0" id="inputGroupSelect01" name="sortby">
+                                        <option selected>Top Selling</option>
+                                        <option value="1">Most Viewed</option>
+                                        <option value="2">Price(low to high)</option>
+                                        <option value="3">Price(high to low)</option>
+                                    </select>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="widget-boxed mt-5">
-                    <div class="widget-boxed-header mb-5">
-                        <h4>Feature Properties</h4>
-                    </div>
-                    <div class="widget-boxed-body">
-                        <div class="slick_featured">
-                            @foreach(get_recent_featured_properties() as $fpitem)
-                            <div class="agents-grid mr-0">
-                                <div class="listing-item compact">
-                                    <a href="#" class="listing-img-container">
-                                        <div class="listing-badges">
-                                            <span class="featured">${{ number_format($fpitem->price) }}</span>
-                                            @if($fpitem->listing_status == '1')
-                                            <span>For Sale</span>
-                                            @endif
+                    </section>
+
+                    <div class="row">
+                        @foreach ($properties as $property)
+                        <div class="item col-lg-6 col-md-6 col-xs-12 landscapes sale">
+                            <div class="project-single" data-aos="fade-up">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                        <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
+                                         @if($property->is_featured == '2')
+                                         <div class="homes-tag button alt sale">
+                                            Featured
                                         </div>
-                                        <div class="listing-img-content">
-                                            <span class="listing-compact-title">{{ limit_words($fpitem->title, 3)}}</span>
-                                            <ul class="listing-hidden-content">
-                                                <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
-                                                <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
-                                                <li>Garages <span>{{ $fpitem->parking_spaces }}</span></li>
-                                                <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
-                                            </ul>
+                                        @endif
+                                        @if($property->listing_status == '1')
+                                        <div class="homes-tag button alt featured">
+                                            For Sale
                                         </div>
-                                        <img src="{{ asset('user_assets/images/feature-properties/fp-1.jpg') }}" alt="">
+                                        @endif
+                                        <div class="homes-price">${{ number_format($property->price) }}</div>
+                                        <img src="{{ asset('uploads/properties').'/'.$property->banner }}" alt="Property image" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
-                            @endforeach
+                            <div class="homes-content">
+                                <h3><a href="{{url('/property')}}/{{$property->slug}}">{{ $property->title }}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="{{url('/property')}}/{{$property->slug}}">
+                                        <i class="fa fa-map-marker"></i><span>{{ $property->address }}</span>
+                                    </a>
+                                </p>
+                                <ul class="homes-list clearfix pb-3">
+                                    <li class="the-icons">
+                                        <i class="flaticon-bed mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->bedrooms }} Bedrooms</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->bathrooms }} Bathrooms</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-square mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->size }} sq ft</span>
+                                    </li>
+                                    <li class="the-icons">
+                                        <i class="flaticon-car mr-2" aria-hidden="true"></i>
+                                        <span>{{ $property->parking_spaces }} Garages</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pagebuttons">
+                        {{ $properties->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
-        </aside>
+
+            <aside class="col-lg-4 col-md-12 car">
+                <div class="widget">
+
+                    <div class="widget-boxed mt-5">
+                        <div class="widget-boxed-header">
+                            <h4>Recent Properties</h4>
+                        </div>
+                        <div class="widget-boxed-body">
+                            <div class="recent-post">
+                                @foreach(get_recent_properties() as $pitem)
+                                <div class="recent-main mb-4">
+                                    <div class="recent-img">
+                                        <a href="{{url('/property')}}/{{$pitem->slug}}"><img src="{{ asset('uploads/properties').'/'.$pitem->banner }}" alt=""></a>
+                                    </div>
+                                    <div class="info-img">
+                                        <a href="{{url('/property')}}/{{$pitem->slug}}"><h6>{{ limit_words($pitem->title, 3)}}</h6></a>
+                                        <p>${{ number_format($pitem->price) }}</p>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-boxed mt-5">
+                        <div class="widget-boxed-header mb-5">
+                            <h4>Feature Properties</h4>
+                        </div>
+                        <div class="widget-boxed-body">
+                            <div class="slick_featured">
+                                @foreach(get_recent_featured_properties() as $fpitem)
+                                <div class="agents-grid mr-0">
+                                    <div class="listing-item compact">
+                                        <a href="#" class="listing-img-container">
+                                            <div class="listing-badges">
+                                                <span class="featured">${{ number_format($fpitem->price) }}</span>
+                                                @if($fpitem->listing_status == '1')
+                                                <span>For Sale</span>
+                                                @endif
+                                            </div>
+                                            <div class="listing-img-content">
+                                                <span class="listing-compact-title">{{ limit_words($fpitem->title, 3)}}</span>
+                                                <ul class="listing-hidden-content">
+                                                    <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
+                                                    <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
+                                                    <li>Garages <span>{{ $fpitem->parking_spaces }}</span></li>
+                                                    <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
+                                                </ul>
+                                            </div>
+                                            <img src="{{ asset('user_assets/images/feature-properties/fp-1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </div>
-</div>
 </section>
 </div>
 @endsection

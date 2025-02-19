@@ -45,6 +45,7 @@
                 </h1>
                 <h2 class="text-dark">
                     and you're invited! -The Hansome Family
+                    <?php echo get_child_categories_with_blogs(15); ?>
                 </h2>
             </div>
         </div>

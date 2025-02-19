@@ -394,7 +394,8 @@ a.button.border, a.button {
 }
 #navigation ul ul li {
     float: none;
-    width: 208px;
+    width: auto;
+/*    width: 208px;*/
 }
 #navigation ul ul ul {
     top: 0;
@@ -529,7 +530,7 @@ a.button.border, a.button {
     color: #fff !important;
 }
 #navigation ul li:hover ul a, #navigation ul ul a {
-    color: #707070 !important;
+    color: #000000 !important;
 }
 #navigation.style-2.cloned .header-user-name, 
 #header.cloned.sticky .header-user-name, 
@@ -1371,7 +1372,9 @@ transform: rotate(-90deg);
 .mmenu-trigger {
     display: none;
 }
-@media only screen and (max-width: 1024px) {
+
+
+@media only screen and (max-width: 1200px) {
     /* Header Responsive Styles */    
     #responsive {
         display: none;

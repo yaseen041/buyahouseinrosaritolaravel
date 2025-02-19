@@ -745,6 +745,33 @@ if (!function_exists('get_categories')) {
 }
 
 
+if (!function_exists('get_parent_categories')) {
+	function get_parent_categories()
+	{
+		$query = DB::table('categories');
+		$query->select('id', 'title', 'slug');
+		$query->where('status', '1');
+		$query->whereNull('parent_id');
+		$query->orderBy('id', 'ASC');
+		$data = $query->get();
+		return $data;
+	}
+}
+
+if (!function_exists('get_child_categories')) {
+    function get_child_categories($parent_id)
+    {
+        return DB::table('categories')
+            ->select('id', 'title', 'slug')
+            ->where('status', '1')
+            ->where('parent_id', $parent_id)
+            ->orderBy('id', 'ASC')
+            ->get();
+    }
+}
+
+
+
 if (!function_exists('get_categories_having_blogs')) {
 	function get_categories_having_blogs()
 	{
@@ -756,6 +783,23 @@ if (!function_exists('get_categories_having_blogs')) {
 		->orderBy('id', 'DESC');
 		return $query->get();
 	}
+}
+
+if (!function_exists('get_child_categories_with_blogs')) {
+    function get_child_categories_with_blogs($parent_id)
+    {
+        return DB::table('categories as c')
+            ->select('c.id', 'c.title', 'c.slug')
+            ->where('c.status', '1')
+            ->where('c.parent_id', $parent_id)
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('blogs')
+                    ->whereColumn('blogs.category_id', 'c.id');
+            })
+            ->orderBy('c.id', 'ASC')
+            ->get();
+    }
 }
 
 

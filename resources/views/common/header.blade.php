@@ -23,11 +23,11 @@
 								@foreach (getCategoryTreeWithPosts(14) as $category)
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
+									<a href="#"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 										@endforeach
 									</div>
 									@endif
@@ -36,11 +36,11 @@
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+											<a href="#"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 												@endforeach
 											</div>
 											@endif
@@ -49,11 +49,11 @@
 												@foreach ($childCategory->children as $subChildCategory)
 												@if ($subChildCategory->posts->count() || hasChildWithPosts($subChildCategory))
 												<li>
-													<a href="#"><h3>{{ $subChildCategory->title }}</h3></a>
+													<a href="#"><strong>{{ $subChildCategory->title }}</strong></a>
 													@if ($subChildCategory->posts->count())
 													<div class="menu-list">
 														@foreach ($subChildCategory->posts as $post)
-														<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+														<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 														@endforeach
 													</div>
 													@endif
@@ -79,11 +79,11 @@
 								@foreach (getCategoryTreeWithPosts(15) as $category)
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
+									<a href="#"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 										@endforeach
 									</div>
 									@endif
@@ -92,11 +92,11 @@
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+											<a href="#"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 												@endforeach
 											</div>
 											@endif
@@ -117,11 +117,11 @@
 								@foreach (getCategoryTreeWithPosts(16) as $category)
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
+									<a href="#"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 										@endforeach
 									</div>
 									@endif
@@ -130,11 +130,11 @@
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+											<a href="#"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 												@endforeach
 											</div>
 											@endif
@@ -155,11 +155,11 @@
 								@foreach (getCategoryTreeWithPosts(17) as $category)
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
+									<a href="#"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 										@endforeach
 									</div>
 									@endif
@@ -168,11 +168,11 @@
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+											<a href="#"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 												@endforeach
 											</div>
 											@endif
@@ -193,11 +193,11 @@
 								@foreach (getCategoryTreeWithPosts(18) as $category)
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
+									<a href="#"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 										@endforeach
 									</div>
 									@endif
@@ -206,11 +206,11 @@
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+											<a href="#"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 												@endforeach
 											</div>
 											@endif
@@ -233,7 +233,7 @@
 							<a href="#">More Pages</a>
 							<ul class="sub-menu col-purple">
 								<li>
-									<a href="#">Property</a>
+									<a href="{{ url('/properties') }}">Property</a>
 								</li>
 								<li>
 									<a href="{{ url('/contact') }}">Contact</a>

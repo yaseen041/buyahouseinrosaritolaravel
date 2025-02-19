@@ -5,6 +5,7 @@ use App\Models\Types;
 use App\Models\City;
 use App\Models\Feature;
 use App\Models\Neighborhood;
+use App\Models\Categories;
 use Illuminate\Support\Facades\DB;
 
 if (!function_exists('admin_url')) {
@@ -848,49 +849,78 @@ if (!function_exists('get_recent_featured_properties')) {
 
 
 if (!function_exists('getTypes')) {
-    function getTypes()
-    {
-        return Types::select('title', 'slug')->get();
-    }
+	function getTypes()
+	{
+		return Types::select('title', 'slug')->get();
+	}
 }
 
 if (!function_exists('getFeatures')) {
-    function getFeatures()
-    {
-        return Feature::select('title', 'slug')->get();
-    }
+	function getFeatures()
+	{
+		return Feature::select('title', 'slug')->get();
+	}
 }
 
 if (!function_exists('getComunities')) {
-    function getComunities()
-    {
-        return Neighborhood::select('title', 'slug')->get();
-    }
+	function getComunities()
+	{
+		return Neighborhood::select('title', 'slug')->get();
+	}
 }
 
 if (!function_exists('getCities')) {
-    function getCities()
-    {
-        return City::select('name', 'slug')->get();
-    }
+	function getCities()
+	{
+		return City::select('name', 'slug')->get();
+	}
 }
 
 if (!function_exists('get_properties_cities')) {
 	function get_properties_cities()
 	{
 		$data = DB::table('cities')
-			->select('cities.id', 'cities.name', 'cities.slug',  DB::raw('COUNT(properties.id) as property_count'))
-			->join('properties', 'cities.id', '=', 'properties.city_id')
-			->groupBy('cities.id', 'cities.name', 'cities.slug')
-			->orderByDesc('property_count')
-			->limit(6)
-			->get();
+		->select('cities.id', 'cities.name', 'cities.slug',  DB::raw('COUNT(properties.id) as property_count'))
+		->join('properties', 'cities.id', '=', 'properties.city_id')
+		->groupBy('cities.id', 'cities.name', 'cities.slug')
+		->orderByDesc('property_count')
+		->limit(6)
+		->get();
 		return $data;
 	}
 }
 if (!function_exists('get_cities')) {
-    function get_cities()
-    {
-        return City::select('name', 'slug')->limit(6)->get();
-    }
+	function get_cities()
+	{
+		return City::select('name', 'slug')->limit(6)->get();
+	}
+}
+
+// function getCategoryTreeWithPosts($parentId = null)
+// {
+// 	return Categories::with(['children', 'posts'])
+// 	->where('parent_id', $parentId)
+// 	->get();
+// }
+
+
+function getCategoryTreeWithPosts($parentId = null)
+{
+	$categories = Categories::with(['children', 'posts'])
+	->where('parent_id', $parentId)
+	->get();
+	$categories = $categories->filter(function ($category) {
+		return $category->posts->count() > 0 || hasChildWithPosts($category);
+	});
+
+	return $categories;
+}
+function hasChildWithPosts($category)
+{
+	foreach ($category->children as $child) {
+		if ($child->posts->count() > 0 || hasChildWithPosts($child)) {
+			return true;
+		}
+	}
+	return false;
 }

@@ -6,10 +6,10 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
 <title>{{ $seo_data->meta_title }}</title>
 <meta name="description" content="{{ $seo_data->meta_description }}" />
 <meta name="keywords" content="{{ $seo_data->meta_keywords }}" />
-<link rel="canonical" href="{{ url('/') }}" />
+<link rel="canonical" href="{{ request()->url() }}" />
 <meta property="og:title" content="{{ $seo_data->fb_title }}" />
 <meta property="og:description" content="{{ $seo_data->fb_description }}" />
-<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:url" content="{{ request()->url() }}" />
 <meta property="og:image" content="{{ asset('/assets/images/' . $seo_data->fb_image)}}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $seo_data->twitter_title }}" />
@@ -21,17 +21,10 @@ $seo_data = get_single_row('seos', 'page_name', 'blog');
 </script>
 @endpush
 @section('content')
-<section class="headings">
-    <div class="text-heading text-center">
-        <div class="container">
-            <h1>Blog</h1>
-            <h2><a href="{{url('/')}}">Home </a> &nbsp;/&nbsp; Blog</h2>
-        </div>
-    </div>
-</section>
-<section class="blog blog-section">
-    <div class="container">
-        <div class="row">
+
+<section class="blog blog-section pt-5">
+    <div class="container mt-5">
+        <div class="row pt-5">
             <div class="col-lg-9 col-md-12 col-xs-12">
                 <div class="row">
                     @if($blogs->isNotEmpty())

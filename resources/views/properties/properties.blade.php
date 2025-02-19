@@ -4,10 +4,10 @@
 <title>{{ $page['meta_title'] }}</title>
 <meta name="description" content="{{ $page['meta_description'] }}" />
 <meta name="keywords" content="{{ $page['meta_keywords'] }}" />
-<link rel="canonical" href="{{ url('/') }}" />
+<link rel="canonical" href="{{ request()->url() }}" />
 <meta property="og:title" content="{{ $page['fb_title'] }}" />
 <meta property="og:description" content="{{ $page['fb_description'] }}" />
-<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:url" content="{{ request()->url() }}" />
 <meta property="og:image" content="{{ $page['fb_image'] }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $page['twitter_title'] }}" />
@@ -15,8 +15,17 @@
 <meta name="twitter:image" content="{{ $page['twitter_image'] }}" />
 <meta name="robots" content="index, follow" />
 <script type="application/ld+json">
-    <?php echo $page['json_ld_code'] ?>
+    <?php echo $page['json_ld_code']; ?>
 </script>
+<style>
+    .rld-main-search form {
+        height: 0px;
+    }
+    .rld-main-search row {
+        height: 0px;
+    }
+</style>
+
 @endpush
 <section class="headings">
     <div class="text-heading text-center">
@@ -40,13 +49,13 @@
                 </div>
             </section>
             <div class="row py-3">
-                <div class="col-12 px-0 parallax-searchs">
+                <div class="col-12 px-0">
                     <div class="banner-search-wrap">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tabs_1">
                                 <div class="rld-main-search">
                                     <form action="{{ url('properties') }}" method="GET" enctype="multipart/form-data">
-                                        <div class="row">
+                                        <div class="row justify-content-center">
                                             <div class="rld-single-input">
                                                 <input name="search" type="text" placeholder="Enter Keyword..." value="{{ @$filters['search'] }}">
                                             </div>
@@ -72,8 +81,9 @@
                                             <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
                                                 <button type="submit" class="btn btn-yellow" >Search Now</button>
                                             </div>
+
                                             <div class="explore__form-checkbox-list full-filter">
-                                                <div class="row">
+                                                <div class="row justify-content-center">
                                                     <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
                                                         <div class="form-group categories">
                                                             <select name="comunity" class="select single-select wide">
@@ -116,20 +126,33 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-12 py-2 sld d-none d-lg-none d-xl-flex">
+                                                    <div class="col-sm-12 py-2 sld  d-lg-none d-xl-flex">
                                                         <div class="main-search-field-2 w-100">
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div  class="range-slider">
                                                                         <label>Area Size</label>
-                                                                        <div name="area" id="area-range" data-min="0" data-max="1300" data-unit="sq ft"></div>
+
+                                                                        <div name="area" id="area-range" data-min="0" data-max="1300" data-unit="sq ft">
+                                                                            <input id="minarea_value" type='text' class='first-slider-value' disabled/>
+                                                                            <input id="maxarea_value" type='text' class='second-slider-value' disabled/>
+                                                                            <input id="minarea" type='hidden' name='minarea' />
+                                                                            <input id="maxarea" type='hidden' name='maxarea' />
+                                                                        </div>
                                                                         <div class="clearfix"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="range-slider">
                                                                         <label>Price Range</label>
-                                                                        <div name="price" id="price-range" data-min="0" data-max="600000" data-unit="$"></div>
+
+                                                                        <div name="price" id="price-range" data-min="0" data-max="600000" data-unit="$">
+                                                                            <input id="minprice_value" type='text' class='first-slider-value' disabled/>
+                                                                            <input id="maxprice_value" type='text' class='second-slider-value' disabled/>
+                                                                            <input id="minprice" type='hidden' name='minprice'/>
+                                                                            <input id="maxprice" type='hidden' name='maxprice'/>
+                                                                        </div>
+
                                                                         <div class="clearfix"></div>
                                                                     </div>
                                                                 </div>
@@ -137,7 +160,7 @@
                                                         </div>
                                                     </div>
                                                     @foreach(getFeatures() as $index => $feature)
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30 d-none d-lg-none d-xl-flex">
+                                                    <div class="col-lg-3 col-md-6 col-sm-6 py-1 pr-30 ">
                                                         <div class="checkboxes one-in-row margin-bottom-10 ch-{{ $index + 1 }}">
                                                             <input
                                                             id="check-{{ $index + 1 }}"
@@ -340,23 +363,88 @@
         arrows: true,
         adaptiveHeight: true,
     });
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelector("form").addEventListener("submit", function (event) {
+    $(document).ready(function () {
+        $("form").on("submit", function (event) {
             let selectedFeatures = [];
-            document.querySelectorAll(".feature-checkbox:checked").forEach((checkbox) => {
-                selectedFeatures.push(checkbox.value);
+            $(".feature-checkbox:checked").each(function () {
+                selectedFeatures.push($(this).val());
             });
-            let existingInput = document.querySelector("input[name='features']");
-            if (existingInput) {
-                existingInput.value = selectedFeatures.join(",");
+            let existingInput = $("input[name='features']");
+            if (existingInput.length) {
+                existingInput.val(selectedFeatures.join(","));
             } else {
-                let input = document.createElement("input");
-                input.type = "hidden";
-                input.name = "features";
-                input.value = selectedFeatures.join(",");
-                this.appendChild(input);
+                let input = $("<input>").attr({
+                    type: "hidden",
+                    name: "features",
+                    value: selectedFeatures.join(",")
+                });
+                $(this).append(input);
             }
         });
     });
+
+
+    $(document).ready(function () {
+        var minarea = @json($filters['minarea'] ?? 0);
+        var maxarea = @json($filters['maxarea'] ?? 1300);
+        var minprice = @json($filters['minprice'] ?? 0);
+        var maxprice = @json($filters['maxprice'] ?? 600000);
+
+        $("#area-range").each(function () {
+            var dataMin = $(this).attr('data-min');
+            var dataMax = $(this).attr('data-max');
+            var dataUnit = $(this).attr('data-unit');
+            $(this).siblings('.slider-values').find('.min-value').text(dataMin + " " + dataUnit);
+            $(this).siblings('.slider-values').find('.max-value').text(dataMax + " " + dataUnit);
+
+            $(this).slider({
+                range: true,
+                min: dataMin,
+                max: dataMax,
+                step: 10,
+                values: [minarea, maxarea],
+                slide: function (event, ui) {
+                    $(this).children("#minarea_value").val(ui.values[0] + " " + dataUnit);
+                    $(this).children("#maxarea_value").val(ui.values[1] + " " + dataUnit);
+                    $(this).children("#minarea").val(ui.values[0]);
+                    $(this).children("#maxarea").val(ui.values[1]);
+                }
+            });
+            $(this).children("#minarea_value").val(minarea + " " + dataUnit);
+            $(this).children("#maxarea_value").val(maxarea + " " + dataUnit);
+            $(this).children("#minarea").val(minarea);
+            $(this).children("#maxarea").val(maxarea);
+        });
+
+        $("#price-range").each(function () {
+            var dataMin = $(this).attr('data-min');
+            var dataMax = $(this).attr('data-max');
+            var dataUnit = $(this).attr('data-unit');
+            $(this).siblings('.slider-values').find('.min-value').text(dataUnit + formatNumber(dataMin));
+            $(this).siblings('.slider-values').find('.max-value').text(dataUnit + formatNumber(dataMax));
+
+            $(this).slider({
+                range: true,
+                min: dataMin,
+                max: dataMax,
+                values: [minprice, maxprice],
+                slide: function (event, ui) {
+                    $(this).children("#minprice_value").val(dataUnit + formatNumber(ui.values[0]));
+                    $(this).children("#maxprice_value").val(dataUnit + formatNumber(ui.values[1]));
+                    $(this).children("#minprice").val(ui.values[0]);
+                    $(this).children("#maxprice").val(ui.values[1]);
+                }
+            });
+            $(this).children("#minprice_value").val(dataUnit + formatNumber(minprice));
+            $(this).children("#maxprice_value").val(dataUnit + formatNumber(maxprice));
+            $(this).children("#minprice").val(minprice);
+            $(this).children("#maxprice").val(maxprice);
+        });
+
+        function formatNumber(number) {
+            return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+    });
+
 </script>
 @endpush

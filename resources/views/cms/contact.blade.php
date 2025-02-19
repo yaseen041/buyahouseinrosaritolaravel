@@ -6,10 +6,10 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 <title>{{ $seo_data->meta_title }}</title>
 <meta name="description" content="{{ $seo_data->meta_description }}" />
 <meta name="keywords" content="{{ $seo_data->meta_keywords }}" />
-<link rel="canonical" href="{{ url('/') }}" />
+<link rel="canonical" href="{{ request()->url() }}" />
 <meta property="og:title" content="{{ $seo_data->fb_title }}" />
 <meta property="og:description" content="{{ $seo_data->fb_description }}" />
-<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:url" content="{{ request()->url() }}" />
 <meta property="og:image" content="{{ asset('/assets/images/' . $seo_data->fb_image)}}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $seo_data->twitter_title }}" />

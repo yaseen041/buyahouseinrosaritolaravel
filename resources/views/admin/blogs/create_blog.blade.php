@@ -422,7 +422,7 @@
                     "name": "Buy A House In Rosarito",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://buyahouseinrosarito.com/assets/images/Header3.png"
+                        "url": "https://buyahouseinrosarito.com/public/assets/images/logo.png"
                     }
                 },
                 "datePublished": new Date().toISOString().split("T")[0],

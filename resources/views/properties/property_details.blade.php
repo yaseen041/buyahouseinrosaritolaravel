@@ -4,10 +4,10 @@
 <title>{{ $property['meta_title'] }}</title>
 <meta name="description" content="{{ $property['meta_description'] }}" />
 <meta name="keywords" content="{{ $property['meta_keywords'] }}" />
-<link rel="canonical" href="{{ url('/') }}" />
+<link rel="canonical" href="{{ request()->url() }}" />
 <meta property="og:title" content="{{ $property['fb_title'] }}" />
 <meta property="og:description" content="{{ $property['fb_description'] }}" />
-<meta property="og:url" content="{{ url('/'); }}" />
+<meta property="og:url" content="{{ request()->url() }}" />
 <meta property="og:image" content="{{ $property['fb_image'] }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $property['twitter_title'] }}" />

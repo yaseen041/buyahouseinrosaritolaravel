@@ -1014,9 +1014,13 @@ li.mm-vertical.mm-opened>.mm-panel {
 .mm-listview>li:after {
     border-color: inherit
 }
-.mm-listview>li {
-    border-bottom: 1px solid #404040;
+
+.mm-listview > li {
+  border-bottom: 1px solid #404040;
+  display: flex !important;
+  align-items: center;
 }
+
 .mm-listview>li>a,
 .mm-listview>li>span {
     text-overflow: ellipsis;

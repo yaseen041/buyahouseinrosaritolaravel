@@ -344,12 +344,12 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{ asset('user_assetsjs/rangeSlider.js') }}"></script>
-<script src="{{ asset('user_assetsjs/popper.min.js') }}"></script>
-<script src="{{ asset('user_assetsjs/light.js') }}"></script>
-<script src="{{ asset('user_assetsjs/popup.js') }}"></script>
-<script src="{{ asset('user_assetsjs/searched.js') }}"></script>
-<script src="{{ asset('user_assetsjs/inner.js') }}"></script>
+<script src="{{ asset('user_assets/js/rangeSlider.js') }}"></script>
+<script src="{{ asset('user_assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('user_assets/js/light.js') }}"></script>
+<script src="{{ asset('user_assets/js/popup.js') }}"></script>
+<script src="{{ asset('user_assets/js/searched.js') }}"></script>
+<script src="{{ asset('user_assets/js/inner.js') }}"></script>
 {{-- <script src="{{asset('user_assets/js/range.js')}}"></script> --}}
 <script>
     $(".dropdown-filter").on('click', function() {

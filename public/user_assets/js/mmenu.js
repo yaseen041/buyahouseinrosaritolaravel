@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$(function() {
 		function mmenuInit() {
 			var wi = $(window).width();
-			if(wi <= '992') {
+			if(wi <= '1200') {
 
 				$('#footer').removeClass("sticky-footer");
 

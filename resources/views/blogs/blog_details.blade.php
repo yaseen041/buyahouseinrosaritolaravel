@@ -32,7 +32,7 @@
                                 <div class="dates">
                                     <span class="date ml-3"> {{ month_date($blog->publish_date) }} &nbsp;</span>
                                 </div> --}}
-                                <div class="description ml-3 mr-3">
+                                <div class="description xl_blog_desc ml-3 mr-3">
                                     <p class="mb-3"><?php echo $blog->description ?></p>
                                 </div>
                             </div>

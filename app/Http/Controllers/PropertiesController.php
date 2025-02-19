@@ -27,6 +27,12 @@ class PropertiesController extends Controller
 		$features = $request->features;
 		$bedrooms = $request->bedrooms;
 		$bathrooms = $request->bathrooms;
+
+		$minarea = $request->minarea;
+		$maxarea = $request->maxarea;
+		$minprice = $request->minprice;
+		$maxprice = $request->maxprice;
+
 		$type = $request->type;
 		$city = $request->city;
 		$properties = Property::query();
@@ -57,6 +63,24 @@ class PropertiesController extends Controller
 		if ($bathrooms) {
 			$properties->where('bathrooms', $bathrooms);
 		}
+
+		if (!empty($minarea) && !empty($maxarea)) {
+			$properties->whereBetween('size', [$minarea, $maxarea]);
+		} elseif (!empty($minarea)) {
+			$properties->where('size', '>=', $minarea);
+		} elseif (!empty($maxarea)) {
+			$properties->where('size', '<=', $maxarea);
+		}
+
+		if (!empty($minprice) && !empty($maxprice)) {
+			$properties->whereBetween('price', [$minprice, $maxprice]);
+		} elseif (!empty($minprice)) {
+			$properties->where('price', '>=', $minprice);
+		} elseif (!empty($maxprice)) {
+			$properties->where('price', '<=', $maxprice);
+		}
+
+
 		if ($listing_status) {
 			$properties->where('listing_status', $listing_status);
 		}

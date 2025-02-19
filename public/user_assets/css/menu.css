@@ -69,9 +69,10 @@ header.fullwidth .container {
 }
 .left-side {
     float: left;
-    width: 780px;
+    width: 1300px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .right-side {
     float: right;
@@ -82,10 +83,13 @@ header.fullwidth .container {
     content: none !important;
 }
 .link a {
-  color: #fff;
+  color: #FF385C;
   font-size: 18px;
   font-weight: bold;
 }
+.link a:hover::before {
+    background: linear-gradient(90deg, red , orange) !important;
+ }
 #logo,
 #navigation {
     float: left;
@@ -358,7 +362,7 @@ a.button.border, a.button {
 #navigation {
     position: relative;
     display: block;
-    margin-top: 9px;
+/*    margin-top: 9px;*/
     margin-left: 40px;
 }
 #navigation ul {
@@ -422,29 +426,7 @@ a.button.border, a.button {
     visibility: visible;
 }
 /* Indicator Arrow */
-#navigation ul li a:after,
-#navigation ul ul li a:after {
-    font-family: "FontAwesome";
-}
-#navigation ul li a:after {
-    content: '\f107';
-    padding-left: 7px;
-}
-#navigation ul ul li a:after {
-    content: '\f105';
-    position: absolute;
-    right: 15px;
-}
-#navigation ul li a:after:hover {
-    color: #fff;
-}
-#navigation ul li a:only-child:after {
-    content: '';
-    padding: 0;
-}
-#navigation ul ul li a:only-child:after {
-    content: '';
-}
+
 /* Dropdown Styles
 ------------------------------------- */
 #navigation ul ul {
@@ -462,7 +444,7 @@ a.button.border, a.button {
 #navigation ul li:hover ul a,
 #navigation ul ul a {
     line-height: 27px !important;
-    padding: 10px 30px 10px 15px !important;
+/*    padding: 10px 30px 10px 15px !important;*/
     color: #707070 !important;
 }
 #navigation ul ul li:hover {
@@ -516,7 +498,7 @@ a.button.border, a.button {
     transition: all 0.25s;    
     border-radius: 3px;
 }
-#navigation.style-1 ul li:hover {
+#navigation.style-1 ul li a:hover {
     background-color: #FF385C;
     color: #FF385C;
 }
@@ -524,10 +506,11 @@ a.button.border, a.button {
     color: #fff;
 }
 #navigation.style-1 ul a {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: capitalize;
-    line-height: 32px;
-    padding: 6px 16px;
+    line-height: 20px;
+/*    padding: 6px 16px;*/
+    font-weight: 500;
 }
 #navigation.style-1 ul li {
     margin: 0 5px;
@@ -760,7 +743,7 @@ a.button.border, a.button {
     background-color: #FF385C;
     color: #fff;
 }
-#navigation.style-1.white ul li:hover {
+#navigation.style-1.white ul li a:hover {
     background-color: #FF385C;
     color: #fff;
 }
@@ -1473,7 +1456,7 @@ transform: rotate(-90deg);
     }
     #responsive {
         display: none;
-    }
+    }    
     /* Header Responsive Styles */
     .responsive-search input:focus {
         border: none;
@@ -1547,7 +1530,7 @@ transform: rotate(-90deg);
         text-align: left;
         top: 3px;
     }
-
+   
 }
 @media (max-width: 360px) {
     .header-widget .sign-in {

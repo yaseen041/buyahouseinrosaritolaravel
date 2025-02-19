@@ -6617,7 +6617,7 @@ a.button,
   background: inherit !important;
 }
 
-.homepage-4 #navigation.style-1 ul li:hover {
+.homepage-4 #navigation.style-1 ul li a:hover {
   background: #FF385C;
 }
 
@@ -15420,7 +15420,7 @@ a.button {
   background: #FF385C;
 }
 
-.inner-pages.homepage-4 #navigation.style-1 ul li:hover {
+.inner-pages.homepage-4 #navigation.style-1 ul li a:hover {
   background: #FF385C;
 }
 

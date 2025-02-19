@@ -22,12 +22,21 @@ class Categories extends Model
     }
 
     // Get the child categories (subcategories)
-    public function children()
+    public function children_bk()
     {
         return $this->hasMany(Categories::class, 'parent_id');
     }
     public function blogs()
     {
         return $this->hasMany(Blog::class, 'category_id', 'id');
+    }
+    // New Code
+    public function children()
+    {
+        return $this->hasMany(Categories::class, 'parent_id')->with('children');
+    }
+    public function posts()
+    {
+        return $this->hasMany(Blogs::class, 'category_id');
     }
 }

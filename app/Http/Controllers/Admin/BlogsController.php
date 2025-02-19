@@ -103,6 +103,8 @@ class BlogsController extends Controller
             $data['facebook_meta_image'] = $file_name2 . '-' . time() . '.' . $fb_image->getClientOriginalExtension();
             $destinationPath2 = public_path('/assets/images');
             $fb_image->move($destinationPath2, $data['facebook_meta_image']);
+        }else{
+            $data['facebook_meta_image'] = null;
         }
         if ($request->hasFile('twitter_meta_image')) {
             $tw_image = $request->file('twitter_meta_image');
@@ -110,6 +112,8 @@ class BlogsController extends Controller
             $data['twitter_meta_image'] = $file_name3 . '-' . time() . '.' . $tw_image->getClientOriginalExtension();
             $destinationPath3 = public_path('/assets/images');
             $tw_image->move($destinationPath3, $data['twitter_meta_image']);
+        }else{
+            $data['twitter_meta_image'] = null;
         }
 
         $query = Blogs::create([

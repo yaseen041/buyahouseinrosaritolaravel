@@ -16,34 +16,31 @@
 				</div>
 				<nav id="navigation" class="style-1 white">
 					<ul id="responsive">
-						{{-- <li class="m-purple">
+						<li class="m-purple">
 							<img src="{{ asset('assets/icons/building.png') }}" width="40" alt="icon">
 							<a href="#">Rosarito Area <br>Real Estate</a>
 							<ul class="sub-menu col-purple">
 								<li>
-									<a href="#" class="sub-menu col-purple">
-										<h3>Highly Rated Communities with Notable Expat Populations</h3>
-										<ul class="sub-menu col-purple">
-											<li>
-												<a href="#"> <h3>Highly Rated Communities with Notable Expat Populations</h3></a>
-												<div class="menu-list">
-													<a href="">list two</a>
-													<a href="">list two</a>
-													<a href="">list two</a>
-												</div>
-											</li>
-										</ul>
-									</a>
+									<a href="#"> <h3>Highly Rated Communities with Notable Expat Populations</h3></a>
 									<div class="menu-list">
 										<a href="">list one</a>
 										<a href="">list one</a>
 										<a href="">list one</a>
 									</div>
-
+									<ul class="sub-menu col-purple">
+										<li>
+											<a href="#"> <h3>Highly Rated Communities with Notable Expat Populations</h3></a>
+											<div class="menu-list">
+												<a href="">list two</a>
+												<a href="">list two</a>
+												<a href="">list two</a>
+											</div>
+										</li>
+									</ul>
 								</li>
 								<li><a href="#"><h3>Top-Rated & Highly Desirable Communities</h3></a></li>
 							</ul>
-						</li> --}}
+						</li>
 
 						<li class="m-purple">
 							<img src="{{ asset('assets/icons/building.png') }}" width="40" alt="icon">
@@ -53,6 +50,7 @@
 								@if ($category->posts->count() || hasChildWithPosts($category))
 								<li>
 									<a href="#"><h3>{{ $category->title }}</h3></a>
+
 									@if ($category->posts->count())
 									<div class="menu-list">
 										@foreach ($category->posts as $post)
@@ -60,12 +58,14 @@
 										@endforeach
 									</div>
 									@endif
+
 									@if ($category->children->count() && hasChildWithPosts($category))
 									<ul class="sub-menu col-purple">
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
+
 											@if ($childCategory->posts->count())
 											<div class="menu-list">
 												@foreach ($childCategory->posts as $post)
@@ -73,12 +73,14 @@
 												@endforeach
 											</div>
 											@endif
-											{{-- @if ($childCategory->children->count() && hasChildWithPosts($childCategory))
+
+											@if ($childCategory->children->count() && hasChildWithPosts($childCategory))
 											<ul class="sub-menu col-purple">
 												@foreach ($childCategory->children as $subChildCategory)
 												@if ($subChildCategory->posts->count() || hasChildWithPosts($subChildCategory))
 												<li>
 													<a href="#"><h3>{{ $subChildCategory->title }}</h3></a>
+
 													@if ($subChildCategory->posts->count())
 													<div class="menu-list">
 														@foreach ($subChildCategory->posts as $post)
@@ -90,45 +92,6 @@
 												@endif
 												@endforeach
 											</ul>
-											@endif --}}
-										</li>
-										@endif
-										@endforeach
-									</ul>
-									@endif
-								</li>
-								@endif
-								@endforeach
-							</ul>
-						</li>
-
-						<li class="m-sky">
-							<img src="{{ asset('assets/icons/shield.png') }}" width="40" alt="icon">
-							<a href="#">Safety & <br>Security</a>
-							<ul class="sub-menu col-purple">
-								@foreach (getCategoryTreeWithPosts(15) as $category)
-								@if ($category->posts->count() || hasChildWithPosts($category))
-								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
-									@if ($category->posts->count())
-									<div class="menu-list">
-										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-										@endforeach
-									</div>
-									@endif
-									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
-										@foreach ($category->children as $childCategory)
-										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
-										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
-											@if ($childCategory->posts->count())
-											<div class="menu-list">
-												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-												@endforeach
-											</div>
 											@endif
 										</li>
 										@endif
@@ -138,136 +101,66 @@
 								</li>
 								@endif
 								@endforeach
+
+
+
+
+
+
+								{{-- @foreach (getCategoryTreeWithPosts('14') as $category)
+								<li>
+									<a href="#"><h3>{{ $category->title }}</h3></a>
+									@if ($category->posts->count())
+									<div class="menu-list">
+										@foreach ($category->posts as $post)
+										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+										@endforeach
+									</div>
+									@endif
+
+									@if ($category->children->count() && hasChildWithPosts($category))
+									<ul class="sub-menu col-purple">
+										<li>
+											@foreach ($category->children as $chil_cate)
+											<a href="#"> <h3>{{ $chil_cate->title }}</h3></a>
+											@if ($chil_cate->posts->count())
+											<div class="menu-list">
+												@foreach ($chil_cate->posts as $post)
+												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
+												@endforeach
+											</div>
+											@endif
+											@endforeach
+										</li>
+									</ul>
+									@endif
+								</li>
+								@endforeach --}}
+
 							</ul>
 						</li>
 
 
+						{{-- <li class="m-sky">
+							<img src="{{ asset('assets/icons/shield.png') }}" width="40" alt="icon">
+							<a href="#">Safety & <br>Security</a>
+						</li>
 						<li class="m-red">
 							<img src="{{ asset('assets/icons/wallet.png') }}" width="40" alt="icon">
 							<a href="#">Cost of Living & <br>Daily Expenses</a>
-							<ul class="sub-menu col-purple">
-								@foreach (getCategoryTreeWithPosts(16) as $category)
-								@if ($category->posts->count() || hasChildWithPosts($category))
-								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
-									@if ($category->posts->count())
-									<div class="menu-list">
-										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-										@endforeach
-									</div>
-									@endif
-									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
-										@foreach ($category->children as $childCategory)
-										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
-										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
-											@if ($childCategory->posts->count())
-											<div class="menu-list">
-												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-												@endforeach
-											</div>
-											@endif
-										</li>
-										@endif
-										@endforeach
-									</ul>
-									@endif
-								</li>
-								@endif
-								@endforeach
-							</ul>
-						</li>
-
-
+						</li> --}}
 						<li class="m-pblue">
 							<img src="{{ asset('assets/icons/tree.png') }}" width="40" alt="icon">
 							<a href="#">Recreation Lifestyle <br>& Fun</a>
-							<ul class="sub-menu col-purple">
-								@foreach (getCategoryTreeWithPosts(17) as $category)
-								@if ($category->posts->count() || hasChildWithPosts($category))
-								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
-									@if ($category->posts->count())
-									<div class="menu-list">
-										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-										@endforeach
-									</div>
-									@endif
-									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
-										@foreach ($category->children as $childCategory)
-										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
-										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
-											@if ($childCategory->posts->count())
-											<div class="menu-list">
-												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-												@endforeach
-											</div>
-											@endif
-										</li>
-										@endif
-										@endforeach
-									</ul>
-									@endif
-								</li>
-								@endif
-								@endforeach
-							</ul>
 						</li>
-
-
 						<li class="m-gblue">
 							<img src="{{ asset('assets/icons/car.png') }}" width="40" alt="icon">
 							<a href="#">Transportation <br>Travel & Banking</a>
-							<ul class="sub-menu col-purple">
-								@foreach (getCategoryTreeWithPosts(18) as $category)
-								@if ($category->posts->count() || hasChildWithPosts($category))
-								<li>
-									<a href="#"><h3>{{ $category->title }}</h3></a>
-									@if ($category->posts->count())
-									<div class="menu-list">
-										@foreach ($category->posts as $post)
-										<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-										@endforeach
-									</div>
-									@endif
-									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
-										@foreach ($category->children as $childCategory)
-										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
-										<li>
-											<a href="#"><h3>{{ $childCategory->title }}</h3></a>
-											@if ($childCategory->posts->count())
-											<div class="menu-list">
-												@foreach ($childCategory->posts as $post)
-												<a href="{{ $post->post_url }}">{{ $post->title }}</a>
-												@endforeach
-											</div>
-											@endif
-										</li>
-										@endif
-										@endforeach
-									</ul>
-									@endif
-								</li>
-								@endif
-								@endforeach
-							</ul>
 						</li>
-
-
 						<li class="m-golden">
 							<img src="https://buyahouseinrosarito.com/public/assets/icons/about.png" width="40" alt="icon">
 							<a href="{{ url('/about') }}">About</a>
 						</li>
-
-
 						<li class="m-orange">
 							<img src="https://buyahouseinrosarito.com/public/assets/icons/menu.png" width="40" alt="icon">
 							<a href="#">More Pages</a>

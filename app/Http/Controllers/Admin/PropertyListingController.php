@@ -28,11 +28,11 @@ class PropertyListingController extends Controller
         if (($request->has('search_query') && !empty($search_query))) {
             $query->where(function ($query) use ($search_query) {
                 $query->where('title', 'like', '%' . $search_query . '%')
-                    ->orWhere('code', 'like', '%' . $search_query . '%')
-                    ->orWhere('address', 'like', '%' . $search_query . '%')
-                    ->orWhere('country', 'like', '%' . $search_query . '%')
-                    ->orWhere('state', 'like', '%' . $search_query . '%')
-                    ->orWhere('city', 'like', '%' . $search_query . '%');
+                ->orWhere('code', 'like', '%' . $search_query . '%')
+                ->orWhere('address', 'like', '%' . $search_query . '%')
+                ->orWhere('country', 'like', '%' . $search_query . '%')
+                ->orWhere('state', 'like', '%' . $search_query . '%')
+                ->orWhere('city', 'like', '%' . $search_query . '%');
             });
         }
         $data['properties'] = $query->orderBy('id', 'DESC')->paginate(50);
@@ -69,6 +69,7 @@ class PropertyListingController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'title' => 'required',
+            'property_url' => 'required',
             'listing_type' => 'required',
             'listing_status' => 'required',
             'latitude' => 'required',
@@ -83,16 +84,19 @@ class PropertyListingController extends Controller
             'bathrooms' => 'required',
             'year_built' => 'required',
             'agent' => 'required',
-            'meta_title' => 'required',
-            'meta_keywords' => 'required',
-            'meta_description' => 'required',
-            'facebook_meta_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'facebook_meta_title' => 'required',
-            'facebook_meta_description' => 'required',
-            'twitter_meta_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'twitter_meta_title' => 'required',
-            'twitter_meta_description' => 'required',
-            'json_ld_code' => 'required',
+            'building_type' => 'nullable',
+            'source_link' => 'nullable',
+            'listing_date' => 'nullable',
+            'meta_title' => 'nullable',
+            'meta_keywords' => 'nullable',
+            'meta_description' => 'nullable',
+            'facebook_meta_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'facebook_meta_title' => 'nullable',
+            'facebook_meta_description' => 'nullable',
+            'twitter_meta_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'twitter_meta_title' => 'nullable',
+            'twitter_meta_description' => 'nullable',
+            'json_ld_code' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -126,12 +130,13 @@ class PropertyListingController extends Controller
         $property->code = PropertyCode($neighborhood->code, $request->listing_type);
         $property->title = $request->title;
 
-        $slug = $request->slug;
-        if ($request->slug == null || $request->slug == '') {
-            $slug = correctSlug($request->title, 'properties');
-        }
-        $property->slug = $slug;
+        // $slug = $request->slug;
+        // if ($request->slug == null || $request->slug == '') {
+        //     $slug = correctSlug($request->title, 'properties');
+        // }
+        $property->slug = $request->property_url;
         $property->price = $request->price;
+        $property->price_per_sft = round(($request->price / $request->size), 2);
         $property->neighborhood_id  = $neighborhood->id;
         $property->listing_status = $request->listing_status;
         $property->size  = $request->size;
@@ -157,6 +162,9 @@ class PropertyListingController extends Controller
         $property->lattitude = $request->latitude;
         $property->longitude = $request->longitude;
         $property->agent = $request->agent;
+        $property->building_type = $request->building_type;
+        $property->source_link = $request->source_link;
+        $property->listing_date = $request->listing_date;
         $property->GLA = $gla;
         $property->GLA_mt = round($gla * 0.092903, 2);
         $property->avg_ft = $avg_cost_per_sqft;
@@ -396,6 +404,7 @@ class PropertyListingController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'title' => 'required',
+            'property_url' => 'required',
             'listing_type' => 'required',
             'listing_status' => 'required',
             'latitude' => 'required',
@@ -410,14 +419,17 @@ class PropertyListingController extends Controller
             'bathrooms' => 'required',
             'year_built' => 'required',
             'agent' => 'required',
-            'meta_title' => 'required',
-            'meta_keywords' => 'required',
-            'meta_description' => 'required',
-            'facebook_meta_title' => 'required',
-            'facebook_meta_description' => 'required',
-            'twitter_meta_title' => 'required',
-            'twitter_meta_description' => 'required',
-            'json_ld_code' => 'required',
+            'building_type' => 'nullable',
+            'source_link' => 'nullable',
+            'listing_date' => 'nullable',
+            'meta_title' => 'nullable',
+            'meta_keywords' => 'nullable',
+            'meta_description' => 'nullable',
+            'facebook_meta_title' => 'nullable',
+            'facebook_meta_description' => 'nullable',
+            'twitter_meta_title' => 'nullable',
+            'twitter_meta_description' => 'nullable',
+            'json_ld_code' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -448,13 +460,16 @@ class PropertyListingController extends Controller
         $neighborhood = Neighborhood::where('id', $request->neighborhood)->first();
         $property = Property::where('id', $request->id)->first();
         $property->code = PropertyCode($neighborhood->code, $request->listing_type);
-        if ($request->title != $property->title) {
-            $property->slug = correctSlug($request->title, 'properties');
-        } else {
-            $property->slug = $request->slug;
-        }
+        // if ($request->title != $property->title) {
+        //     $property->slug = correctSlug($request->title, 'properties');
+        // } else {
+        //     $property->slug = $request->slug;
+        // }
+
+        $property->slug = $request->property_url;
         $property->title = $request->title;
         $property->price = $request->price;
+        $property->price_per_sft = round(($request->price / $request->size), 2);
         $property->neighborhood_id  = $neighborhood->id;
         $property->listing_status = $request->listing_status;
         $property->size  = $request->size;
@@ -480,6 +495,9 @@ class PropertyListingController extends Controller
         $property->lattitude = $request->latitude;
         $property->longitude = $request->longitude;
         $property->agent = $request->agent;
+        $property->building_type = $request->building_type;
+        $property->source_link = $request->source_link;
+        $property->listing_date = $request->listing_date;
         $property->GLA = $gla;
         $property->GLA_mt = round($gla * 0.092903, 2);
         $property->avg_ft = $avg_cost_per_sqft;

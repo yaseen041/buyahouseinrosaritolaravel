@@ -25,24 +25,24 @@
 								<li>
 									<a href="{{ route('slugHandler', ['slug' => $category->slug]) }}"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
-									<div class="menu-list">
+									<li class="menu-list">
 										@foreach ($category->posts as $post)
 										<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 										@endforeach
-									</div>
+									</li>
 									@endif
 									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
+									{{-- <ul class="sub-menu col-purple"> --}}
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="{{ route('slugHandler', ['slug' => $childCategory->slug]) }}"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
-											<div class="menu-list">
+											<li class="menu-list ps-2">
 												@foreach ($childCategory->posts as $post)
 												<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }} </a>
 												@endforeach
-											</div>
+											</li>
 											@endif
 											{{-- @if ($childCategory->children->count() && hasChildWithPosts($childCategory))
 											<ul class="sub-menu col-purple">
@@ -51,7 +51,7 @@
 												<li>
 													<a href="#"><strong>{{ $subChildCategory->title }}</strong></a>
 													@if ($subChildCategory->posts->count())
-													<div class="menu-list">
+													<li class="menu-list">
 														@foreach ($subChildCategory->posts as $post)
 														<a class="post_title" href="{{ $post->post_url }}">{{ $post->title }}</a>
 														@endforeach
@@ -65,7 +65,7 @@
 										</li>
 										@endif
 										@endforeach
-									</ul>
+									{{-- </ul> --}}
 									@endif
 								</li>
 								@endif
@@ -81,29 +81,29 @@
 								<li>
 									<a href="{{ route('slugHandler', ['slug' => $category->slug]) }}"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
-									<div class="menu-list">
+									<li class="menu-list">
 										@foreach ($category->posts as $post)
 										<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 										@endforeach
-									</div>
+									</li>
 									@endif
 									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
+									{{-- <ul class="sub-menu col-purple"> --}}
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="{{ route('slugHandler', ['slug' => $childCategory->slug]) }}"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
-											<div class="menu-list">
+											<li class="menu-list">
 												@foreach ($childCategory->posts as $post)
 												<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 												@endforeach
-											</div>
+											</li>
 											@endif
 										</li>
 										@endif
 										@endforeach
-									</ul>
+									{{-- </ul> --}}
 									@endif
 								</li>
 								@endif
@@ -119,29 +119,29 @@
 								<li>
 									<a href="{{ route('slugHandler', ['slug' => $category->slug]) }}"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
-									<div class="menu-list">
+									<li class="menu-list">
 										@foreach ($category->posts as $post)
 										<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 										@endforeach
-									</div>
+									</li>
 									@endif
 									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
+									{{-- <ul class="sub-menu col-purple"> --}}
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="{{ route('slugHandler', ['slug' => $childCategory->slug]) }}"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
-											<div class="menu-list">
+											<li class="menu-list">
 												@foreach ($childCategory->posts as $post)
 												<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 												@endforeach
-											</div>
+											</li>
 											@endif
 										</li>
 										@endif
 										@endforeach
-									</ul>
+									{{-- </ul> --}}
 									@endif
 								</li>
 								@endif
@@ -157,29 +157,29 @@
 								<li>
 									<a href="{{ route('slugHandler', ['slug' => $category->slug]) }}"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
-									<div class="menu-list">
+									<li class="menu-list">
 										@foreach ($category->posts as $post)
 										<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 										@endforeach
-									</div>
+									</li>
 									@endif
 									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
+									{{-- <ul class="sub-menu col-purple"> --}}
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="{{ route('slugHandler', ['slug' => $childCategory->slug]) }}"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
-											<div class="menu-list">
+											<li class="menu-list">
 												@foreach ($childCategory->posts as $post)
 												<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 												@endforeach
-											</div>
+											</li>
 											@endif
 										</li>
 										@endif
 										@endforeach
-									</ul>
+									{{-- </ul> --}}
 									@endif
 								</li>
 								@endif
@@ -195,29 +195,29 @@
 								<li>
 									<a href="{{ route('slugHandler', ['slug' => $category->slug]) }}"><strong>{{ $category->title }}</strong></a>
 									@if ($category->posts->count())
-									<div class="menu-list">
+									<li class="menu-list">
 										@foreach ($category->posts as $post)
 										<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 										@endforeach
-									</div>
+									</li>
 									@endif
 									@if ($category->children->count() && hasChildWithPosts($category))
-									<ul class="sub-menu col-purple">
+									{{-- <ul class="sub-menu col-purple"> --}}
 										@foreach ($category->children as $childCategory)
 										@if ($childCategory->posts->count() || hasChildWithPosts($childCategory))
 										<li>
 											<a href="{{ route('slugHandler', ['slug' => $childCategory->slug]) }}"><strong>{{ $childCategory->title }}</strong></a>
 											@if ($childCategory->posts->count())
-											<div class="menu-list">
+											<li class="menu-list">
 												@foreach ($childCategory->posts as $post)
 												<a class="post_title" href="{{ route('slugHandler', ['slug' => $post->post_url]) }}">{{ $post->title }}</a>
 												@endforeach
-											</div>
+											</li>
 											@endif
 										</li>
 										@endif
 										@endforeach
-									</ul>
+									{{-- </ul> --}}
 									@endif
 								</li>
 								@endif

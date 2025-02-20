@@ -23,7 +23,7 @@ $seo_data = get_single_row('seos', 'page_name', 'contact');
 @endpush
 @section('content')
 
-<section class="headings">
+<section class="headings contact_us_bg">
     <div class="text-heading text-center">
         <div class="container">
             <h1>Contact Us</h1>

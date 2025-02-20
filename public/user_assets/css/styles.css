@@ -18293,7 +18293,7 @@ ul.the-agents-details li a {
 }
 
 .agents .blog .blog-info.details {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .agents .single.reviews.leve-comments {
@@ -19969,7 +19969,7 @@ header.payment-card-header .pull-right img {
 }
 
 .inner-pages .headings h1 {
-  margin-top: 7.5rem;
+  margin-top: 10rem;
   font-size: 26px;
   color: #fff;
 }
@@ -20101,7 +20101,7 @@ header.payment-card-header .pull-right img {
 
 @media screen and (max-width: 500px) {
   .inner-pages .headings h1 {
-    margin-top: 5rem;
+    margin-top: 9rem;
     font-size: 1.5rem;
   }
 }

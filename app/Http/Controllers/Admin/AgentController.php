@@ -28,9 +28,10 @@ class AgentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'nullable',
-            'designation' => 'nullable',
             'phone' => 'nullable',
+            'email' => 'nullable|email',
+            'designation' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable',
         ]);
 
@@ -43,6 +44,7 @@ class AgentController extends Controller
         $agent->description = $request->description;
         $agent->designation = $request->designation;
         $agent->phone = $request->phone;
+        $agent->email = $request->email;
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -78,9 +80,10 @@ class AgentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'nullable',
-            'designation' => 'nullable',
             'phone' => 'nullable',
+            'email' => 'nullable|email',
+            'designation' => 'nullable',
+            'description' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -92,6 +95,7 @@ class AgentController extends Controller
             $agent->description = $request->description;
             $agent->designation = $request->designation;
             $agent->phone = $request->phone;
+            $agent->email = $request->email;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();

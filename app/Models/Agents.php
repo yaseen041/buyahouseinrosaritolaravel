@@ -15,6 +15,7 @@ class Agents extends Model
         'name',
         'designation',
         'phone',
+        'email',
         'image',
         'status',
         'description',

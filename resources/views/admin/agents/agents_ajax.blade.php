@@ -30,15 +30,21 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label"><strong>Designation</strong></label>
-                <div class="col-sm-8">
-                    <input type="text" name="designation" required class="form-control" value="{{$agent->designation}}">
-                </div>
-            </div>
-            <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><strong>Phone</strong></label>
                 <div class="col-sm-8">
                     <input type="phone" name="phone" required class="form-control" value="{{$agent->phone}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"><strong>Email</strong></label>
+                <div class="col-sm-8">
+                    <input type="email" name="email" required class="form-control" value="{{$agent->email}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"><strong>Designation</strong></label>
+                <div class="col-sm-8">
+                    <input type="text" name="designation" required class="form-control" value="{{$agent->designation}}">
                 </div>
             </div>
             <div class=" form-group row">

@@ -52,7 +52,7 @@
                 <div class="col-12 px-0">
                     <div class="banner-search-wrap">
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tabs_1">
+                            <div class="tab-pane fade show active my-3" id="tabs_1">
                                 <div class="rld-main-search">
                                     <form action="{{ url('properties') }}" method="GET" enctype="multipart/form-data">
                                         <div class="row justify-content-center">
@@ -159,9 +159,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @foreach(getFeatures() as $index => $feature)
-                                                    <div class="col-lg-3 col-md-6 col-sm-6 py-1 pr-30 ">
-                                                        <div class="checkboxes one-in-row margin-bottom-10 ch-{{ $index + 1 }}">
+
+                                                   <div class="row ">
+                                                     @foreach(getFeatures() as $index => $feature)
+                                                    <div class="col-lg-2 col-md-4 col-sm-6 col-6 pb-1 pr_custom">
+                                                        <div class="checkboxes one-in-row  ch-{{ $index + 1 }}">
                                                             <input
                                                             id="check-{{ $index + 1 }}"
                                                             type="checkbox"
@@ -173,6 +175,7 @@
                                                         </div>
                                                     </div>
                                                     @endforeach
+                                                   </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -252,7 +255,7 @@
                                         </li>
                                         <li class="the-icons">
                                             <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                            <span>{{ $property->parking_spaces }} Garages</span>
+                                            <span>{{ $property->parking_spaces }} Parkings</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -318,7 +321,7 @@
                                                     <ul class="listing-hidden-content">
                                                         <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
                                                         <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
-                                                        <li>Garages <span>{{ $fpitem->parking_spaces }}</span></li>
+                                                        <li>Parkings <span>{{ $fpitem->parking_spaces }}</span></li>
                                                         <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
                                                     </ul>
                                                 </div>
@@ -344,7 +347,7 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{ asset('user_assets/js/rangeSlider.js') }}"></script>
+{{-- <script src="{{ asset('user_assets/js/rangeSlider.js') }}"></script> --}}
 <script src="{{ asset('user_assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('user_assets/js/light.js') }}"></script>
 <script src="{{ asset('user_assets/js/popup.js') }}"></script>
@@ -352,9 +355,11 @@
 <script src="{{ asset('user_assets/js/inner.js') }}"></script>
 {{-- <script src="{{asset('user_assets/js/range.js')}}"></script> --}}
 <script>
-    $(".dropdown-filter").on('click', function() {
+      $(".dropdown-filter").on('click', function() {
         $(".explore__form-checkbox-list").toggleClass("filter-block");
     });
+
+
     $('.slick_featured').slick({
         infinite: false,
         slidesToShow: 1,

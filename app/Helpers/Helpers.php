@@ -327,7 +327,7 @@ if (!function_exists('mapHasSuite')) {
 if (!function_exists('mapGarage')) {
 	function mapGarage($tinyint)
 	{
-		// 0: N/A, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5+ 
+		// 0: N/A, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5+
 		if ($tinyint == 0) {
 			return 'N/A';
 		} elseif ($tinyint == 1) {
@@ -357,7 +357,7 @@ if (!function_exists('mapGarageType')) {
 if (!function_exists('mapBaseType')) {
 	function mapBaseType($tinyint)
 	{
-		// 1: None, 2: Full, 3: Partial, 4: Crawl, 5: Walkout 
+		// 1: None, 2: Full, 3: Partial, 4: Crawl, 5: Walkout
 		if ($tinyint == 1) {
 			return 'None';
 		} elseif ($tinyint == 2) {
@@ -745,33 +745,6 @@ if (!function_exists('get_categories')) {
 }
 
 
-if (!function_exists('get_parent_categories')) {
-	function get_parent_categories()
-	{
-		$query = DB::table('categories');
-		$query->select('id', 'title', 'slug');
-		$query->where('status', '1');
-		$query->whereNull('parent_id');
-		$query->orderBy('id', 'ASC');
-		$data = $query->get();
-		return $data;
-	}
-}
-
-if (!function_exists('get_child_categories')) {
-    function get_child_categories($parent_id)
-    {
-        return DB::table('categories')
-            ->select('id', 'title', 'slug')
-            ->where('status', '1')
-            ->where('parent_id', $parent_id)
-            ->orderBy('id', 'ASC')
-            ->get();
-    }
-}
-
-
-
 if (!function_exists('get_categories_having_blogs')) {
 	function get_categories_having_blogs()
 	{
@@ -783,23 +756,6 @@ if (!function_exists('get_categories_having_blogs')) {
 		->orderBy('id', 'DESC');
 		return $query->get();
 	}
-}
-
-if (!function_exists('get_child_categories_with_blogs')) {
-    function get_child_categories_with_blogs($parent_id)
-    {
-        return DB::table('categories as c')
-            ->select('c.id', 'c.title', 'c.slug')
-            ->where('c.status', '1')
-            ->where('c.parent_id', $parent_id)
-            ->whereExists(function ($query) {
-                $query->select(DB::raw(1))
-                    ->from('blogs')
-                    ->whereColumn('blogs.category_id', 'c.id');
-            })
-            ->orderBy('c.id', 'ASC')
-            ->get();
-    }
 }
 
 
@@ -923,4 +879,24 @@ function hasChildWithPosts($category)
 		}
 	}
 	return false;
+}
+
+
+if (!function_exists('getPropertyTypeTitle')) {
+    function getPropertyTypeTitle($search_id)
+    {
+        // Get type_id from property_types table
+        $type_id = DB::table('property_types')
+            ->where('property_id', $search_id)
+            ->value('type_id');
+
+        // If type_id is found, get title from types table
+        if ($type_id) {
+            return DB::table('types')
+                ->where('id', $type_id)
+                ->value('title');
+        }
+
+        return null; // Return null if no match is found
+    }
 }

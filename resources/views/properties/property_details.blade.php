@@ -24,8 +24,18 @@
 <link rel="stylesheet" href="{{ asset('user_assets/css/lightcase.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/swiper.min.css') }}">
 <link rel="stylesheet" href="{{ asset('user_assets/css/owl.carousel.min.css') }}">
+
+<style>
+    .inner-pages .detail_banner.headings {
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(18, 27, 34, 0.6)), to(rgba(18, 27, 34, 0.6))), url("{{ asset('uploads/properties').'/'.$property->banner }}") repeat center center;
+      background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url("{{ asset('uploads/properties').'/'.$property->banner }}") repeat center center;
+      width: 100%;
+      height: 30vh;
+      background-size: cover;
+  }
+</style>
 @endpush
-<section class="headings">
+<section class="headings detail_banner">
     <div class="text-heading text-center">
         <div class="container">
             <h1>{{ $property->title}}</h1>
@@ -55,9 +65,9 @@
             <div class="col-lg-8 col-md-12 blog-pots">
                 <div class="row">
                     <div class="col-md-12">
-                        <section class="headings-2 pt-0">
-                            <div class="pro-wrapper">
-                                <div class="detail-wrapper-body">
+                        <section class="headings-2 pb-0 pt-0">
+                            <div class="row pro-wrapper">
+                                <div class="col-12 col-md-8 col-lg-9 col-xl-10  detail-wrapper-body">
                                     <div class="listing-title-bar">
                                         <h3>{{ $property->title}}
                                             @if($property->listing_status == '1')
@@ -71,10 +81,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single detail-wrapper mr-2">
-                                    <div class="detail-wrapper-body">
+                                <div class="col-12 col-md-4 col-lg-3 col-xl-2 single detail-wrapper text-end py-1">
+                                    <div class="detail-wrapper-body pt-1">
                                         <div class="listing-title-bar">
-                                            <h4>${{ $property->price}}</h4>
+                                            <h4>${{ number_format($property->price)}}</h4>
                                             <div class="mt-0">
                                                 <a href="#listing-location" class="listing-address">
                                                     <p>{{$property->size}} / sq ft</p>
@@ -102,15 +112,29 @@
                         </li>
                         <li>
                             <span class="font-weight-bold mr-1">Property Type:</span>
-                            <span class="det">{{ $property->type}}</span>
+                            <span class="det">{{ getPropertyTypeTitle($property->id) }}</span>
                         </li>
                         <li>
                             <span class="font-weight-bold mr-1">Property status:</span>
-                            <span class="det">{{ $property->listing_status}}</span>
+                            <span class="det">{{ $property->listing_status == 1 ? 'For Sale' : 'For Rent' }}</span>
                         </li>
+
+                        @if(!empty($property->building_type))
+                        <li>
+                            <span class="font-weight-bold mr-1">Building Type:</span>
+                            <span class="det">{{ $property->building_type}}</span>
+                        </li>
+                        @endif
+
+                          <li>
+                            <span class="font-weight-bold mr-1">Year Built:</span>
+                            <span class="det">{{ $property->year_built}}</span>
+                        </li>
+
+
                         <li>
                             <span class="font-weight-bold mr-1">Property Price:</span>
-                            <span class="det">${{$property->price}}</span>
+                            <span class="det">${{number_format($property->price)}}</span>
                         </li>
                         <li>
                             <span class="font-weight-bold mr-1">Bedrooms:</span>
@@ -121,27 +145,29 @@
                             <span class="det">{{$property->bathrooms}}</span>
                         </li>
                         <li>
-                            <span class="font-weight-bold mr-1">Garages:</span>
+                            <span class="font-weight-bold mr-1">Parking Lots:</span>
                             <span class="det">{{ $property->parking_spaces}}</span>
                         </li>
+                        @if(!empty($property->listing_date))
                         <li>
-                            <span class="font-weight-bold mr-1">Year Built:</span>
-                            <span class="det">{{ $property->year_built}}</span>
+                            <span class="font-weight-bold mr-1">Listing Date:</span>
+                            <span class="det">{{ $property->listing_date}}</span>
                         </li>
+                        @endif
                     </ul>
                     <h5 class="mt-5">Amenities</h5>
                     <ul class="homes-list clearfix">
                         @foreach($features as $index => $feature)
                         <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i>
+                            <i class="fa fa-check" aria-hidden="true"></i>
                             <span>{{ $feature->title }}<br></span>
                         </li>
                         @endforeach
                     </ul>
                 </div>
-                @if(!empty($property->files))
+             {{--    @if(!empty($property->files))
                 <div class="floor-plan property wprt-image-video w50 pro">
-                    <h5>Atteched Files</h5>
+                    <h5>Technical Sheet Link</h5>
                     <div class="row">
                         @foreach($property->files as $docs)
                         <a href="{{ $docs }}" target="_blank" class="grid image-link mb-2">
@@ -150,7 +176,7 @@
                         @endforeach
                     </div>
                 </div>
-                @endif
+                @endif --}}
                 <div class="property-location map">
                     <h5>Location</h5>
                     <div class="divider-fade"></div>
@@ -310,7 +336,7 @@
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                        <span>{{ $rela_property->parking_spaces }} Garages</span>
+                                        <span>{{ $rela_property->parking_spaces }} Parkings</span>
                                     </li>
                                 </ul>
                             </div>
@@ -369,7 +395,10 @@
         });
     });
     function initMap() {
-        var location = { lat: 32.4778975780612, lng: -116.88062589946308 };
+        var location = {
+            lat: {{ $property->lattitude }},
+            lng: {{ $property->longitude }}
+        };
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 15,
             center: location,

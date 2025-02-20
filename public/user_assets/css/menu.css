@@ -1305,9 +1305,9 @@ em.mm-counter+a.mm-fullsubopen+span {
     outline: none;
     overflow: visible;
 }
-.hamburger-box {
+/*.hamburger-box {
     position: relative;
-}
+}*/
 .hamburger-inner {
     display: block;
     top: 50%;

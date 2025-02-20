@@ -61,7 +61,9 @@
                                 <tr class="gradeX">
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $item->code  }}</td>
-                                    <td>{{ $item->title  }}</td>
+                                    <td>
+                                        <a href="{{url('property/')}}/{{$item->slug}}" target="_blank"> {{ $item->title }}</a>
+                                    </td>
                                     <td>{{$item->neighborhood->title}}</td>
                                     <td>
                                         @if ($item->listing_status ==1)
@@ -147,93 +149,93 @@
         var id = $(this).attr('data-id');
         var show_text = $(this).attr('data-text');
         swal({
-                title: "Are you sure",
-                text: show_text,
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, please!",
-                cancelButtonText: "No, cancel please!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-            function(isConfirm) {
-                if (isConfirm) {
-                    $(".confirm").prop("disabled", true);
-                    $.ajax({
-                        url: "{{ url('admin/property-listings/delete') }}",
-                        type: 'post',
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            'id': id,
-                        },
-                        dataType: 'json',
-                        success: function(status) {
-                            $(".confirm").prop("disabled", false);
-                            if (status.msg == 'success') {
-                                swal({
-                                        title: "Success!",
-                                        text: status.response,
-                                        type: "success"
-                                    },
-                                    function(data) {
-                                        location.reload();
-                                    });
-                            } else if (status.msg == 'error') {
-                                swal("Error", status.response, "error");
-                            }
+            title: "Are you sure",
+            text: show_text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, please!",
+            cancelButtonText: "No, cancel please!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                $(".confirm").prop("disabled", true);
+                $.ajax({
+                    url: "{{ url('admin/property-listings/delete') }}",
+                    type: 'post',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'id': id,
+                    },
+                    dataType: 'json',
+                    success: function(status) {
+                        $(".confirm").prop("disabled", false);
+                        if (status.msg == 'success') {
+                            swal({
+                                title: "Success!",
+                                text: status.response,
+                                type: "success"
+                            },
+                            function(data) {
+                                location.reload();
+                            });
+                        } else if (status.msg == 'error') {
+                            swal("Error", status.response, "error");
                         }
-                    });
-                } else {
-                    swal("Cancelled", "", "error");
-                }
-            });
+                    }
+                });
+            } else {
+                swal("Cancelled", "", "error");
+            }
+        });
     });
     $(document).on("click", ".btn_feature", function() {
         var id = $(this).attr('data-id');
         var show_text = $(this).attr('data-text');
         swal({
-                title: "Are you sure",
-                text: show_text,
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, please!",
-                cancelButtonText: "No, cancel please!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-            function(isConfirm) {
-                if (isConfirm) {
-                    $(".confirm").prop("disabled", true);
-                    $.ajax({
-                        url: "{{ url('admin/property-listings/updateFeatureStatus') }}",
-                        type: 'post',
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            'id': id,
-                        },
-                        dataType: 'json',
-                        success: function(status) {
-                            $(".confirm").prop("disabled", false);
-                            if (status.msg == 'success') {
-                                swal({
-                                        title: "Success!",
-                                        text: status.response,
-                                        type: "success"
-                                    },
-                                    function(data) {
-                                        location.reload();
-                                    });
-                            } else if (status.msg == 'error') {
-                                swal("Error", status.response, "error");
-                            }
+            title: "Are you sure",
+            text: show_text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, please!",
+            cancelButtonText: "No, cancel please!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                $(".confirm").prop("disabled", true);
+                $.ajax({
+                    url: "{{ url('admin/property-listings/updateFeatureStatus') }}",
+                    type: 'post',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'id': id,
+                    },
+                    dataType: 'json',
+                    success: function(status) {
+                        $(".confirm").prop("disabled", false);
+                        if (status.msg == 'success') {
+                            swal({
+                                title: "Success!",
+                                text: status.response,
+                                type: "success"
+                            },
+                            function(data) {
+                                location.reload();
+                            });
+                        } else if (status.msg == 'error') {
+                            swal("Error", status.response, "error");
                         }
-                    });
-                } else {
-                    swal("Cancelled", "", "error");
-                }
-            });
+                    }
+                });
+            } else {
+                swal("Cancelled", "", "error");
+            }
+        });
     });
 </script>
 @endpush

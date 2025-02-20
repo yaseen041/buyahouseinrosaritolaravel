@@ -127,14 +127,14 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <strong class="form-label" for="title">Title:</strong>
+                                                        <strong class="form-label" for="title">Title</strong>
                                                         <input type="text" name="title" id="title-content" value="{{$property->title}}" placeholder="e.g. Suite 301 – Tower 4" class="form-control">
                                                         {{-- <input type="text" name="slug" value="{{$property->slug}}" id="slug" hidden> --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <strong class="form-label" for="title">Property URL:</strong>
+                                                        <strong class="form-label" for="title">Property URL</strong>
                                                         <input type="text" name="property_url" id="slug" class="form-control" value="{{$property->slug}}" placeholder="Property URL">
                                                     </div>
                                                 </div>
@@ -142,13 +142,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <strong class="form-label" for="title">Banner Image:</strong>
+                                                        <strong class="form-label" for="title">Banner Image</strong>
                                                         <input type="file" name="banner" id="Bannerimage" class="form-control" accept="image/*">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label"><strong>PDF Attachments</strong> <a class="text-navy" style="text-decoration: underline;" id="view_docs" data-toggle="modal" data-target="#add_modalbox">View Existing</a></label>
+                                                        <label class="form-label"><strong>PDF Attachments</strong> <a class="text-navy" style="text-decoration: underline;" id="view_docs" data-toggle="modal" data-target="#add_modalbox">View Attachments</a></label>
                                                         <input type="file" name="pdfs[]" class="form-control" multiple>
                                                     </div>
                                                 </div>
@@ -1125,7 +1125,6 @@
                 success: function(status) {
                     if (status.msg == 'success') {
                         toastr.success(status.response, "Success");
-                        $("#property_form")[0].reset();
                         setTimeout(function() {
                             location.reload();
                         }, 2000);

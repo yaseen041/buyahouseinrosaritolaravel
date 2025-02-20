@@ -26,7 +26,7 @@
         </ol>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-4 text-right">
-        <a class="btn btn-primary text-white t_m_25" href="{{ url('admin/communities') }}}">
+        <a class="btn btn-primary text-white t_m_25" href="{{ url('admin/communities') }}">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Communities
         </a>
     </div>

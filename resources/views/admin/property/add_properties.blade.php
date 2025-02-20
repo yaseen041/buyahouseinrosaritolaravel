@@ -12,14 +12,12 @@
         -ms-user-select: none;
         user-select: none;
     }
-
     .ck.ck-reset.ck-editor.ck-rounded-corners {
         box-sizing: border-box;
         height: auto;
         position: static;
         width: 100%;
     }
-
     .switch-container {
         display: flex;
         flex-direction: column;
@@ -27,11 +25,9 @@
         margin-top: 29px;
         margin-left: -118px;
     }
-
     .ck-editor__editable_inline {
         min-height: 500px;
     }
-
     .plus-icon {
         z-index: 99999;
         background-color: rgba(255, 244, 236, 0.88);
@@ -51,7 +47,6 @@
         align-items: center;
         border-radius: 50%;
     }
-
     .delete-icon {
         z-index: 99999;
         background-color: rgba(255, 255, 255, 0.8);
@@ -71,25 +66,20 @@
         align-items: center;
         border-radius: 50%;
     }
-
     #add-more {
         border: 1px dashed #CE713EFF;
         cursor: pointer;
         border-radius: 5%;
     }
-
     .trash-icon {
         color: red;
     }
-
     .trash-icon:hover {
         color: gray;
     }
-
     .add-icon {
         color: #CE713EFF;
     }
-
     .add-icon:hover {
         color: gray;
     }
@@ -112,7 +102,7 @@
         </ol>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-4 text-right">
-        <a class="btn btn-primary text-white t_m_25" href="{{ url('admin/property-listings') }}}">
+        <a class="btn btn-primary text-white t_m_25" href="{{ url('admin/property-listings') }}">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Properties
         </a>
     </div>
@@ -137,14 +127,28 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <strong class="form-label" for="title">Title:</strong>
-                                                        <input type="text" name="title" id="title-content" placeholder="e.g. Suite 301 – Tower 4" required class="form-control">
-                                                        <input type="text" name="slug" value="" id="slug" hidden>
+                                                        <input type="text" name="title" id="title-content" placeholder="e.g. Suite 301 – Tower 4" class="form-control">
+                                                        {{-- <input type="text" name="slug" value="" id="slug" hidden> --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                        <strong class="form-label" for="title">Property URL:</strong>
+                                                        <input type="text" name="property_url" id="slug" class="form-control" placeholder="Property URL">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <strong class="form-label" for="title">Banner Image:</strong>
-                                                        <input type="file" name="banner" id="Bannerimage" required class="form-control" accept="image/*">
+                                                        <input type="file" name="banner" id="Bannerimage" class="form-control" accept="image/*">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label"><strong>PDF Attachments</strong></label>
+                                                        <input type="file" name="pdfs[]" class="form-control" multiple>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,17 +156,16 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Listing Type</strong></label>
-                                                        <select required name="listing_type" id="listing_type" class="form-control">
+                                                        <select name="listing_type" id="listing_type" class="form-control">
                                                             <option value="1" selected>Sale</option>
                                                             <option value="2">Rent</option>
                                                         </select>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Listing Status</strong></label>
-                                                        <select required name="listing_status" id="listing_status" class="form-control">
+                                                        <select name="listing_status" id="listing_status" class="form-control">
                                                             <option value="1" selected>For Sale</option>
                                                             <option value="4">Sales Pending</option>
                                                             <option value="5">Sold</option>
@@ -179,11 +182,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Rent Cycle</strong></label>
-                                                        <select required name="rent_cycle" id="rent_cycle" class="form-control">
+                                                        <select name="rent_cycle" id="rent_cycle" class="form-control">
                                                             <option value="0">One Day</option>
                                                             <option value="1" selected>Monthly</option>
                                                             <option value="2">Quarterly</option>
@@ -200,7 +202,6 @@
                                                         <input type="text" class="form-control money" name="property_tax" id="property_tax" placeholder="e.g. 2300">
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>HOA Fee (Monthly)</strong></label>
@@ -212,14 +213,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Price/Rent (USD)</strong></label>
-                                                        <input type="text" name="price" required class="form-control money" placeholder="e.g. 30000 ">
+                                                        <input type="text" name="price" class="form-control money" placeholder="e.g. 30000 ">
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Agent</strong></label>
-                                                        <select required name="agent" id="agent" class="select2agents form-control">
+                                                        <select name="agent" id="agent" class="select2agents form-control">
                                                             <option value="" selected disabled>Select an option</option>
                                                             @foreach($agents as $agent)
                                                             <option value="{{$agent->id}}">{{$agent->name}}</option>
@@ -235,11 +235,10 @@
                                                         <input type="text" name="size" id="size" class="form-control sizemt" placeholder="e.g. 200">
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>GLA (Gross Livable Area in sqft)</strong></label>
-                                                        <input type="text" name="GLA" id="GLA" required class="form-control money" placeholder="e.g. 200">
+                                                        <input type="text" name="GLA" id="GLA" class="form-control money" placeholder="e.g. 200">
                                                     </div>
                                                 </div>
                                             </div>
@@ -247,7 +246,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Community</strong></label>
-                                                        <select required name="neighborhood" id="neighborhood" class="select2 form-control">
+                                                        <select name="neighborhood" id="neighborhood" class="select2 form-control">
                                                             <option value="" selected disabled>Select an option</option>
                                                             @foreach($neighborhoods as $neighborhood)
                                                             <option value="{{$neighborhood->id}}">{{$neighborhood->title}}</option>
@@ -255,11 +254,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Street Address</strong></label>
-                                                        <input type="text" name="address" required class="form-control" placeholder="e.g. 221-B Baker Street">
+                                                        <input type="text" name="address" class="form-control" placeholder="e.g. 221-B Baker Street">
                                                     </div>
                                                 </div>
                                             </div>
@@ -267,7 +265,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Parking Spaces</strong></label>
-                                                        <select required name="parking_spaces" id="parking_spaces" class="form-control">
+                                                        <select name="parking_spaces" id="parking_spaces" class="form-control">
                                                             <option value="" selected disabled>Select an option</option>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
@@ -280,15 +278,13 @@
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
                                                             <option value="10">10 or more</option>
-
                                                         </select>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Bedrooms</strong></label>
-                                                        <select required name="bedrooms" id="bedrooms" class="form-control">
+                                                        <select name="bedrooms" id="bedrooms" class="form-control">
                                                             <option value="" selected disabled>Select an option</option>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
@@ -309,7 +305,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Bathrooms</strong></label>
-                                                        <select required name="bathrooms" id="bathrooms" class="form-control">
+                                                        <select name="bathrooms" id="bathrooms" class="form-control">
                                                             <option value="" selected disabled>Select an option</option>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
@@ -322,25 +318,13 @@
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
                                                             <option value="10">10 or more</option>
-
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label"><strong>Year Built</strong></label>
-                                                        <div class="input-group date">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> <input type="text" name="year_built" id="year_built" class="form-control money" value="{{date('Y')}}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row ">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Development Level</strong></label>
-                                                        <select required name="dev_lvl" id="dev_lvl" class="form-control">
+                                                        <select name="dev_lvl" id="dev_lvl" class="form-control">
                                                             <option value="" selected>Select an Option</option>
                                                             <option value="1" selected>Under Construction</option>
                                                             <option value="2" selected>Built</option>
@@ -350,10 +334,39 @@
                                                     </div>
                                                 </div>
 
+                                            </div>
+                                            <div class="row ">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label"><strong>PDF Attachments</strong></label>
-                                                        <input type="file" name="pdfs[]" class="form-control" multiple>
+                                                        <label class="form-label"><strong>Year Built</strong></label>
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> <input type="text" name="year_built" id="year_built" class="form-control money" value="{{date('Y')}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group ">
+                                                        <label class="form-label"><strong>Listing Date</strong></label>
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control full_date" name="listing_date" value="{{ date('Y-m-d') }}" placeholder="Listing Date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label"><strong>Builting Type</strong></label>
+                                                        <input type="text" name="building_type" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label"><strong>Source Link</strong></label>
+                                                        <input type="text" name="source_link" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -382,7 +395,6 @@
                                                     <div class="form-group">
                                                         <label class="form-label ps-3"><strong>Longitude</strong></label>
                                                         <input type="text" name="longitude" id="longitude" class="form-control" required>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -412,7 +424,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <textarea name="short_description" id="short_description" required class="form-control"></textarea>
+                                                    <textarea name="short_description" id="short_description" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -428,8 +440,10 @@
                                                 <div class="col-12">
                                                     @foreach($types as $type)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label unselectable" for="{{$type->slug}}"> <input class="i-checks {{$type->slug == 'commercial' ? 'unchecked' : 'checked' }}" type="checkbox" name="{{$type->slug}}" id="{{$type->slug}}" value="{{$type->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$type->title}} </label>
+                                                        <label class="form-check-label unselectable" for="{{$type->slug}}">
+                                                            <input class="i-checks {{$type->slug == 'commercial' ? 'unchecked' : 'checked' }}" type="checkbox" name="{{$type->slug}}" id="{{$type->slug}}" value="{{$type->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$type->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -447,8 +461,10 @@
                                                 <div class="col-12">
                                                     @foreach($interior_features as $feature)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$feature->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$feature->slug}}" id="{{$feature->slug}}" value="{{$feature->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$feature->title}}</label>
+                                                        <label class="form-check-label" for="{{$feature->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$feature->slug}}" id="{{$feature->slug}}" value="{{$feature->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$feature->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -466,8 +482,10 @@
                                                 <div class="col-12">
                                                     @foreach($exterior_finish as $finish)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$finish->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$finish->slug}}" id="{{$finish->slug}}" value="{{$finish->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$finish->title}}</label>
+                                                        <label class="form-check-label" for="{{$finish->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$finish->slug}}" id="{{$finish->slug}}" value="{{$finish->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$finish->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -485,8 +503,10 @@
                                                 <div class="col-12">
                                                     @foreach($featured_amenities as $amenities)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$amenities->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$amenities->slug}}" id="{{$amenities->slug}}" value="{{$amenities->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$amenities->title}}</label>
+                                                        <label class="form-check-label" for="{{$amenities->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$amenities->slug}}" id="{{$amenities->slug}}" value="{{$amenities->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$amenities->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -504,8 +524,10 @@
                                                 <div class="col-12">
                                                     @foreach($appliances as $appliance)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$appliance->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$appliance->slug}}" id="{{$appliance->slug}}" value="{{$appliance->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$appliance->title}}</label>
+                                                        <label class="form-check-label" for="{{$appliance->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$appliance->slug}}" id="{{$appliance->slug}}" value="{{$appliance->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$appliance->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -523,8 +545,10 @@
                                                 <div class="col-12">
                                                     @foreach($views as $view)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$view->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$view->slug}}" id="{{$view->slug}}" value="{{$view->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$view->title}}</label>
+                                                        <label class="form-check-label" for="{{$view->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$view->slug}}" id="{{$view->slug}}" value="{{$view->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$view->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -542,8 +566,10 @@
                                                 <div class="col-12">
                                                     @foreach($heatings as $heating)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$heating->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$heating->slug}}" id="{{$heating->slug}}" value="{{$heating->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$heating->title}}</label>
+                                                        <label class="form-check-label" for="{{$heating->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$heating->slug}}" id="{{$heating->slug}}" value="{{$heating->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$heating->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -561,8 +587,10 @@
                                                 <div class="col-12">
                                                     @foreach($coolings as $cooling)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$cooling->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$cooling->slug}}" id="{{$cooling->slug}}" value="{{$cooling->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$cooling->title}}</label>
+                                                        <label class="form-check-label" for="{{$cooling->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$cooling->slug}}" id="{{$cooling->slug}}" value="{{$cooling->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$cooling->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -580,15 +608,16 @@
                                                 <div class="col-12">
                                                     @foreach($roofs as $roof)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$roof->slug}}"> <input class="i-checks {{$roof->show == 2 ? 'checked' : 'unchecked'}}" type="checkbox" name="{{$roof->slug}}" id="{{$roof->slug}}" value="{{$roof->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$roof->title}}</label>
+                                                        <label class="form-check-label" for="{{$roof->slug}}">
+                                                            <input class="i-checks {{$roof->show == 2 ? 'checked' : 'unchecked'}}" type="checkbox" name="{{$roof->slug}}" id="{{$roof->slug}}" value="{{$roof->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$roof->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row mt-4">
                                         <div class="col-12">
                                             <div class="row">
@@ -600,8 +629,10 @@
                                                 <div class="col-12">
                                                     @foreach($sewer_water_systems as $sewer_water_system)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$sewer_water_system->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$sewer_water_system->slug}}" id="{{$sewer_water_system->slug}}" value="{{$sewer_water_system->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$sewer_water_system->title}}</label>
+                                                        <label class="form-check-label" for="{{$sewer_water_system->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$sewer_water_system->slug}}" id="{{$sewer_water_system->slug}}" value="{{$sewer_water_system->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$sewer_water_system->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -619,8 +650,10 @@
                                                 <div class="col-12">
                                                     @foreach($extra_features as $extra_feature)
                                                     <div class="form-check form-check-inline mx-4 mb-1">
-                                                        <label class="form-check-label" for="{{$extra_feature->slug}}"> <input class="i-checks checked" type="checkbox" name="{{$extra_feature->slug}}" id="{{$extra_feature->slug}}" value="{{$extra_feature->id}}" style="position: absolute; opacity: 0;">
-                                                            {{$extra_feature->title}}</label>
+                                                        <label class="form-check-label" for="{{$extra_feature->slug}}">
+                                                            <input class="i-checks checked" type="checkbox" name="{{$extra_feature->slug}}" id="{{$extra_feature->slug}}" value="{{$extra_feature->id}}" style="position: absolute; opacity: 0;">
+                                                            {{$extra_feature->title}}
+                                                        </label>
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -663,7 +696,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="ibox">
                                 <div class="ibox-title">
                                     <h5>Open Graph / Facebook Tags</h5>
@@ -687,7 +719,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="ibox">
                                 <div class="ibox-title">
                                     <h5>Twitter Card Tags</h5>
@@ -728,7 +759,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="button_section">
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -747,14 +777,14 @@
 @push('scripts')
 <script src="{{asset('admin_assets/js/plugins/select2/select2.full.min.js')}}"></script>
 <script>
-    var slug = '';
+    // var slug = '';
+    // $('#title-content').on('input', function() {
+    //     var slug = $(this).val().toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+    //     $('#slug').val(slug);
+    // });
     $(".select2").select2({
         placeholder: "Select an option",
         allowClear: true
-    });
-    $('#title-content').on('input', function() {
-        var slug = $(this).val().toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
-        $('#slug').val(slug);
     });
     $(document).ready(function() {
         $('.i-checks').iCheck({
@@ -763,39 +793,29 @@
         });
         $('.unchecked').iCheck('uncheck');
         $('.checked').iCheck('check');
-
     });
-    //    for inputs with class name money if user enters characters other than numbers then prevent adding them
     $(document).ready(function() {
-        // Attach event listener to all input fields with class 'money'
         $('.money').on('input', function() {
-            // Allow only numbers, backspace, and decimal point
             this.value = this.value.replace(/[^0-9\.]/g, '');
-
-            // Ensure only one decimal point
             if (this.value.indexOf('.') !== -1) {
-                this.value = this.value.replace(/\.+$/, ''); // Remove extra decimal points
-                this.value = this.value.replace(/\.(\d{2})\./, '.$1'); // Allow only two digits after decimal
+                this.value = this.value.replace(/\.+$/, '');
+                this.value = this.value.replace(/\.(\d{2})\./, '.$1');
             }
         });
     });
     $(document).ready(function() {
-        // Attach event listener to all input fields with class 'money'
         $('.sizemt').on('input', function() {
-            // Allow only numbers, backspace, and decimal point
             this.value = this.value.replace(/[^0-9\.]/g, '');
-
-            // Ensure only one decimal point
             if (this.value.indexOf('.') !== -1) {
-                this.value = this.value.replace(/\.+$/, ''); // Remove extra decimal points
-                this.value = this.value.replace(/\.(\d{2})\./, '.$1'); // Allow only two digits after decimal
+                this.value = this.value.replace(/\.+$/, '');
+                this.value = this.value.replace(/\.(\d{2})\./, '.$1');
             }
         });
     });
     $('.date').datepicker({
-        startView: 2, // Start at the year view
-        minViewMode: 2, // Set the minimum view mode to year
-        viewMode: "years", // Display only years in the view
+        startView: 2,
+        minViewMode: 2,
+        viewMode: "years",
         todayBtn: "linked",
         keyboardNavigation: false,
         forceParse: false,
@@ -808,7 +828,16 @@
         forceParse: false,
         calendarWeeks: true,
         autoclose: true,
-        startDate: new Date() // Set default to today's date
+        startDate: new Date()
+    });
+    $('.full_date').datepicker({
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true,
+        format: "yyyy-mm-dd",
+        todayHighlight: true,
     });
     $(".select2").select2({
         placeholder: "Select a Community",
@@ -842,7 +871,6 @@
     });
 </script>
 <script>
-    // session errors
     var session = "{{Session::has('error') ? 'true' : 'false'}}";
     if (session == 'true') {
         toastr.options = {
@@ -851,7 +879,6 @@
             "positionClass": "toast-top-right"
         }
         toastr.error("{{Session::get('error')}}");
-
     }
     var session2 = "{{Session::has('success') ? 'true' : 'false'}}";
     if (session2 == 'true') {
@@ -861,32 +888,31 @@
             "positionClass": "toast-top-right"
         }
         toastr.success("{{Session::get('success')}}");
-
     }
 </script>
 <script>
     (g => {
         var h, a, k, p = "The Google Maps JavaScript API",
-            c = "google",
-            l = "importLibrary",
-            q = "__ib__",
-            m = document,
-            b = window;
+        c = "google",
+        l = "importLibrary",
+        q = "__ib__",
+        m = document,
+        b = window;
         b = b[c] || (b[c] = {});
         var d = b.maps || (b.maps = {}),
-            r = new Set,
-            e = new URLSearchParams,
-            u = () => h || (h = new Promise(async (f, n) => {
-                await (a = m.createElement("script"));
-                e.set("libraries", [...r] + "");
-                for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+        r = new Set,
+        e = new URLSearchParams,
+        u = () => h || (h = new Promise(async (f, n) => {
+            await (a = m.createElement("script"));
+            e.set("libraries", [...r] + "");
+            for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
                 e.set("callback", c + ".maps." + q);
-                a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                d[q] = f;
-                a.onerror = () => h = n(Error(p + " could not load."));
-                a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                m.head.append(a)
-            }));
+            a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+            d[q] = f;
+            a.onerror = () => h = n(Error(p + " could not load."));
+            a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+            m.head.append(a)
+        }));
         d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
     })
     ({
@@ -894,7 +920,6 @@
         v: "weekly"
     });
 </script>
-
 <script>
     async function initMap() {
         const {
@@ -921,13 +946,12 @@
             coordinates = mapsMouseEvent.latLng.toJSON();
             infoWindow.setContent(
                 "Latitude: " + coordinates.lat + "<br>Longitude: " + coordinates.lng,
-            );
+                );
             infoWindow.open(map);
             $('#latitude').val(coordinates.lat);
             $('#longitude').val(coordinates.lng);
         });
     }
-
     initMap();
 </script>
 <script>
@@ -948,7 +972,6 @@
 </script>
 <script>
     let editor;
-    // submit form data
     $(document).ready(function() {
         $(document).on("click", "#btn_create", function() {
             if ($('#listing_type').val() == 1) {
@@ -990,7 +1013,6 @@
                 toastr.error("Please upload at least 5 images for the gallery");
                 return false;
             }
-
             if ($('#latitude').val() == '' || $('#longitude').val() == '') {
                 toastr.options = {
                     "closeButton": true,
@@ -1000,7 +1022,6 @@
                 toastr.error("Please select the latitude and longitude coordinates");
                 return false;
             }
-
             var btn = $(this).ladda();
             btn.ladda('start');
             const descriptionBlogValue = editor.getData();
@@ -1040,9 +1061,7 @@
         });
     });
 </script>
-
 <script>
-    // JSON Load
     $(document).ready(function() {
         $(document).on("click", "#btn_load_script", function() {
             const title = document.getElementById("title-content").value;
@@ -1080,7 +1099,6 @@
     });
 </script>
 <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/super-build/ckeditor.js"></script>
-
 <script>
     CKEDITOR.ClassicEditor.create(document.getElementById("description"), {
         ckfinder: {
@@ -1111,124 +1129,120 @@
         },
         heading: {
             options: [{
-                    model: 'paragraph',
-                    title: 'Paragraph',
-                    class: 'ck-heading_paragraph'
-                },
-                {
-                    model: 'heading1',
-                    view: 'h1',
-                    title: 'Heading 1',
-                    class: 'ck-heading_heading1'
-                },
-                {
-                    model: 'heading2',
-                    view: 'h2',
-                    title: 'Heading 2',
-                    class: 'ck-heading_heading2'
-                },
-                {
-                    model: 'heading3',
-                    view: 'h3',
-                    title: 'Heading 3',
-                    class: 'ck-heading_heading3'
-                },
-                {
-                    model: 'heading4',
-                    view: 'h4',
-                    title: 'Heading 4',
-                    class: 'ck-heading_heading4'
-                },
-                {
-                    model: 'heading5',
-                    view: 'h5',
-                    title: 'Heading 5',
-                    class: 'ck-heading_heading5'
-                },
-                {
-                    model: 'heading6',
-                    view: 'h6',
-                    title: 'Heading 6',
-                    class: 'ck-heading_heading6'
+                model: 'paragraph',
+                title: 'Paragraph',
+                class: 'ck-heading_paragraph'
+            },
+            {
+                model: 'heading1',
+                view: 'h1',
+                title: 'Heading 1',
+                class: 'ck-heading_heading1'
+            },
+            {
+                model: 'heading2',
+                view: 'h2',
+                title: 'Heading 2',
+                class: 'ck-heading_heading2'
+            },
+            {
+                model: 'heading3',
+                view: 'h3',
+                title: 'Heading 3',
+                class: 'ck-heading_heading3'
+            },
+            {
+                model: 'heading4',
+                view: 'h4',
+                title: 'Heading 4',
+                class: 'ck-heading_heading4'
+            },
+            {
+                model: 'heading5',
+                view: 'h5',
+                title: 'Heading 5',
+                class: 'ck-heading_heading5'
+            },
+            {
+                model: 'heading6',
+                view: 'h6',
+                title: 'Heading 6',
+                class: 'ck-heading_heading6'
+            }
+        ]
+    },
+    placeholder: 'Enter Description Here!',
+    fontSize: {
+        options: [10, 12, 14, 'default', 18, 20, 22],
+        supportAllValues: true
+    },
+    link: {
+        decorators: {
+            openInNewTab: {
+                mode: 'manual',
+                callback: () => true,
+                label: 'Open in new tab',
+                attributes: {
+                    target: '_blank'
                 }
-            ]
-        },
-        placeholder: 'Enter Description Here!',
-
-        fontSize: {
-            options: [10, 12, 14, 'default', 18, 20, 22],
-            supportAllValues: true
-        },
-
-        link: {
-            decorators: {
-                openInNewTab: {
-                    mode: 'manual',
-                    callback: () => true,
-                    label: 'Open in new tab',
-                    attributes: {
-                        target: '_blank'
-                    }
-                },
-                openInSameTab: {
-                    mode: 'manual',
-                    label: 'Open in same tab',
-                    attributes: {
-                        target: '_self'
-                    }
-                },
-                addNoFollow: {
-                    mode: 'manual',
-                    label: 'Add nofollow',
-                    attributes: {
-                        rel: 'nofollow'
-                    }
-                },
-                removeNoFollow: {
-                    mode: 'manual',
-                    label: 'Remove nofollow',
-                    attributes: {
-                        rel: null
-                    }
+            },
+            openInSameTab: {
+                mode: 'manual',
+                label: 'Open in same tab',
+                attributes: {
+                    target: '_self'
+                }
+            },
+            addNoFollow: {
+                mode: 'manual',
+                label: 'Add nofollow',
+                attributes: {
+                    rel: 'nofollow'
+                }
+            },
+            removeNoFollow: {
+                mode: 'manual',
+                label: 'Remove nofollow',
+                attributes: {
+                    rel: null
                 }
             }
-        },
-
-        htmlSupport: {
-            allow: [{
-                name: 'a',
-                attributes: {
-                    'rel': true
-                },
-                classes: true,
-                styles: true
-            }]
-        },
-
-        removePlugins: [
-            'AIAssistant',
-            'CKBox',
-            'CKFinder',
-            'RealTimeCollaborativeComments',
-            'RealTimeCollaborativeTrackChanges',
-            'RealTimeCollaborativeRevisionHistory',
-            'PresenceList',
-            'Comments',
-            'TrackChanges',
-            'TrackChangesData',
-            'RevisionHistory',
-            'Pagination',
-            'WProofreader',
-            'MathType',
-            'SlashCommand',
-            'Template',
-            'DocumentOutline',
-            'FormatPainter',
-            'TableOfContents',
-            'PasteFromOfficeEnhanced'
-        ]
-    }).then(newEditor => {
-        editor = newEditor;
-    });
+        }
+    },
+    htmlSupport: {
+        allow: [{
+            name: 'a',
+            attributes: {
+                'rel': true
+            },
+            classes: true,
+            styles: true
+        }]
+    },
+    removePlugins: [
+        'AIAssistant',
+        'CKBox',
+        'CKFinder',
+        'RealTimeCollaborativeComments',
+        'RealTimeCollaborativeTrackChanges',
+        'RealTimeCollaborativeRevisionHistory',
+        'PresenceList',
+        'Comments',
+        'TrackChanges',
+        'TrackChangesData',
+        'RevisionHistory',
+        'Pagination',
+        'WProofreader',
+        'MathType',
+        'SlashCommand',
+        'Template',
+        'DocumentOutline',
+        'FormatPainter',
+        'TableOfContents',
+        'PasteFromOfficeEnhanced'
+    ]
+}).then(newEditor => {
+    editor = newEditor;
+});
 </script>
 @endpush

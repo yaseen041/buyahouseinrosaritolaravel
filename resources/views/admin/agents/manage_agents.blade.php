@@ -46,8 +46,9 @@
                                 <tr>
                                     <th>Sr #</th>
                                     <th>Name</th>
-                                    <th>Designation</th>
                                     <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Designation</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -57,8 +58,9 @@
                                 <tr class="gradeX">
                                     <td>{{ $i++ }}</td>
                                     <td><img src="{{asset('uploads/agents/' . $item->image)}}" style="width: 40px; height: 40px; object-fit:contain; margin-right: 5px;" alt="">{{ $item->name  }}</td>
-                                    <td>{{ $item->designation  }}</td>
                                     <td>{{ $item->phone  }}</td>
+                                    <td>{{ $item->email  }}</td>
+                                    <td>{{ $item->designation  }}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm btn_agent_edit" data-id="{{$item->id}}" type="button"><i class="fa-solid fa-edit"></i> Edit</button>
                                         <button class="btn btn-danger btn-sm btn_delete" data-id="{{$item->id}}" data-text="you want to delete this agent?" type="button" data-placement="top" title="Delete">Delete</button>
@@ -107,15 +109,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label"><strong>Designation</strong></label>
-                        <div class="col-sm-8">
-                            <input type="text" name="designation" required class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label class="col-sm-4 col-form-label"><strong>Phone</strong></label>
                         <div class="col-sm-8">
                             <input type="phone" name="phone" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"><strong>Email</strong></label>
+                        <div class="col-sm-8">
+                            <input type="email" name="email" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"><strong>Designation</strong></label>
+                        <div class="col-sm-8">
+                            <input type="text" name="designation" required class="form-control">
                         </div>
                     </div>
                     <div class=" form-group row">
@@ -157,60 +165,60 @@
         "bInfo": false,
         "responsive": true,
         "columnDefs": [{
-                "responsivePriority": 1,
-                "targets": 0
-            },
-            {
-                "responsivePriority": 2,
-                "targets": -1
-            },
-        ]
-    });
+            "responsivePriority": 1,
+            "targets": 0
+        },
+        {
+            "responsivePriority": 2,
+            "targets": -1
+        },
+    ]
+});
     $(document).on("click", ".btn_delete", function() {
         var id = $(this).attr('data-id');
         var show_text = $(this).attr('data-text');
         swal({
-                title: "Are you sure",
-                text: show_text,
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, please!",
-                cancelButtonText: "No, cancel please!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-            function(isConfirm) {
-                if (isConfirm) {
-                    $(".confirm").prop("disabled", true);
-                    $.ajax({
-                        url: "{{ url('admin/agents/delete') }}",
-                        type: 'post',
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            'id': id,
-                        },
-                        dataType: 'json',
-                        success: function(status) {
-                            $(".confirm").prop("disabled", false);
-                            if (status.msg == 'success') {
-                                swal({
-                                        title: "Success!",
-                                        text: status.response,
-                                        type: "success"
-                                    },
-                                    function(data) {
-                                        location.reload();
-                                    });
-                            } else if (status.msg == 'error') {
-                                swal("Error", status.response, "error");
-                            }
+            title: "Are you sure",
+            text: show_text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, please!",
+            cancelButtonText: "No, cancel please!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                $(".confirm").prop("disabled", true);
+                $.ajax({
+                    url: "{{ url('admin/agents/delete') }}",
+                    type: 'post',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'id': id,
+                    },
+                    dataType: 'json',
+                    success: function(status) {
+                        $(".confirm").prop("disabled", false);
+                        if (status.msg == 'success') {
+                            swal({
+                                title: "Success!",
+                                text: status.response,
+                                type: "success"
+                            },
+                            function(data) {
+                                location.reload();
+                            });
+                        } else if (status.msg == 'error') {
+                            swal("Error", status.response, "error");
                         }
-                    });
-                } else {
-                    swal("Cancelled", "", "error");
-                }
-            });
+                    }
+                });
+            } else {
+                swal("Cancelled", "", "error");
+            }
+        });
     });
 
     $(document).on("click", "#save_agent_button", function() {

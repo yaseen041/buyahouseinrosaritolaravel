@@ -16,7 +16,7 @@ class AgentController extends Controller
         if ($request->has('search_query') && !empty($search_query)) {
             $query->where(function ($query) use ($search_query) {
                 $query->where('name', 'like', '%' . $search_query . '%')
-                    ->orWhere('phone', 'like', '%' . $search_query . '%');
+                ->orWhere('phone', 'like', '%' . $search_query . '%');
             });
         }
         $data['agents'] = $query->orderBy('id', 'DESC')->paginate(50);
@@ -28,10 +28,11 @@ class AgentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
-            'designation' => 'required',
-            'phone' => 'required',
-            'image' => 'required',
+            'phone' => 'nullable',
+            'email' => 'nullable|email',
+            'designation' => 'nullable',
+            'description' => 'nullable',
+            'image' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -43,6 +44,7 @@ class AgentController extends Controller
         $agent->description = $request->description;
         $agent->designation = $request->designation;
         $agent->phone = $request->phone;
+        $agent->email = $request->email;
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -70,8 +72,7 @@ class AgentController extends Controller
             $finalResult = response()->json(['msg' => 'success', 'response' => $htmlresult]);
             return $finalResult;
         } else {
-            return response()->json(['msg
-' => 'error', 'response' => 'Real Estate Agent not found.']);
+            return response()->json(['msg' => 'error', 'response' => 'Real Estate Agent not found.']);
         }
     }
 
@@ -79,9 +80,10 @@ class AgentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
-            'designation' => 'required',
-            'phone' => 'required',
+            'phone' => 'nullable',
+            'email' => 'nullable|email',
+            'designation' => 'nullable',
+            'description' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -93,6 +95,7 @@ class AgentController extends Controller
             $agent->description = $request->description;
             $agent->designation = $request->designation;
             $agent->phone = $request->phone;
+            $agent->email = $request->email;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();

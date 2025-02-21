@@ -9902,7 +9902,8 @@ a.int_btn,
   margin: 0;
   list-style: none;
   font-size: 14px;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 9px;
+/*  padding: 0 0 0 25px;*/
   display: block;
   overflow: hidden;
 }
@@ -10039,7 +10040,8 @@ a.int_btn,
   top: 17px;
   position: relative;
   text-align: center;
-  width: 90px;
+/*  width: 90px;*/
+  width: 125px;
   font-size: 14.5px;
   margin: 0;
 }

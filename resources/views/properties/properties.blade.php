@@ -214,7 +214,7 @@
                     <div class="row">
                         @foreach ($properties as $property)
                         <div class="item col-lg-6 col-md-6 col-xs-12 landscapes sale">
-                            <div class="project-single" data-aos="fade-up">
+                            <div class="project-single h-100" data-aos="fade-up">
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                         <a href="{{url('/property')}}/{{$property->slug}}" class="homes-img">
@@ -228,12 +228,12 @@
                                                 For Sale
                                             </div>
                                             @endif
-                                            <div class="homes-price">${{ number_format($property->price) }}</div>
+                                            <div class="homes-price">${{ number_format($property->price, 2) }}</div>
                                             <img src="{{ asset('uploads/properties').'/'.$property->banner }}" alt="Property image" class="img-responsive">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="homes-content">
+                                <div class="homes-content h-100">
                                     <h3><a href="{{url('/property')}}/{{$property->slug}}">{{ $property->title }}</a></h3>
                                     <p class="homes-address mb-3">
                                         <a href="{{url('/property')}}/{{$property->slug}}">
@@ -251,7 +251,7 @@
                                         </li>
                                         <li class="the-icons">
                                             <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                            <span>{{ $property->size }} sq ft</span>
+                                            <span>{{ number_format($property->size, 2) }} sq ft</span>
                                         </li>
                                         <li class="the-icons">
                                             <i class="flaticon-car mr-2" aria-hidden="true"></i>
@@ -288,7 +288,7 @@
                                         </div>
                                         <div class="info-img">
                                             <a href="{{url('/property')}}/{{$pitem->slug}}"><h6>{{ limit_words($pitem->title, 3)}}</h6></a>
-                                            <p>${{ number_format($pitem->price) }}</p>
+                                            <p>${{ number_format($pitem->price, 2) }}</p>
                                         </div>
                                     </div>
                                     @endforeach
@@ -307,19 +307,19 @@
                             <div class="widget-boxed-body">
                                 <div class="slick_featured">
                                     @foreach($featured_properties as $fpitem)
-                                    <div class="agents-grid mr-0">
+                                    <div class="agents-grid mr-0 pr-0">
                                         <div class="listing-item compact">
                                             <a href="#" class="listing-img-container">
                                                 <div class="listing-badges">
-                                                    <span class="featured">${{ number_format($fpitem->price) }}</span>
+                                                    <span class="featured">${{ number_format($fpitem->price, 2) }}</span>
                                                     @if($fpitem->listing_status == '1')
                                                     <span>For Sale</span>
                                                     @endif
                                                 </div>
                                                 <div class="listing-img-content">
                                                     <span class="listing-compact-title">{{ limit_words($fpitem->title, 3)}}</span>
-                                                    <ul class="listing-hidden-content">
-                                                        <li>Area <span>{{ $fpitem->size }} sq ft</span></li>
+                                                    <ul class="listing-hidden-content mb-0">
+                                                        <li>Area <span>{{ number_format($fpitem->size,2) }} sq ft</span></li>
                                                         <li>Rooms <span> {{ $fpitem->bedrooms }}</span></li>
                                                         <li>Parkings <span>{{ $fpitem->parking_spaces }}</span></li>
                                                         <li>Baths <span>{{ $fpitem->bathrooms }}</span></li>
@@ -347,7 +347,7 @@
 </div>
 @endsection
 @push('scripts')
-{{-- <script src="{{ asset('user_assets/js/rangeSlider.js') }}"></script> --}}
+<script src="{{ asset('user_assets/js/rangeSlider.js') }}"></script>
 <script src="{{ asset('user_assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('user_assets/js/light.js') }}"></script>
 <script src="{{ asset('user_assets/js/popup.js') }}"></script>

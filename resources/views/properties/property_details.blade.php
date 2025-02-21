@@ -67,13 +67,9 @@
                     <div class="col-md-12">
                         <section class="headings-2 pb-0 pt-0">
                             <div class="row pro-wrapper">
-                                <div class="col-12 col-md-8 col-lg-9 col-xl-10  detail-wrapper-body">
+                                <div class="col-12 col-md-8 col-lg-9 col-xl-9  detail-wrapper-body">
                                     <div class="listing-title-bar">
-                                        <h3>{{ $property->title}}
-                                            @if($property->listing_status == '1')
-                                            <span class="mrg-l-5 category-tag">For Sale</span>
-                                            @endif
-                                        </h3>
+                                        <h3>{{ $property->title}}</h3>
                                         <div class="mt-0">
                                             <a href="#listing-location" class="listing-address">
                                                 <i class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>{{ $property->address}}
@@ -81,15 +77,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4 col-lg-3 col-xl-2 single detail-wrapper text-end py-1">
+                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 single detail-wrapper text-lg-right py-1">
                                     <div class="detail-wrapper-body pt-1">
                                         <div class="listing-title-bar">
-                                            <h4>${{ number_format($property->price)}}</h4>
+                                            <h4>${{ number_format($property->price, 2)}}</h4>
                                             <div class="mt-0">
                                                 <a href="#listing-location" class="listing-address">
-                                                    <p>{{$property->size}} / sq ft</p>
+                                                    <p>{{ number_format($property->size, 2)}} sq ft</p>
                                                 </a>
                                             </div>
+                                            @if($property->listing_status == '1')
+                                            <span class="mrg-l-5 category-tag">For Sale</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +125,7 @@
                         </li>
                         @endif
 
-                          <li>
+                        <li>
                             <span class="font-weight-bold mr-1">Year Built:</span>
                             <span class="det">{{ $property->year_built}}</span>
                         </li>
@@ -134,8 +133,24 @@
 
                         <li>
                             <span class="font-weight-bold mr-1">Property Price:</span>
-                            <span class="det">${{number_format($property->price)}}</span>
+                            <span class="det">${{number_format($property->price, 2)}}</span>
                         </li>
+                        <li>
+                            <span class="font-weight-bold mr-1">Area sq ft:</span>
+                            <span class="det">{{number_format($property->size, 2)}}</span>
+                        </li>
+                        @if(!empty($property->property_tax) && $property->property_tax > 0)
+                        <li>
+                            <span class="font-weight-bold mr-1">Property Tax (Yearly):</span>
+                            <span class="det">${{number_format($property->property_tax, 2)}}</span>
+                        </li>
+                        @endif
+                        @if(!empty($property->hoa_fees) && $property->hoa_fees > 0)
+                        <li>
+                            <span class="font-weight-bold mr-1">HOA Fee (Monthly):</span>
+                            <span class="det">${{number_format($property->hoa_fees, 2)}}</span>
+                        </li>
+                        @endif
                         <li>
                             <span class="font-weight-bold mr-1">Bedrooms:</span>
                             <span class="det">{{$property->bedrooms}}</span>
@@ -276,7 +291,7 @@
                                             </div>
                                             <div class="info-img">
                                                 <a href="{{url('/property')}}/{{$pitem->slug}}"><h6>{{ limit_words($pitem->title, 3)}}</h6></a>
-                                                <p>${{ number_format($pitem->price) }}</p>
+                                                <p>${{ number_format($pitem->price, 2) }}</p>
                                             </div>
                                         </div>
                                         @endforeach
@@ -332,7 +347,7 @@
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                        <span>{{ $rela_property->size }} sq ft</span>
+                                        <span>{{ number_format($rela_property->size, 2) }} sq ft</span>
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-car mr-2" aria-hidden="true"></i>

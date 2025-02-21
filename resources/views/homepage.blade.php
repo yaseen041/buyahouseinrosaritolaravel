@@ -45,7 +45,6 @@
                 </h1>
                 <h2 class="text-dark">
                     and you're invited! -The Hansome Family
-                    <?php echo get_child_categories_with_blogs(15); ?>
                 </h2>
             </div>
         </div>
@@ -1109,8 +1108,16 @@
                             </div>
                             <div class="recent-details">
                                 <div class="recent-title">{{ $property->title }}</div>
-                                <div class="recent-price mb-3">${{$property->price}}</div>
-                                <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> {{$property->bedrooms}} Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> {{$property->bathrooms}} Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> {{$property->size}} sq ft</div>
+                                <div class="recent-price mb-3">${{ number_format($property->price, 2)}}</div>
+                                <div class="house-details thehp-1">
+                                    <i class="fa fa-bed mr-1" aria-hidden="true"></i> {{$property->bedrooms}} Bed
+                                    <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> {{$property->bathrooms}} Bath
+                                    {{-- <span>|</span> --}}
+                                    <br>
+                                    <i class="fa fa-car mr-1 mt-1" aria-hidden="true"></i> {{ $property->parking_spaces}} Parking
+                                    <span>|</span>
+                                    <i class="fa fa-object-group mr-1 mt-1" aria-hidden="true"></i> {{ number_format($property->size, 2)}} sq ft
+                                </div>
                             </div>
                             <div class="view-proper">View Details</div>
                         </a>

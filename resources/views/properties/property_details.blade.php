@@ -180,18 +180,6 @@
                         @endforeach
                     </ul>
                 </div>
-             {{--    @if(!empty($property->files))
-                <div class="floor-plan property wprt-image-video w50 pro">
-                    <h5>Technical Sheet Link</h5>
-                    <div class="row">
-                        @foreach($property->files as $docs)
-                        <a href="{{ $docs }}" target="_blank" class="grid image-link mb-2">
-                            <img alt="file" src="{{ asset('user_assets/images/pdf_files.png') }}" width="100px" class="">
-                        </a>
-                        @endforeach
-                    </div>
-                </div>
-                @endif --}}
                 <div class="property-location map">
                     <h5>Location</h5>
                     <div class="divider-fade"></div>
@@ -200,80 +188,22 @@
             </div>
             <aside class="col-lg-4 col-md-12 car">
                 <div class="single widget">
-                    {{-- <div class="schedule widget-boxed mt-30">
-                        <div class="widget-boxed-header">
-                            <h4><i class="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
-                        </div>
-                        <div class="widget-boxed-body">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12 book">
-                                    <input type="text" id="reservation-date" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-disabled-days="08/17/2017,08/18/2017" data-id="datedropper-0" data-theme="my-style" class="form-control" readonly="">
-                                </div>
-                                <div class="col-lg-6 col-md-12 book2">
-                                    <input type="text" id="reservation-time" class="form-control" readonly="">
-                                </div>
-                            </div>
-                            <div class="row mrg-top-15 mb-3">
-                                <div class="col-lg-6 col-md-12 mt-4">
-                                    <label class="mb-4">Adult</label>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </span>
-                                        <input type="text" name="quant[1]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[1]">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12 mt-4">
-                                    <label class="mb-4">Children</label>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn counter-btn theme-cl btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </span>
-                                        <input type="text" name="quant[2]" class="border-0 text-center form-control input-number" data-min="0" data-max="10" value="0">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn counter-btn theme-cl btn-number" data-type="plus" data-field="quant[2]">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="payment-method.html" class="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
-                        </div>
-                    </div> --}}
                     <div class="sidebar">
                         <div class="widget-boxed">
                             <div class="widget-boxed-header">
-                                <h4>Agent Information</h4>
+                                <h4>Request Inquiry</h4>
                             </div>
-                            <div class="widget-boxed-body">
-                                <div class="sidebar-widget author-widget2">
-                                    <div class="author-box clearfix">
-                                        <img src="{{ asset('uploads/agents/').'/'.$agent->image }}"alt="author-image" class="author__img">
-                                        <h4 class="author__title">{{ $agent->name }}</h4>
-                                        <p class="author__meta">{{ $agent->designation}}</p>
-                                    </div>
-                                    <div class="agent-contact-form-sidebar">
-                                        <h4>Request Inquiry</h4>
-                                        <form id="contact_form" class="contact-form" name="contact_form" method="post" novalidate>
-                                            @csrf
-                                            <input type="text" id="fname" name="name" placeholder="Name" required />
-                                            <input type="text" id="pnumber" name="phone" placeholder="Phone Number" required />
-                                            <input type="email" id="emailid" name="email" placeholder="Email Address" required />
-                                            <input type="hidden" name="property[]" value="{{ $property->id}}" placeholder="Property">
-                                            <textarea placeholder="Message" name="message" required></textarea>
-                                            <input type="button" id="btn_submit_contact" name="sendmessage" class="multiple-send-message" value="Submit Request" />
-                                        </form>
-                                    </div>
+                            <div class="sidebar-widget author-widget2">
+                                <div class="agent-contact-form-sidebar">
+                                    <form id="contact_form" class="contact-form" name="contact_form" method="post" novalidate>
+                                        @csrf
+                                        <input type="text" id="fname" name="name" placeholder="Name" required />
+                                        <input type="text" id="pnumber" name="phone" placeholder="Phone Number" required />
+                                        <input type="email" id="emailid" name="email" placeholder="Email Address" required />
+                                        <input type="hidden" name="property[]" value="{{ $property->id}}" placeholder="Property">
+                                        <textarea placeholder="Message" name="message" required></textarea>
+                                        <input type="button" id="btn_submit_contact" name="sendmessage" class="multiple-send-message" value="Submit Request" />
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -337,7 +337,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Year Built</strong></label>
-                                                        <div class="input-group date">
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span> <input type="text" name="year_built" id="year_built" class="form-control date money" value="{{$property->year_built}}">
                                                         </div>
                                                     </div>
@@ -345,7 +345,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="form-label"><strong>Listing Date</strong></label>
-                                                        <div class="input-group date">
+                                                        <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
                                                             </span>
@@ -357,7 +357,7 @@
                                             <div class="row ">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label"><strong>Builting Type</strong></label>
+                                                        <label class="form-label"><strong>Building Type</strong></label>
                                                         <input type="text" name="building_type" class="form-control" value="{{$property->building_type}}">
                                                     </div>
                                                 </div>
@@ -1156,7 +1156,7 @@
             const slug = document.getElementById("slug").value;
             const updatedJsonLd = {
                 "@context": "https://schema.org",
-                "@type": "Article",
+                "@type": "RealEstateListing",
                 "headline": meta_title,
                 "description": meta_description,
                 "author": {

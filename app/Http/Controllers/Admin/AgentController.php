@@ -16,7 +16,9 @@ class AgentController extends Controller
         if ($request->has('search_query') && !empty($search_query)) {
             $query->where(function ($query) use ($search_query) {
                 $query->where('name', 'like', '%' . $search_query . '%')
-                ->orWhere('phone', 'like', '%' . $search_query . '%');
+                ->orWhere('phone', 'like', '%' . $search_query . '%')
+                ->orWhere('designation', 'like', '%' . $search_query . '%')
+                ->orWhere('email', 'like', '%' . $search_query . '%');
             });
         }
         $data['agents'] = $query->orderBy('id', 'DESC')->paginate(50);

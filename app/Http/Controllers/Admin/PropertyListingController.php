@@ -22,10 +22,9 @@ class PropertyListingController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Property::query();
-        // $search_type = $request->input('search_type');
+        $query = Property::query()->with('neighborhood');
         $search_query = $request->input('search_query');
-        if (($request->has('search_query') && !empty($search_query))) {
+        if ($request->has('search_query') && !empty($search_query)) {
             $query->where(function ($query) use ($search_query) {
                 $query->where('title', 'like', '%' . $search_query . '%')
                 ->orWhere('code', 'like', '%' . $search_query . '%')
@@ -33,6 +32,9 @@ class PropertyListingController extends Controller
                 ->orWhere('country', 'like', '%' . $search_query . '%')
                 ->orWhere('state', 'like', '%' . $search_query . '%')
                 ->orWhere('city', 'like', '%' . $search_query . '%');
+            })
+            ->orWhereHas('neighborhood', function ($q) use ($search_query) {
+                $q->where('title', 'like', '%' . $search_query . '%');
             });
         }
         $data['properties'] = $query->orderBy('id', 'DESC')->paginate(50);

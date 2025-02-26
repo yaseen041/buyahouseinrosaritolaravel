@@ -12,18 +12,17 @@ class CategoriesController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Categories::query();
+        $query = Categories::query()->with('parent');
         $search = $request->input('search');
         if ($request->has('search') && !empty($search)) {
             $query->where(function ($query) use ($search) {
-                $query->where('title', 'like', '%' . $search . '%');
+                $query->where('title', 'like', '%' . $search . '%')
+                ->orWhereHas('parent', function ($q) use ($search) {
+                    $q->where('title', 'like', '%' . $search . '%');
+                });
             });
         }
-
-        $data['categories'] = $query->with('parent')
-            ->orderBy('id', 'DESC')
-            ->paginate(50);
-
+        $data['categories'] = $query->orderBy('id', 'DESC')->paginate(50);
         $data['searchParams'] = $request->all();
         return view('admin/categories/manage_categories', $data);
     }

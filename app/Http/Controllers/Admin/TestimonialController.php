@@ -15,7 +15,9 @@ class TestimonialController extends Controller
         $search_query = $request->input('search_query');
         if ($request->has('search_query') && !empty($search_query)) {
             $query->where(function ($query) use ($search_query) {
-                $query->where('name', 'like', '%' . $search_query . '%');
+                $query->where('name', 'like', '%' . $search_query . '%')
+                ->orWhere('designation', 'like', '%' . $search_query . '%')
+                ->orWhere('location', 'like', '%' . $search_query . '%');
             });
         }
         $data['testimonials'] = $query->orderBy('id', 'DESC')->paginate(50);
